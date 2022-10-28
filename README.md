@@ -10,12 +10,18 @@
 </div>
 
 <h1 align="center">RoboTech - Technology sale web application. </h1>
+<p align="center">
+  <img src="https://www.maketecheasier.com/assets/uploads/2021/12/website-origin-pc.jpg">
+</p>
 
-<img style="text-align:center;" src="https://www.maketecheasier.com/assets/uploads/2021/12/website-origin-pc.jpg"> <br>
 ## About The Project
+This is Capstone Project of **INFORMATION SYSTEM ANALYSIS AND DESIGN**
 
-
-
+**Team Members:**
+- Nguyen Trong Nhan - 19521940
+- Nguyen Hoang Thang - 19520949
+- Nguyen Quoc Khanh - 20521452
+- Nguyen Minh Khoi - 20521479
 
 ## Installation
 ### For Guest 
@@ -25,8 +31,11 @@
    ```
 2. Open project solution by Visual Code (recommend ver 2022) and Start without debugging.
 ### For Collaborators
-
-## Contact 
-* Facebook : [Nguyễn Quốc Khánh](https://www.facebook.com/nqk.dev)
-* Email : nqkdeveloper@gmail.com
-
+1. Clone the repo
+    ```sh
+    https://github.com/nhanna1219/RoboTech.git
+   ```
+2. Open project solution by Visual Code (recommend ver 2022) and Start without debugging.
+3. Create new branch and work
+4. Pull & Commit after work
+5. Check conflicts and merge to main branch
