@@ -25,7 +25,7 @@ This is Capstone Project of **INFORMATION SYSTEM ANALYSIS AND DESIGN**
 
 ## Installation
 ### For Guest 
-1. Clone the repo
+1. Clone the repo.
     ```sh
     https://github.com/nhanna1219/RoboTech.git
    ```
@@ -36,6 +36,6 @@ This is Capstone Project of **INFORMATION SYSTEM ANALYSIS AND DESIGN**
     https://github.com/nhanna1219/RoboTech.git
    ```
 2. Open project solution by Visual Code (recommend ver 2022) and Start without debugging.
-3. Create new branch and work
-4. Pull & Commit after work
-5. Check conflicts and merge to main branch
+3. Create new branch and work.
+4. Pull & Commit after work.
+5. Check conflicts and merge to main branch.
