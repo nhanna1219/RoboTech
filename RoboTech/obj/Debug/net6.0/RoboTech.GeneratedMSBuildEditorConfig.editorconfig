@@ -8,37 +8,37 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = RoboTech
 build_property.RootNamespace = RoboTech
-build_property.ProjectDir = C:\Users\19521\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\RoboTech\RoboTech\
+build_property.ProjectDir = C:\WORKSPACE\project-frame-work\RoboTech\RoboTech\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\19521\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\RoboTech\RoboTech
+build_property.MSBuildProjectDirectory = C:\WORKSPACE\project-frame-work\RoboTech\RoboTech
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/19521/OneDrive - Trường ĐH CNTT - University of Information Technology/Máy tính/RoboTech/RoboTech/Views/Home/Index.cshtml]
+[C:/WORKSPACE/project-frame-work/RoboTech/RoboTech/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/19521/OneDrive - Trường ĐH CNTT - University of Information Technology/Máy tính/RoboTech/RoboTech/Views/Home/Privacy.cshtml]
+[C:/WORKSPACE/project-frame-work/RoboTech/RoboTech/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/19521/OneDrive - Trường ĐH CNTT - University of Information Technology/Máy tính/RoboTech/RoboTech/Views/Shared/Error.cshtml]
+[C:/WORKSPACE/project-frame-work/RoboTech/RoboTech/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/19521/OneDrive - Trường ĐH CNTT - University of Information Technology/Máy tính/RoboTech/RoboTech/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/WORKSPACE/project-frame-work/RoboTech/RoboTech/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/19521/OneDrive - Trường ĐH CNTT - University of Information Technology/Máy tính/RoboTech/RoboTech/Views/_ViewImports.cshtml]
+[C:/WORKSPACE/project-frame-work/RoboTech/RoboTech/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/19521/OneDrive - Trường ĐH CNTT - University of Information Technology/Máy tính/RoboTech/RoboTech/Views/_ViewStart.cshtml]
+[C:/WORKSPACE/project-frame-work/RoboTech/RoboTech/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/19521/OneDrive - Trường ĐH CNTT - University of Information Technology/Máy tính/RoboTech/RoboTech/Views/Shared/_Layout.cshtml]
+[C:/WORKSPACE/project-frame-work/RoboTech/RoboTech/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-6bqj1km3gm
