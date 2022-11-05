@@ -2,7 +2,7 @@
 
 namespace RoboTech.Areas.Admin.Controllers
 {
-    /*[Area="Admin"]*/
+    [Area("Admin")]
     public class HomeController : Controller
     {
         
