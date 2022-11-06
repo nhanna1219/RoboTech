@@ -1,9 +1,14 @@
 .footer {
 	padding: 0px $layout-content-gutter;
-	font-size: 90%;	
+	font-size: 90%;
+	margin: auto;
 
 	.footer-content {
-		display: flex;
+		display: block;
+		width: 50%;
+		margin: 0 auto;
+		text-align: center;
+		/*display: flex;*/
 		height: $footer-height;
 		align-items: center;
 		border-top: 1px solid $border-color;

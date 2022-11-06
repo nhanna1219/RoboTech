@@ -1,7 +1,16 @@
 using AspNetCoreHero.ToastNotification;
+using Microsoft.EntityFrameworkCore;
+using RoboTech.Models;
+using System.Configuration;
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDbContext<shoplaptopContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("WebShopConnectionString")));
+builder.Services.AddSingleton<HtmlEncoder>(HtmlEncoder.Create(allowedRanges: new[] { UnicodeRanges.All }));
+builder.Services.AddSession();
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation(); ;
 builder.Services.AddNotyf(config =>
@@ -22,7 +31,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseSession();
 app.UseRouting();
 
 app.UseAuthorization();
