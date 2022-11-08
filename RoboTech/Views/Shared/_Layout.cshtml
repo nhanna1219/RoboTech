@@ -4,33 +4,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - RoboTech</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/favicon.png">
     <!--CSS nay la template cua Nhan -->
     <link rel="stylesheet" href="~/css/Bootswatch.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="/_Layout.cshtml.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/RoboTech.styles.css" asp-append-version="true" />
     
-    <!-- CSS nay la teamplate cua Khanh
-    ============================================ -->
-    <!-- Vendor CSS (Contain Bootstrap, Icon Fonts) 
-    <link rel="stylesheet" href="~/assets/css/vendor/font-awesome.min.css" />
-    <link rel="stylesheet" href="~/assets/css/vendor/Pe-icon-7-stroke.css" /> -->
-
-    <!-- Plugin CSS (Global Plugins Files) 
-    <link rel="stylesheet" href="~/assets/css/plugins/animate.min.css">
-    <link rel="stylesheet" href="~/assets/css/plugins/jquery-ui.min.css">
-    <link rel="stylesheet" href="~/assets/css/plugins/swiper-bundle.min.css">
-    <link rel="stylesheet" href="~/assets/css/plugins/nice-select.css">
-    <link rel="stylesheet" href="~/assets/css/plugins/magnific-popup.min.css" />
-    --> 
-    @*<link rel="stylesheet" href="~/assets/css/style.css">*@
-    <script src="https://kit.fontawesome.com/3518e7db2c.js" crossorigin="anonymous"></script> 
+    <script src="https://kit.fontawesome.com/3518e7db2c.js" crossorigin="anonymous"></script>
     
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom py-4 box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand offset-1" asp-area="" asp-controller="Home" asp-action="Index">RoboTech</a>
+                <a class="navbar-brand offset-1" asp-area="" asp-controller="Home" asp-action="Index">ROBOTECH</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -61,13 +50,18 @@
             </div>
         </nav>
     </header>
-
+    
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
+    @*<div class="app__container">
+        <main role="main" class="grid wide">
+            @RenderBody()
+        </main>
+    </div>*@
+    <!--
     <footer class="footer text-muted" style="border-top: 1px solid #ccc">
         <div class="container text-center text-md-left ">
           &copy; 2022 - RoboTech - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
@@ -85,7 +79,7 @@
                 </div>
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                     <h5 class="text-uppercase mb-4 font-weight-bold text-info">General Policy</h5>
-                    <hr class="mb-4" />
+                    <hr class="mb-4"/>
                     <p>
                         <a href="#" class="text-dark" style="text-decoration:none">Installment Plan</a>
                     </p>
@@ -146,7 +140,15 @@
             </div>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+   -->
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            Copyright &copy; 2022 <strong>ROBOTECH</strong>. Powered by UIT - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

@@ -7,12 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <COMReference Include="{bed7f4ea-1a96-11d2-8f08-00a0c9a6186d}">
-      <WrapperTool>tlbimp</WrapperTool>
-      <VersionMinor>4</VersionMinor>
-      <VersionMajor>2</VersionMajor>
-      <Guid>bed7f4ea-1a96-11d2-8f08-00a0c9a6186d</Guid>
-    </COMReference>
+    <Compile Remove="wwwroot\assests\**" />
+    <Content Remove="wwwroot\assests\**" />
+    <EmbeddedResource Remove="wwwroot\assests\**" />
+    <None Remove="wwwroot\assests\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,15 +26,12 @@
     <PackageReference Include="Microsoft.NETCore.Portable.Compatibility" Version="1.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
     <PackageReference Include="PagedList.Core.Mvc" Version="3.0.0" />
-    <PackageReference Include="PagedList.Mvc" Version="4.5.0" />
     <PackageReference Include="System.Security.Cryptography.Algorithms" Version="4.3.1" />
-    <PackageReference Include="XAct.Core.PCL" Version="0.0.5014" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="wwwroot\assests\" />
   </ItemGroup>
 
   <ItemGroup>
