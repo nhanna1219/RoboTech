@@ -636,8 +636,8 @@ progress {
 }
 
 .blockquote-footer {
-    margin-top: -1rem;
-    margin-bottom: 1rem;
+   /* margin-top: -1rem;
+    margin-bottom: 1rem;*/
     font-size: 0.875em;
     color: #868e96;
 }

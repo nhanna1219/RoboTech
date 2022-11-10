@@ -78,6 +78,8 @@ body {
 
 ul {
     list-style: none;
+    
+    padding:0;
 }
 
 .footer {
@@ -108,6 +110,7 @@ ul {
             height: 2px;
             box-sizing: border-box;
             width: 50px;
+            text-align:center;
         }
 
     .footer-col ul li:not(:last-child) {
@@ -123,6 +126,8 @@ ul {
         color: #bbbbbb;
         display: block;
         transition: all 0.3s ease;
+      
+       
     }
 
         .footer-col ul li a:hover {
