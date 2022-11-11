@@ -25,14 +25,8 @@ a.navbar-brand {
     font-size:150%;
     
 }
-/*fix body */
-body {
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    line-height: 1.5;
-}
+
+
 /*footer*/
 
 /*.footer {*/
@@ -84,7 +78,10 @@ ul {
 
 .footer {
     background-color: #24262b;
-    padding: 70px 0;
+    padding: 50px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer-col {
@@ -152,3 +149,19 @@ ul {
             color: #24262b;
             background-color: #ffffff;
         }
+
+/*body css*/
+body {
+    height: 120vh;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+}
+
+/*content section*/
+
+#content {
+    position: relative;
+    background-color: gray;
+    
+}
