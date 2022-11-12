@@ -4,8 +4,91 @@
     ViewData["Title"] = "Đăng ký tài khoản";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<main class="main-content">
+<div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form method="POST" action="message.php">
+        <div class="user-details">
+            <div class="input-box">
+                <span class="details">Customer ID</span>
+                <input type="text" placeholder="Enter Customer ID" required>
+            </div>
+          <div class="input-box">
+            <span class="details">Customer Name</span>
+            <input type="text" placeholder="Enter Customer name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Practical Subject</span>
+            <select id="">
+                <option value="volvo">Gym</option>
+                <option value="saab" selected>Yoga</option>
+                <option value="vw">Fitness</option>
+                <option value="volvo">Weight-Loss</option>
+                <option value="audi">Dance</option>
+            </select>
+            <!-- <input type="text" placeholder="Enter Practical Subject" required> -->
+            
+          </div>
+          <div class="input-box">
+            <!-- <input type="text" placeholder="Enter Service" required> -->
+            <span class="details">Service</span>
+            <select id="">
+                <option value="volvo">1 month</option>
+                <option value="saab">3 month</option>
+                <option value="vw">6 month</option>
+                <option value="volvo">12 month</option>
+                <option value="audi" selected>Personal Training</option>
+            </select>
+          </div>
+          <div class="input-box">
+            <span class="details">Start Date</span>
+            <input type="date" placeholder="Enter Start Date" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="Enter your username" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="text" placeholder="Enter your password" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="Confirm your password" required>
+          </div>
+        
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1">
+          <input type="radio" name="gender" id="dot-2">
+          <input type="radio" name="gender" id="dot-3">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+          </label>
+          <label for="dot-3">
+            <span class="dot three"></span>
+            <span class="gender">Prefer not to say</span>
+            </label>
+          </div>
+        </div>
+        <div class="button">
+            <input type="submit" value="Search Information">
+          </div>
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+        
+      </form>
+    </div>
+  </div>
+@*<main class="main-content">
     <div class="login-register-area section-space-y-axis-100">
         <div class="container">
             <div class="row">
@@ -50,6 +133,6 @@
             </div>
         </div>
     </div>
-</main>
+</main>*@
 
 
