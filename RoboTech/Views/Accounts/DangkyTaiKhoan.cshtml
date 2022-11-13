@@ -2,137 +2,77 @@
 
 @{
     ViewData["Title"] = "Đăng ký tài khoản";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "";
 }
-<div class="container">
-    <div class="title">Registration</div>
-    <div class="content">
-      <form method="POST" action="message.php">
-        <div class="user-details">
-            <div class="input-box">
-                <span class="details">Customer ID</span>
-                <input type="text" placeholder="Enter Customer ID" required>
-            </div>
-          <div class="input-box">
-            <span class="details">Customer Name</span>
-            <input type="text" placeholder="Enter Customer name" required>
-          </div>
-          <div class="input-box">
-            <span class="details">Practical Subject</span>
-            <select id="">
-                <option value="volvo">Gym</option>
-                <option value="saab" selected>Yoga</option>
-                <option value="vw">Fitness</option>
-                <option value="volvo">Weight-Loss</option>
-                <option value="audi">Dance</option>
-            </select>
-            <!-- <input type="text" placeholder="Enter Practical Subject" required> -->
-            
-          </div>
-          <div class="input-box">
-            <!-- <input type="text" placeholder="Enter Service" required> -->
-            <span class="details">Service</span>
-            <select id="">
-                <option value="volvo">1 month</option>
-                <option value="saab">3 month</option>
-                <option value="vw">6 month</option>
-                <option value="volvo">12 month</option>
-                <option value="audi" selected>Personal Training</option>
-            </select>
-          </div>
-          <div class="input-box">
-            <span class="details">Start Date</span>
-            <input type="date" placeholder="Enter Start Date" required>
-          </div>
-          <div class="input-box">
-            <span class="details">Username</span>
-            <input type="text" placeholder="Enter your username" required>
-          </div>
-          <div class="input-box">
-            <span class="details">Password</span>
-            <input type="text" placeholder="Enter your password" required>
-          </div>
-          <div class="input-box">
-            <span class="details">Confirm Password</span>
-            <input type="text" placeholder="Confirm your password" required>
-          </div>
-        
-        </div>
-        <div class="gender-details">
-          <input type="radio" name="gender" id="dot-1">
-          <input type="radio" name="gender" id="dot-2">
-          <input type="radio" name="gender" id="dot-3">
-          <span class="gender-title">Gender</span>
-          <div class="category">
-            <label for="dot-1">
-            <span class="dot one"></span>
-            <span class="gender">Male</span>
-          </label>
-          <label for="dot-2">
-            <span class="dot two"></span>
-            <span class="gender">Female</span>
-          </label>
-          <label for="dot-3">
-            <span class="dot three"></span>
-            <span class="gender">Prefer not to say</span>
-            </label>
-          </div>
-        </div>
-        <div class="button">
-            <input type="submit" value="Search Information">
-          </div>
-        <div class="button">
-          <input type="submit" value="Register">
-        </div>
-        
-      </form>
-    </div>
-  </div>
-@*<main class="main-content">
-    <div class="login-register-area section-space-y-axis-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 pt-10 pt-lg-0">
-                    <form asp-action="DangkyTaiKhoan">
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <div class="login-form">
-                            <h4 class="login-title">Đăng ký tài khoản</h4>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label>Họ và Tên</label>
-                                    <input type="text" asp-for="FullName" placeholder="Họ và Tên">
-                                    <span asp-validation-for="FullName" class="text-danger"></span>
-                                </div>
-                                <div class="col-md-12">
-                                    <label>Địa chỉ Email</label>
-                                    <input type="email" asp-for="Email" placeholder="Địa chỉ Email">
-                                    <span asp-validation-for="Email" class="text-danger"></span>
-                                </div>
-                                <div class="col-md-12">
-                                    <label>Số điện thoại</label>
-                                    <input type="tel" asp-for="Phone" placeholder="Số điện thoại">
-                                    <span asp-validation-for="Phone" class="text-danger"></span>
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Mật khẩu</label>
-                                    <input type="password" asp-for="Password" placeholder="Mật khẩu">
-                                    <span asp-validation-for="Password" class="text-danger"></span>
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Nhập lại mật khẩu</label>
-                                    <input type="password" asp-for="ConfirmPassword" placeholder="Nhập lại mật khẩu">
-                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-custom-size lg-size btn-secondary btn-primary-hover rounded-0">Đăng ký</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Đăng ký tài khoản </title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/favicon.png">
+    <!-- CSS -->
+    <link rel="stylesheet" href="~/css/style_login.css">
+
+    <!-- Boxicons CSS -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+    <section class="container-login forms">
+        <div class="form login">
+            <div class="form-content">
+                <header>Signin to RoboTech</header>
+                <form action="#">
+                    <div class="field input-field">
+                        <input type="email"  placeholder="Email" class="input">
+                        <span  class="text-danger"></span>
+                    </div>
+
+                    <div class="field input-field">
+                        <input type="password" placeholder="Password" class="password">
+                        <span  class="text-danger"></span>
+                        <i class='bx bx-hide eye-icon'></i>
+                    </div>
+
+
+                    <div class="field button-field">
+                        <button>Signup</button>
+                    </div>
+                </form>
+
+                <div class="form-link">
+                    <span>Already have an account ? <a href="/Login">Login Now !</a></span>
                 </div>
             </div>
+
+            <div class="line"></div>
+
+            <div class="media-options">
+                <a href="#" class="field facebook">
+                    <i class='bx bxl-facebook facebook-icon'></i>
+                    <span>Signin with Facebook</span>
+                </a>
+            </div>
+
+            <div class="media-options">
+                <a href="#" class="field google">
+                    <img src="~/lib/google.png" alt="" class="google-img">
+                    <span>Signin with Google</span>
+                </a>
+            </div>
+
         </div>
-    </div>
-</main>*@
+
+    </section>
+
+    <!-- JavaScript -->
+    <script src="~/js/script_login.js"></script>
+</body>
+</html>
+
+
 
 

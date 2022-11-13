@@ -1,3 +1,11 @@
+/* Google Fonts - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 html {
   font-size: 14px;
 }
@@ -14,7 +22,8 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    min-height: 100%;
 }
 /*LOGO STYLING*/
 a.navbar-brand {
@@ -153,6 +162,7 @@ ul {
 /*body css*/
 body {
     height: 120vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     line-height: 1.5;

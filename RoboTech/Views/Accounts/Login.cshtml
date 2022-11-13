@@ -2,39 +2,77 @@
 
 @{
     ViewData["Title"] = "Đăng nhập tài khoản";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "";
 }
 
-<main class="main-content">
-    <div class="login-register-area section-space-y-axis-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 pt-10 pt-lg-0">
-                    <form method="post">
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <div class="login-form">
-                            <h4 class="login-title">Đăng nhập</h4>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label>Địa chỉ Email</label>
-                                    <input type="email" asp-for="UserName" placeholder="Địa chỉ Email">
-                                    <span asp-validation-for="UserName" class="text-danger"></span>
-                                </div>
-                                <div class="col-md-12">
-                                    <label>Mật khẩu</label>
-                                    <input type="password" asp-for="Password" placeholder="Mật khẩu">
-                                    <span asp-validation-for="Password" class="text-danger"></span>
-                                </div>
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Đăng nhập tài khoản </title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/favicon.png">
+        <!-- CSS -->
+        <link rel="stylesheet" href="~/css/style_login.css">
+                
+        <!-- Boxicons CSS -->
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+                        
+    </head>
+    <body>
+        <section class="container-login forms">
+            <div class="form login">
+                <div class="form-content">
+                    <header>Login to RoboTech</header>
+                    <form action="#">
+                        <div class="field input-field">
+                        <input type="email" asp-for="UserName" placeholder="Email" class="input">
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
 
-                                <div class="col-12">
-                                    <button class="btn btn-custom-size lg-size btn-secondary btn-primary-hover rounded-0">Đăng nhập</button>
-                                </div>
-                            </div>
+                        <div class="field input-field">
+                            <input type="password" asp-for="Password" placeholder="Password" class="password">
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                            <i class='bx bx-hide eye-icon'></i>
+                        </div>
+
+                        <div class="form-link">
+                            <a href="#" class="forgot-pass">Forgot Your Password ?</a>
+                        </div>
+
+                        <div class="field button-field">
+                            <button>Login</button>
                         </div>
                     </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
 
+                    <div class="form-link">
+                    <span>Don't have an account ? <a href="/Register" >Signup Now !</a></span>
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="media-options">
+                    <a href="#" class="field facebook">
+                        <i class='bx bxl-facebook facebook-icon'></i>
+                        <span>Login with Facebook</span>
+                    </a>
+                </div>
+
+                <div class="media-options">
+                    <a href="#" class="field google">
+                        <img src="~/lib/google.png" alt="" class="google-img">
+                        <span>Login with Google</span>
+                    </a>
+                </div>
+
+            </div>
+            
+        </section>
+
+        <!-- JavaScript -->
+        <script src="~/js/script_login.js"></script>
+    </body>
+</html>
