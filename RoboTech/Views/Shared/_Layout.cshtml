@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewData["Title"] = "Home";
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -32,9 +35,9 @@
                         </form>
                         <li class="offset-1" style="margin-top: 7px">
                             <div >
-                                <i class="fa-solid fa-user"></i> <a class="text-dark fw-semibold" style="text-decoration: none" asp-area="" asp-controller="Home" asp-action="Index">&nbsp;Login </a>
+                                <i class="fa-solid fa-user"></i> <a class="text-dark fw-semibold" style="text-decoration: none" href="/Login">&nbsp;Log in </a>
                             /
-                                <a class="text-dark fw-semibold" style="text-decoration: none" asp-area="" asp-controller="Home" asp-action="Index"> Sign Up </a>
+                                <a class="text-dark fw-semibold" style="text-decoration: none" asp-area="" asp-controller="Register" asp-action="Index"> Sign Up </a>
                             </div>
                         </li>
                         <li class="offset-1">
@@ -56,11 +59,6 @@
             @RenderBody()
         </main>
     </div>
-    @*<div class="app__container">
-        <main role="main" class="grid wide">
-            @RenderBody()
-        </main>
-    </div>*@
     <!--
     <footer class="footer text-muted" style="border-top: 1px solid #ccc">
         <div class="container text-center text-md-left ">
@@ -181,17 +179,17 @@
                     </div>
                 </div>
             </div>
-            Copyright &copy; 2022 <strong>ROBOTECH</strong>. Powered by UIT - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="copyright">
+                Copyright &copy; 2022 <strong>ROBOTECH</strong>. Powered by UIT - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+            
  
         </div>
     </footer>
 
 
-    @*<footer class="border-top footer text-muted">
-        <div class="container">
-           
-            Copyright &copy; 2022 <strong>ROBOTECH</strong>. Powered by UIT - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+  @*  <footer class="border-top footer text-muted">
+        
     </footer>*@
     
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
