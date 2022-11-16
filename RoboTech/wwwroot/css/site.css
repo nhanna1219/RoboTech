@@ -1,20 +1,20 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 /*LOGO STYLING*/
 a.navbar-brand {
@@ -22,20 +22,19 @@ a.navbar-brand {
     text-align: center;
     /*word-break: break-all;*/
     font-weight: bold;
-    font-size:150%;
-    
+    font-size: 150%;
 }
 
 
 /*footer*/
 
 /*.footer {*/
-    /*position: absolute;
+/*position: absolute;
     bottom: 0;
     width: 100%;
     white-space: nowrap;
     line-height: 60px;*/ /* Vertically center the text there */
-    /*position: fixed;
+/*position: fixed;
     margin-top: 10px;
     margin-bottom: 10px;
     line-height: 60px;
@@ -50,7 +49,7 @@ a.navbar-brand {
 
 /*body {
     line-height: 1.5;*/
- /*   font-family: 'Poppins', sans-serif;*/
+/*   font-family: 'Poppins', sans-serif;*/
 
 /*}*/
 
@@ -62,7 +61,7 @@ a.navbar-brand {
 
 .container {
     max-width: 1170px;
-    margin: auto;
+    margin-top: 15px;
 }
 
 .row {
@@ -72,8 +71,7 @@ a.navbar-brand {
 
 ul {
     list-style: none;
-    
-    padding:0;
+    padding: 0;
 }
 
 .footer {
@@ -107,7 +105,7 @@ ul {
             height: 2px;
             box-sizing: border-box;
             width: 50px;
-            text-align:center;
+            text-align: center;
         }
 
     .footer-col ul li:not(:last-child) {
@@ -123,8 +121,6 @@ ul {
         color: #bbbbbb;
         display: block;
         transition: all 0.3s ease;
-      
-       
     }
 
         .footer-col ul li a:hover {
@@ -151,14 +147,132 @@ ul {
         }
 
 /*body css*/
+
 body {
-    height: 120vh;
+    height: 150vh;
     display: flex;
     flex-direction: column;
     line-height: 1.5;
 }
 
 /*Navi css*/
+#category {
+}
+
+    #category .heading {
+        text-align: center;
+        margin-bottom: 15px;
+        color: #e4e2e2;
+        background: #175B6A;
+        font-weight: 700;
+        font-size: 14px;
+        width: 100%;
+        line-height: 30px;
+        border-radius: 5px;
+    }
+
+        #category .heading a {
+            margin: 0 60px 0 60px;
+            color: #e4e2e2;
+            text-decoration: none;
+        }
+
+            #category .heading a:hover {
+                color: #ccc;
+            }
+
+    #category .nav-item {
+        display: block;
+        height: auto;
+        border: 0.5px solid #000;
+        border-radius: 0 0 0 5px;
+    }
+
+        #category .nav-item .btn {
+            padding-left: 55px;
+            line-height: 60px;
+            border-radius: 0;
+            width: 100%;
+            background: #E7E7E7;
+            font-weight: 700;
+            text-align: initial;
+        }
+
+            #category .nav-item .btn::after {
+                content: '';
+                position: absolute;
+                width: 25%;
+                left: 20%;
+                height: 78px;
+                margin-top: -9px;
+            }
+
+            #category .nav-item li:hover .btn,
+            #category .nav-item .btn:hover {
+                background: #3eaab9;
+                color: white;
+            }
+
+        #category .nav-item .subnav {
+            list-style: none;
+            display: none;
+            position: absolute;
+            margin-left: 288px;
+            margin-top: -79px;
+            min-width: 857px;
+            min-height: 470px;
+            border-radius: 5px;
+            background-color: #E7E7E7;
+            box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4);
+            padding-inline-start: 0;
+            z-index: 4;
+        }
+
+        #category .nav-item li:hover .subnav {
+            display: block;
+        }
+
+        #category .nav-item .subnav .head-nav {
+            color: #000000b2;
+            text-decoration: none;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+            #category .nav-item .subnav .head-nav:hover {
+                color: gray;
+            }
+
+
+    #category .subnav2 > li {
+        display: inline-grid;
+        width: 275px;
+        margin: 5px 0;
+        line-height: 28px;
+        text-align: center;
+    }
+
+    #category .subnav2 span {
+        color: #035b86;
+        font-weight: 600;
+        font-size: 20px;
+    }
+
+    #category .subnav2 li a {
+        color: #000000ae;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 15px;
+    }
+
+        #category .subnav2 li a:hover {
+            color: cadetblue;
+        }
+
+    #category .nav-item i {
+        font-size: 30px;
+        padding-right: 30px;
+    }
 
 
 
