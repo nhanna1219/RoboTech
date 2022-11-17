@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Đăng nhập tài khoản";
-    Layout = "";
+    Layout = "_LayoutAccount";
 }
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Đăng nhập tài khoản </title>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="~/favicon.png">
+        <link rel="shortcut icon" href="~/favicon.png">
         <!-- CSS -->
         <link rel="stylesheet" href="~/css/style_login.css">
                 
@@ -21,6 +21,9 @@
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
                         
     </head>
+    <header>
+    <a href="/Home"><div class="line-name"></div></a>
+    </header>
     <body>
         <section class="container-login forms">
             <div class="form login">
@@ -75,4 +78,5 @@
         <!-- JavaScript -->
         <script src="~/js/script_login.js"></script>
     </body>
+
 </html>
