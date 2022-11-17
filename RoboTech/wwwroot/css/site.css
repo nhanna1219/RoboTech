@@ -153,9 +153,14 @@ ul {
             color: #24262b;
             background-color: #ffffff;
         }
-
+.copyright {
+    background-color: #FEEDE2;
+    padding: 10px 0;
+    text-align: center;
+    color: #0C0C0C;
+    font-size: 17px;
+}
 /*body css*/
-
 body {
     height: 150vh;
     display: flex;
