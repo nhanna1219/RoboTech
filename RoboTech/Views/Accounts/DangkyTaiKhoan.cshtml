@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Đăng ký tài khoản";
-    Layout = "";
+    Layout = "_LayoutAccount";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -20,11 +20,14 @@
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
+   <header>
+    <a href="/Home"><div class="line-name-signup"></div></a>
+    </header>
 <body>
     <section class="container-login forms">
         <div class="form login">
             <div class="form-content">
-                <header>Signin to RoboTech</header>
+                <header>Signup to RoboTech</header>
                 <form action="#">
                     <div class="field input-field">
                         <input type="email"  placeholder="Email" class="input">

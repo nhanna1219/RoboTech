@@ -2,18 +2,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 *{
-    margin: 0;
+    margin:0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-.container-login{
-    height: 100vh;
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.container-login {
+    height: 85vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #4070f4;
+    background-color: #BA4A00;
     column-gap: 30px;
 }
 .form{
@@ -41,6 +47,7 @@ header{
     font-weight: 600;
     color: #232836;
     text-align: center;
+   margin: 20px;
 }
 form{
     margin-top: 30px;
@@ -122,6 +129,42 @@ form{
     color: #8b8b8b;
     padding: 0 15px;
 }
+.line-name {
+    position: relative;
+    height: 2px;
+    width: 100%;
+    margin: 36px 0;
+    background-color: #d4d4d4;
+}
+
+    .line-name::before {
+        content: 'ROBOTECH - LOGIN';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #FFF;
+        color: blue;
+        padding: 0 15px;
+    }
+.line-name-signup {
+    position: relative;
+    height: 2px;
+    width: 100%;
+    margin: 36px 0;
+    background-color: #d4d4d4;
+}
+
+    .line-name-signup::before {
+        content: 'ROBOTECH - LOGIN';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #FFF;
+        color: blue;
+        padding: 0 15px;
+    }
 .media-options a{
     display: flex;
     align-items: center;
@@ -167,5 +210,12 @@ a.google span{
     .form{
         padding: 20px 10px;
     }
-    
+}
+
+body {
+    margin-bottom: 25px;
+}
+.copyright {
+    text-align:center;
+    font-size:22px;
 }
