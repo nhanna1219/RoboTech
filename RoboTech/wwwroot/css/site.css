@@ -1,11 +1,13 @@
 /* Google Fonts - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
 html {
     font-size: 14px;
 }
@@ -21,9 +23,6 @@ html {
     min-height: 100%;
 }
 
-body {
-    margin-bottom: 60px;
-}
 /*LOGO STYLING*/
 a.navbar-brand {
     white-space: normal;
@@ -85,7 +84,7 @@ ul {
 .footer {
     background-color: #24262b;
     padding: 50px 0;
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
 }
@@ -162,7 +161,6 @@ ul {
 }
 /*body css*/
 body {
-    height: 150vh;
     display: flex;
     flex-direction: column;
     line-height: 1.5;
@@ -170,6 +168,7 @@ body {
 
 /*Navi css*/
 #category {
+    height: 500px;
 }
 
     #category .heading {
@@ -290,3 +289,6 @@ body {
 
 
 /*Product css*/
+#product {
+    height: px;
+}
