@@ -28,15 +28,25 @@
         <div class="form login">
             <div class="form-content">
                 <header>Signup to RoboTech</header>
-                <form action="#">
+                <form asp-action="DangkyTaiKhoan">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="field input-field">
-                        <input type="email"  placeholder="Email" class="input">
-                        <span  class="text-danger"></span>
+                        <input type="text" asp-for="FullName" placeholder="Name" class="input">
+                        <span asp-validation-for="FullName" class="text-danger"></span>
                     </div>
+                    <div class="field input-field">
+                        <input type="email" asp-for="Email" placeholder="Email" class="input">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="field input-field">
+                        <input type="tel" asp-for="Phone" placeholder="Phone Number" class="input">
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+                    
 
                     <div class="field input-field">
-                        <input type="password" placeholder="Password" class="password">
-                        <span  class="text-danger"></span>
+                        <input type="password" asp-for="Password" placeholder="Password" class="password">
+                        <span asp-validation-for="Password" class="text-danger"></span>
                         <i class='bx bx-hide eye-icon'></i>
                     </div>
 

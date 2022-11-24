@@ -35,9 +35,18 @@
                         </form>
                         <li class="offset-1" style="margin-top: 7px">
                             <div >
-                                <i class="fa-solid fa-user"></i> <a class="text-dark fw-semibold" style="text-decoration: none" href="/Login">&nbsp;Log in </a>
-                            /
-                                <a class="text-dark fw-semibold" style="text-decoration: none" asp-area="" asp-controller="Register" asp-action="Index"> Sign Up </a>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <i class="fa-solid fa-user"></i> <a class="text-dark fw-semibold" style="text-decoration: none" href="/Dashboard">&nbsp;My Account</a>
+                                    <a class="text-dark fw-semibold" style="text-decoration: none" asp-area="" asp-controller="Register" asp-action="Index">| Log out </a>
+                                }
+                                else
+                                {
+                                    <i class="fa-solid fa-user"></i> <a class="text-dark fw-semibold" style="text-decoration: none" href="/Login">&nbsp;Log in </a>
+                                    <a class="text-dark fw-semibold" style="text-decoration: none" asp-area="" asp-controller="Register" asp-action="Index">| Sign Up </a>
+                                }
+
+                               
                             </div>
                         </li>
                         <li class="offset-1">

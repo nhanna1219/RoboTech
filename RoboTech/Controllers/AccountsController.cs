@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 
 namespace RoboTech.Controllers
 {
+    [Authorize]
     public class AccountsController : Controller
     {
         private readonly shoplaptopContext _context;
@@ -32,7 +33,7 @@ namespace RoboTech.Controllers
             try
             {
                 /*var customer = _context.TbCustomers.FirstOrDefault(x => x.Phone == Phone);*/
-                var khachhang = _context.TbCustomers.AsNoTracking().FirstOrDefault(x => x.Phone.ToLower() == Phone.ToLower());
+                var khachhang = _context.TbCustomers.AsNoTracking().SingleOrDefault(x => x.Phone.ToLower() == Phone.ToLower());
                 if (khachhang != null)
                     return Json(data: "Số điện thoại : " + Phone + "đã được sử dụng");
 
@@ -60,25 +61,25 @@ namespace RoboTech.Controllers
                 return Json(data: true);
             }
         }
-        [Route("tai-khoan-cua-toi.html", Name = "Dashboard")]
+        [Route("Dashboard", Name = "Dashboard")]
         public IActionResult Dashboard()
         {
-            var taikhoanID = HttpContext.Session.GetString("CustomerId");
+            var taikhoanID = HttpContext.Session.GetString("CustomerID");
             if (taikhoanID != null)
             {
                 var khachhang = _context.TbCustomers.AsNoTracking().SingleOrDefault(x => x.CustomerId == Convert.ToInt32(taikhoanID));
                 if (khachhang != null)
                 {
-                    var lsDonHang = _context.TbOrders
-                        /*.Include(x => x.TransactStatus)*/
+                    /*var lsDonHang = _context.TbOrders
+                        *//*.Include(x => x.TransactStatus)*//*
                         .AsNoTracking()
                         .Where(x => x.CustomerId == khachhang.CustomerId)
                         .OrderByDescending(x => x.OrderDate)
                         .ToList();
-                    ViewBag.DonHang = lsDonHang;
+                    ViewBag.DonHang = lsDonHang;*/
                     return View(khachhang);
                 }
-
+                
             }
             return RedirectToAction("Login");
         }

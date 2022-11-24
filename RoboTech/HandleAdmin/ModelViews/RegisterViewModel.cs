@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
@@ -8,7 +9,6 @@ namespace RoboTech.ModelViews
     {
         [Key]
         public int CustomerId { get; set; }
-
         [Display(Name = "Họ và Tên")]
         [Required(ErrorMessage = "Vui lòng nhập Họ Tên")]
         public string FullName { get; set; }
@@ -31,9 +31,9 @@ namespace RoboTech.ModelViews
         [MinLength(5, ErrorMessage = "Bạn cần đặt mật khẩu tối thiểu 5 ký tự")]
         public string Password { get; set; }
 
-        [MinLength(5, ErrorMessage = "Bạn cần đặt mật khẩu tối thiểu 5 ký tự")]
+        /*[MinLength(5, ErrorMessage = "Bạn cần đặt mật khẩu tối thiểu 5 ký tự")]
         [Display(Name = "Nhập lại mật khẩu")]
         [Compare("Password", ErrorMessage = "Nhập lại mật khẩu không đúng")]
-        public string ConfirmPassword { get; set; }
+        public string ConfirmPassword { get; set; }*/
     }
 }

@@ -4,6 +4,7 @@ using RoboTech.Models;
 using System.Configuration;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,16 @@ builder.Services.AddDbContext<shoplaptopContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("WebShopConnectionString")));
 builder.Services.AddSingleton<HtmlEncoder>(HtmlEncoder.Create(allowedRanges: new[] { UnicodeRanges.All }));
 builder.Services.AddSession();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(p =>
+                {
+                    p.Cookie.Name = "UserLoginCookie";
+                    p.ExpireTimeSpan = TimeSpan.FromDays(1);
+                    //p.LoginPath = "/dang-nhap.html";
+                    //p.LogoutPath = "/dang-xuat/html";
+                    p.AccessDeniedPath = "/not-found.html";
+                });
+
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation(); ;
 builder.Services.AddNotyf(config =>
@@ -34,7 +45,9 @@ app.UseStaticFiles();
 app.UseSession();
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
+
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
