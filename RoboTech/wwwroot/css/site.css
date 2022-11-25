@@ -140,7 +140,7 @@ ul {
     }
 .footer {
     background-color: #24262b;
-    padding: 50px 0;
+    padding: 30px 0;
     position: relative;
     bottom: 0;
     width: 100%;
@@ -209,7 +209,9 @@ ul {
             color: #24262b;
             background-color: #ffffff;
         }
+
 .copyright {
+    margin-top: 10px;
     background-color: #FEEDE2;
     padding: 10px 0;
     text-align: center;
@@ -349,3 +351,240 @@ body {
 #product {
     height: px;
 }
+
+
+/*Product list css*/
+section a {
+    text-decoration: none;
+}
+
+section .background-img img {
+    width: 100%;
+}
+
+section .card {
+    transition: transform 0.5s;
+}
+
+    section .card::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: opacity 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+        content: "";
+        opacity: 0;
+        z-index: -1;
+    }
+
+    section .card:hover,
+    .card:focus {
+        transform: scale3d(1.006, 1.006, 1);
+        cursor: pointer;
+    }
+
+        section .card:hover::after,
+        .card:focus::after {
+            opacity: 1;
+        }
+
+section .bg-cart {
+    background-color: rgb(255, 255, 255);
+    color: #000;
+    margin: 10px 0 0 42px;
+    border: 2px solid cadetblue;
+}
+
+    section .bg-cart:hover {
+        background-color: cadetblue;
+        color: white;
+    }
+
+
+section .divider {
+    position: relative;
+}
+
+section .container .filter {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+section .side-nav {
+    position: sticky;
+    top: 20px;
+    height: 550px;
+    display: block;
+    margin-bottom: 24px;
+    text-align: center;
+    z-index: 1;
+}
+
+    section .side-nav h5 {
+        font-size: 18px;
+        text-align: center;
+        border: 2px solid black;
+        border-radius: 5px;
+        padding-top: 6px;
+        height: 40px;
+        background-color: #175B6A;
+        color: rgb(238, 236, 236);
+    }
+
+section .nav2 {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.menu {
+    display: block;
+    justify-content: center;
+    padding-inline-start: 0;
+}
+
+.dropdown {
+    /* padding: 20px 40px; */
+    margin-top: 25px;
+    line-height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    position: relative;
+    font-size: 18px;
+    perspective: 1000px;
+}
+
+    .dropdown a {
+        font-size: 14px;
+        font-weight: bold;
+        color: rgb(56, 54, 54);
+    }
+
+    .dropdown > a::after {
+        content: " ";
+        width: 90px;
+        position: absolute;
+        margin: 0 auto;
+        bottom: -8px;
+        left: 35%;
+        height: 4px;
+        border-radius: 1px;
+        background: white;
+    }
+
+    .dropdown:hover a::after {
+        background-color: rgb(47, 172, 231);
+        border-radius: 5px;
+    }
+
+    .dropdown:hover {
+        cursor: pointer;
+    }
+
+        .dropdown:hover > a {
+            color: rgb(30, 161, 223);
+        }
+
+        .dropdown:hover .dropdown_menu li {
+            display: inline;
+        }
+
+
+
+.dropdown_menu {
+    position: absolute;
+    margin-left: 228px;
+    margin-top: -40px;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    perspective: 1000px;
+    z-index: 10000;
+}
+
+.dropdown_item-1 {
+    margin-right: -5px;
+    border-right: 2px solid black;
+}
+
+.dropdown_item-2 {
+    border-radius: 0 5px 5px 0;
+}
+
+.dropdown_menu li {
+    display: none;
+    height: 100px;
+    color: white;
+    background-color: rgba(232, 232, 232, 0.86);
+    padding: 30px 21px;
+    width: 150px;
+    font-size: 16px;
+    opacity: 0;
+}
+
+    .dropdown_menu li:hover {
+        background-color: #0f598a;
+        cursor: pointer;
+    }
+
+        .dropdown_menu li:hover a {
+            color: white;
+        }
+
+
+/* // Menu as a whole animated */
+.dropdown:hover .dropdown_menu--animated {
+    display: block;
+}
+
+.dropdown_menu--animated {
+    display: none;
+}
+
+    .dropdown_menu--animated li {
+        display: block;
+        opacity: 1
+    }
+
+.dropdown_menu-6 {
+    animation: growDown 300ms ease-in-out forwards;
+    transform-origin: top center
+}
+
+
+@keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+
+    80% {
+        transform: scaleY(1.1)
+    }
+
+    100% {
+        transform: scaleY(1)
+    }
+}
+
+section .title {
+    margin-bottom: 40px;
+    color: black
+}
+
+    section .title::after {
+        content: "";
+        width: 105px;
+        position: absolute;
+        margin: 0 auto;
+        height: 4px;
+        border-radius: 5px;
+        background: #175B6A;
+        left: 0;
+        right: 0;
+    }

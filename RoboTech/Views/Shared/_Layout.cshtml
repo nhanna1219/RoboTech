@@ -20,7 +20,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom py-4 box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom py-4 box-shadow">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ROBOTECH</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -62,15 +62,12 @@
             </div>
         </nav>
     </header>
-    
-    <div class="container">
-        <main role="main" class="pb-5">
+        <main role="main" class="">
             @RenderBody()
             <div class="sub-main">
                 <a class="gotopbtn" href="#"><i class="fas fa-arrow-up"> </i></a>
             </div>
         </main>
-    </div>
     <!--
     <footer class="footer text-muted" style="border-top: 1px solid #ccc">
         <div class="container text-center text-md-left ">
@@ -207,9 +204,6 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

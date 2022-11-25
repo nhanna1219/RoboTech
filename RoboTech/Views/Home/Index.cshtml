@@ -1,5 +1,5 @@
-﻿@*Navi section*@
-<div id="category">
+﻿    @*Navi section*@
+<div id="category" class="container mb-5">
     <div class="row">
         <div class="col-lg-3 flex-grow-1">
             <div class="heading">
@@ -8,7 +8,7 @@
             </div>
             <ul class="nav-item">
                 <li>
-                    <button class="btn">
+                    <button class="btn" type="button" onclick="location.href='@Url.Action("ProductList", "Home")'" />
                         <i class="fa-solid fa-laptop"></i>
                         Laptop
                     </button>
@@ -478,3 +478,4 @@
 <div id="product">
         
 </div>
+    
