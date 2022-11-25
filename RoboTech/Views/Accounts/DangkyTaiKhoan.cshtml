@@ -29,7 +29,7 @@
             <div class="form-content">
                 <header>Signup to RoboTech</header>
                 <form asp-action="DangkyTaiKhoan">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div asp-validation-summary="All" class="text-danger"></div>
                     <div class="field input-field">
                         <input type="text" asp-for="FullName" placeholder="Name" class="input">
                         <span asp-validation-for="FullName" class="text-danger"></span>

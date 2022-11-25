@@ -1,7 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Security.Principal;
 using System.Threading.Tasks;
+using AspNetCoreHero.ToastNotification.Abstractions;
+using AspNetCoreHero.ToastNotification.Notyf;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,13 +15,15 @@ using RoboTech.Models;
 namespace RoboTech.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class AdminAccountsController : Controller
     {
         private readonly shoplaptopContext _context;
-
-        public AdminAccountsController(shoplaptopContext context)
+        public INotyfService _notyfService { get; }
+        public AdminAccountsController(shoplaptopContext context, , INotyfService notyfService)
         {
             _context = context;
+            _notyfService = notyfService;
         }
 
         // GET: Admin/AdminAccounts
@@ -63,16 +70,17 @@ namespace RoboTech.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Username,Password,Address,RoleId,LastLogin,CreateDate,Active,Phone,Email,Salt")] TbUser tbUser)
+        public async Task<IActionResult> Create([Bind("Id,Name,Username,Password,Address,RoleId,LastLogin,CreateDate,Active,Phone,Email,Salt")] Account account)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(tbUser);
                 await _context.SaveChangesAsync();
+                _notyfService.Success("Tạo mới tài khoản thành công");
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["RoleId"] = new SelectList(_context.TbRoles, "RoleId", "RoleId", tbUser.RoleId);
-            return View(tbUser);
+            ViewData["QuyenTruyCap"] = new SelectList(_context.Roles, "RoleId", "RoleName", account.RoleId);
+            return View(account);
         }
 
         // GET: Admin/AdminAccounts/Edit/5

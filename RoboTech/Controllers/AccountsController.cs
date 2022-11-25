@@ -8,7 +8,7 @@ using RoboTech.Helper;
 using RoboTech.Models;
 using RoboTech.ModelViews;
 using System.Security.Claims;
-using System;
+using System;   
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -61,7 +61,7 @@ namespace RoboTech.Controllers
                 return Json(data: true);
             }
         }
-        [Route("Dashboard", Name = "Dashboard")]
+        [Route("my-account", Name = "Dashboard")]
         public IActionResult Dashboard()
         {
             var taikhoanID = HttpContext.Session.GetString("CustomerID");
@@ -79,7 +79,6 @@ namespace RoboTech.Controllers
                     ViewBag.DonHang = lsDonHang;*/
                     return View(khachhang);
                 }
-                
             }
             return RedirectToAction("Login");
         }
@@ -148,7 +147,7 @@ namespace RoboTech.Controllers
             }
         }
         [AllowAnonymous]
-        [Route("Login", Name = "DangNhap")]
+        [Route("Log-in", Name = "DangNhap")]
         public IActionResult Login(string returnUrl = null)
         {
             var taikhoanID = HttpContext.Session.GetString("CustomerId");
@@ -160,7 +159,7 @@ namespace RoboTech.Controllers
         }
         [HttpPost]
         [AllowAnonymous]
-        [Route("Login", Name = "DangNhap")]
+        [Route("Log-in", Name = "DangNhap")]
         public async Task<IActionResult> Login(LoginViewModel customer, string returnUrl)
         {
             try
@@ -169,7 +168,7 @@ namespace RoboTech.Controllers
                 {
                     bool isEmail = Utilities.IsValidEmail(customer.UserName);
                     if (!isEmail) return View(customer);
-
+                     
                     var khachhang = _context.TbCustomers.AsNoTracking().SingleOrDefault(x => x.Email.Trim() == customer.UserName);
 
                     if (khachhang == null) return RedirectToAction("DangkyTaiKhoan");

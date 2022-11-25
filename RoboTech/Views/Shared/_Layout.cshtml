@@ -22,7 +22,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom py-4 box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand offset-1" asp-area="" asp-controller="Home" asp-action="Index">ROBOTECH</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ROBOTECH</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -42,7 +42,7 @@
                                 }
                                 else
                                 {
-                                    <i class="fa-solid fa-user"></i> <a class="text-dark fw-semibold" style="text-decoration: none" href="/Login">&nbsp;Log in </a>
+                                    <i class="fa-solid fa-user"></i> <a class="text-dark fw-semibold" style="text-decoration: none" href="/Log-in">&nbsp;Log in </a>
                                     <a class="text-dark fw-semibold" style="text-decoration: none" asp-area="" asp-controller="Register" asp-action="Index">| Sign Up </a>
                                 }
 
@@ -66,6 +66,9 @@
     <div class="container">
         <main role="main" class="pb-5">
             @RenderBody()
+            <div class="sub-main">
+                <a class="gotopbtn" href="#"><i class="fas fa-arrow-up"> </i></a>
+            </div>
         </main>
     </div>
     <!--

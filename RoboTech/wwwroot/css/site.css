@@ -9,6 +9,7 @@
 }
 
 html {
+    scroll-behavior:smooth;
     font-size: 14px;
 }
 
@@ -25,11 +26,15 @@ html {
 
 /*LOGO STYLING*/
 a.navbar-brand {
-    white-space: normal;
-    text-align: center;
+    margin-left: 200px;
+    text-align:center;
+    white-space: pre;   
+    margin-right: 200px;
     /*word-break: break-all;*/
     font-weight: bold;
-    font-size: 150%;
+    font-size: 190%;
+    color:red;
+    
 }
 
 
@@ -80,7 +85,59 @@ ul {
     list-style: none;
     padding: 0;
 }
-
+.gotopbtn {
+    position: fixed;
+    bottom: 40px;
+    right: 50px;
+    background: #175B6a;
+    z-index: 99;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    /*z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #1b6ec2;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+    
+    */
+    -webkit-transition-duration: 0.4s;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    font-size: 30px;
+}
+    .gotopbtn:hover {
+        background: #fff;
+        box-shadow: 0px 2px 10px 5px #97B1BF;
+        color: #000;
+    }
+    .gotopbtn:after {
+        content: "";
+        /*background: #f1c40f;*/
+        display: block;
+        position: absolute;
+        padding-top: 300%;
+        padding-left: 350%;
+        margin-left: -20px !important;
+        margin-top: -120%;
+        opacity: 0;
+        transition: all 0.8s
+    }
+    .gotopbtn:active:after {
+        padding: 0;
+        margin: 0;
+        opacity: 1;
+        transition: 0s
+    }
 .footer {
     background-color: #24262b;
     padding: 50px 0;
@@ -185,7 +242,7 @@ body {
 
         #category .heading a {
             margin: 0 60px 0 60px;
-            color: #e4e2e2;
+            color: white;
             text-decoration: none;
         }
 

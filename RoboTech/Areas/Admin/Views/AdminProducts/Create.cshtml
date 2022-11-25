@@ -1,0 +1,120 @@
+﻿@model RoboTech.Models.TbProduct
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>TbProduct</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ListImages" class="control-label"></label>
+                <input asp-for="ListImages" class="form-control" />
+                <span asp-validation-for="ListImages" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PromotionPrice" class="control-label"></label>
+                <input asp-for="PromotionPrice" class="form-control" />
+                <span asp-validation-for="PromotionPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vat" class="control-label"></label>
+                <input asp-for="Vat" class="form-control" />
+                <span asp-validation-for="Vat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Warranty" class="control-label"></label>
+                <input asp-for="Warranty" class="form-control" />
+                <span asp-validation-for="Warranty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hot" class="control-label"></label>
+                <input asp-for="Hot" class="form-control" />
+                <span asp-validation-for="Hot" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Detail" class="control-label"></label>
+                <input asp-for="Detail" class="form-control" />
+                <span asp-validation-for="Detail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ViewCount" class="control-label"></label>
+                <input asp-for="ViewCount" class="form-control" />
+                <span asp-validation-for="ViewCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CateId" class="control-label"></label>
+                <select asp-for="CateId" class ="form-control" asp-items="ViewBag.CateId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="BrandId" class="control-label"></label>
+                <input asp-for="BrandId" class="form-control" />
+                <span asp-validation-for="BrandId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SupplierId" class="control-label"></label>
+                <input asp-for="SupplierId" class="form-control" />
+                <span asp-validation-for="SupplierId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetaKeyword" class="control-label"></label>
+                <input asp-for="MetaKeyword" class="form-control" />
+                <span asp-validation-for="MetaKeyword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetaDescription" class="control-label"></label>
+                <input asp-for="MetaDescription" class="form-control" />
+                <span asp-validation-for="MetaDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedBy" class="control-label"></label>
+                <input asp-for="CreatedBy" class="form-control" />
+                <span asp-validation-for="CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedDate" class="control-label"></label>
+                <input asp-for="CreatedDate" class="form-control" />
+                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdatedBy" class="control-label"></label>
+                <input asp-for="UpdatedBy" class="form-control" />
+                <span asp-validation-for="UpdatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdatedDate" class="control-label"></label>
+                <input asp-for="UpdatedDate" class="form-control" />
+                <span asp-validation-for="UpdatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

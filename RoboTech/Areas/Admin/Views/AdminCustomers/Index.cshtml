@@ -60,12 +60,16 @@
                         {
                             <tr>
                                 <td>@item.CustomerId</td>
-                                <td>
+                                <td>@item.FullName</td>
+                                <td>@item.Phone</td>
+                                <td>@item.Email</td>
+                                @*<td>
                                     <p>@item.FullName</p>
                                     <p>@item.Phone</p>
                                     <p>@item.Email</p>
-                                </td>
+                                </td>*@
                                 <td>@item.Address</td>
+                                <td>#</td>
 
                                 <td>
                                     <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminCustomers" asp-action="Details" asp-route-id="@item.CustomerId">Chi tiết</a>
