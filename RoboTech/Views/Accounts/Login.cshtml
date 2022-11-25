@@ -29,7 +29,8 @@
             <div class="form login">
                 <div class="form-content">
                     <header>Login to RoboTech</header>
-                    <form action="#">
+                    <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="field input-field">
                         <input type="email" asp-for="UserName" placeholder="Email" class="input">
                         <span asp-validation-for="UserName" class="text-danger"></span>
@@ -37,7 +38,7 @@
 
                         <div class="field input-field">
                             <input type="password" asp-for="Password" placeholder="Password" class="password">
-                        <span asp-validation-for="Password" class="text-danger"></span>
+                            <span asp-validation-for="Password" class="text-danger"></span>
                             <i class='bx bx-hide eye-icon'></i>
                         </div>
 
