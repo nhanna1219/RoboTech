@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Mvc;
 using RoboTech.Models;
 using System.Diagnostics;
 
@@ -19,6 +20,11 @@ namespace RoboTech.Controllers
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult ProductDetails()
         {
             return View();
         }
