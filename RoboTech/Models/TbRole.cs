@@ -7,6 +7,7 @@ namespace RoboTech.Models
     {
         public TbRole()
         {
+            TbAdmins = new HashSet<TbAdmin>();
             TbUsers = new HashSet<TbUser>();
         }
 
@@ -14,6 +15,7 @@ namespace RoboTech.Models
         public string? RoleName { get; set; }
         public string? Description { get; set; }
 
+        public virtual ICollection<TbAdmin> TbAdmins { get; set; }
         public virtual ICollection<TbUser> TbUsers { get; set; }
     }
 }

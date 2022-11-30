@@ -12,6 +12,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    
 }
 .container-login {
     height: 85vh;
@@ -19,7 +20,7 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #BA4A00;
+    background-image: url('../assets/img/bg.png');
     column-gap: 30px;
 }
 .form{

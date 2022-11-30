@@ -9,5 +9,8 @@ namespace RoboTech.Models
         public string? Name { get; set; }
         public string Username { get; set; } = null!;
         public string Password { get; set; } = null!;
+        public int? RoleId { get; set; }
+
+        public virtual TbRole? Role { get; set; }
     }
 }

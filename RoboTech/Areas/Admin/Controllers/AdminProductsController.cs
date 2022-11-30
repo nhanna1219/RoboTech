@@ -80,7 +80,7 @@ namespace RoboTech.Areas.Admin.Controllers
         // GET: Admin/AdminProducts/Create
         public IActionResult Create()
         {
-            ViewData["CateId"] = new SelectList(_context.TbPostCategories, "CateId", "CateId");
+            /*ViewData["CateId"] = new SelectList(_context.TbPostCategories, "CateId", "CateId");*/
             return View();
         }
 
@@ -97,7 +97,7 @@ namespace RoboTech.Areas.Admin.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CateId"] = new SelectList(_context.TbPostCategories, "CateId", "CateId", tbProduct.CateId);
+            /*ViewData["CateId"] = new SelectList(_context.TbPostCategories, "CateId", "CateId", tbProduct.CateId);*/
             return View(tbProduct);
         }
 
@@ -114,7 +114,7 @@ namespace RoboTech.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["CateId"] = new SelectList(_context.TbPostCategories, "CateId", "CateId", tbProduct.CateId);
+            /*ViewData["CateId"] = new SelectList(_context.TbPostCategories, "CateId", "CateId", tbProduct.CateId);*/
             return View(tbProduct);
         }
 
@@ -150,7 +150,7 @@ namespace RoboTech.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CateId"] = new SelectList(_context.TbPostCategories, "CateId", "CateId", tbProduct.CateId);
+            /*ViewData["CateId"] = new SelectList(_context.TbPostCategories, "CateId", "CateId", tbProduct.CateId);*/
             return View(tbProduct);
         }
 
