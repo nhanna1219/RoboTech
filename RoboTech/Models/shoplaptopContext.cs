@@ -177,7 +177,7 @@ namespace RoboTech.Models
                     .HasConstraintName("FK_tb_OrderDetail_tb_Product");
             });
 
-           /* modelBuilder.Entity<TbPost>(entity =>
+            /*modelBuilder.Entity<TbPost>(entity =>
             {
                 entity.HasKey(e => e.PostId);
 
@@ -335,9 +335,9 @@ namespace RoboTech.Models
 
                 entity.Property(e => e.Email).HasMaxLength(50);
 
-                entity.Property(e => e.LastLogin).HasColumnType("datetime");
+                entity.Property(e => e.FullName).HasMaxLength(50);
 
-                entity.Property(e => e.Name).HasMaxLength(50);
+                entity.Property(e => e.LastLogin).HasColumnType("datetime");
 
                 entity.Property(e => e.Password).HasMaxLength(50);
 

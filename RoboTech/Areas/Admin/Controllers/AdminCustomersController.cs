@@ -12,7 +12,7 @@ using RoboTech.Models;
 namespace RoboTech.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    /*[Authorize]*/
     public class AdminCustomersController : Controller
     {
         private readonly shoplaptopContext _context;

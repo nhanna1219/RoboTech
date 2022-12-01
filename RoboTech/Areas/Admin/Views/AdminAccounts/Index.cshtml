@@ -69,15 +69,15 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <img class="img-fluid rounded" src="assets/images/others/thumb-9.jpg" style="max-width: 60px" alt="">
-                                        <h6 class="m-b-0 m-l-10">@item.Name</h6>
+                                        <h6 class="m-b-0 m-l-10">@item.FullName</h6>
                                     </div>
                                 </td>
                                 <td>@item.Email</td>
                                 <td>@item.Phone</td>
                                 <td>@item.LastLogin</td>
-                                <td>@item.Role.Description</td>
+                              @*  <td>@item.Role.Description</td>*@
                                 <td>
-                                    @if (item.Active != 0)
+                                    @if (Convert.ToInt32(item.Active)!= 0)
                                     {
                                         <div class="d-flex align-items-center">
                                             <div class="badge badge-success badge-dot m-r-10"></div>

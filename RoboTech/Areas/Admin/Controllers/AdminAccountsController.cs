@@ -16,7 +16,7 @@ using RoboTech.ModelViews;
 namespace RoboTech.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
+    /*[Authorize(Roles = "Admin")]*/
     public class AdminAccountsController : Controller
     {
         private readonly shoplaptopContext _context;
