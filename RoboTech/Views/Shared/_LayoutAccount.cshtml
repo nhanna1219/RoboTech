@@ -1,20 +1,22 @@
-﻿<!DOCTYPE html>
-
-<html>
+﻿
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-    <link rel="stylesheet" href="~/css/site.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
     <link rel="shortcut icon" href="~/favicon.png">
+    <!-- CSS -->
+    <link rel="stylesheet" href="~/css/style_login.css" asp-append-version="true"/>
+    <title>@ViewData["Title"]</title>
+    <!-- Boxicons CSS -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<body>
-    <div>
+<body style="margin-bottom: 0">
+    <div class="container-login forms">
         @RenderBody()
     </div>
+    <script src="~/js/script_login.js"></script>
 </body>
-<footer>
-    <div class="copyright">
-        Copyright &copy; 2022 <strong>ROBOTECH</strong>. Powered by UIT - <a asp-area="" asp-controller="Home" asp-action="Privacy">Our Privacy</a>
-    </div>
-</footer>
 </html>

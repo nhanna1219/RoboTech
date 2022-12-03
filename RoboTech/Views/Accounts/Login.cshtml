@@ -1,83 +1,56 @@
 ﻿@model RoboTech.ModelViews.LoginViewModel
 
 @{
-    ViewData["Title"] = "Đăng nhập tài khoản";
+    ViewData["Title"] = "Login";
     Layout = "_LayoutAccount";
 }
 
-<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Đăng nhập tài khoản </title>
-    <!-- Favicon -->
-        <link rel="shortcut icon" href="~/favicon.png">
-        <!-- CSS -->
-        <link rel="stylesheet" href="~/css/style_login.css">
-                
-        <!-- Boxicons CSS -->
-        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-                        
-    </head>
-    <header>
-    <a href="/Home"><div class="line-name"></div></a>
-    </header>
-    <body>
-        <section class="container-login forms">
-            <div class="form login">
-                <div class="form-content">
-                    <header>Login to RoboTech</header>
-                    <form method="post">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <div class="field input-field">
-                        <input type="email" asp-for="UserName" placeholder="Email" class="input">
-                        <span asp-validation-for="UserName" class="text-danger"></span>
-                        </div>
 
-                        <div class="field input-field">
-                            <input type="password" asp-for="Password" placeholder="Password" class="password">
-                            <span asp-validation-for="Password" class="text-danger"></span>
-                            <i class='bx bx-hide eye-icon'></i>
-                        </div>
-
-                        <div class="form-link">
-                            <a href="#" class="forgot-pass">Forgot Your Password ?</a>
-                        </div>
-
-                        <div class="field button-field">
-                            <button>Login</button>
-                        </div>
-                    </form>
-
-                    <div class="form-link">
-                    <span>Don't have an account ? <a href="/Register" >Signup Now !</a></span>
-                    </div>
-                </div>
-
-                <div class="line"></div>
-
-                <div class="media-options">
-                    <a href="#" class="field facebook">
-                        <i class='bx bxl-facebook facebook-icon'></i>
-                        <span>Login with Facebook</span>
-                    </a>
-                </div>
-
-                <div class="media-options">
-                    <a href="#" class="field google">
-                        <img src="~/lib/google.png" alt="" class="google-img">
-                        <span>Login with Google</span>
-                    </a>
-                </div>
-
+<div class="form login">
+    <div class="form-content">
+        <header>Login to <a class="title-head" href="/Home">RoboTech</a></header>
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="field input-field">
+                <input type="email" asp-for="UserName" placeholder="Email" class="input">
+                <span asp-validation-for="UserName" class="text-danger"></span>
             </div>
-            
-        </section>
 
-        <!-- JavaScript -->
-        <script src="~/js/script_login.js"></script>
-    </body>
+            <div class="field input-field">
+                <input type="password" asp-for="Password" placeholder="Password" class="password">
+                <span asp-validation-for="Password" class="text-danger"></span>
+                <i class='bx bx-hide eye-icon'></i>
+            </div>
 
-</html>
+            <div class="form-link">
+                <a href="#" class="forgot-pass">Forgot Your Password ?</a>
+            </div>
+
+            <div class="field button-field">
+                <button>Login</button>
+            </div>
+        </form>
+
+        <div class="form-link">
+            <span>Don't have an account ? <a href="/Register">Signup Now !</a></span>
+        </div>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="media-options">
+        <a href="#" class="field facebook">
+            <i class='bx bxl-facebook facebook-icon'></i>
+            <span>Login with Facebook</span>
+        </a>
+    </div>
+
+    <div class="media-options">
+        <a href="#" class="field google">
+            <img src="~/lib/google.png" alt="" class="google-img">
+            <span>Login with Google</span>
+        </a>
+    </div>
+</div>
+
+

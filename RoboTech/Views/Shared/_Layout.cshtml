@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="~/RoboTech.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <script src="https://kit.fontawesome.com/3518e7db2c.js" crossorigin="anonymous"></script>
-    
+
 </head>
 
 <body>
@@ -31,11 +31,11 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <form class="d-flex offset-1">
-                                <input class="form-control search-bar" type="text" placeholder="Search any products...">
+                            <input class="form-control search-bar" type="text" placeholder="Search any products...">
                             <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </form>
                         <li class="offset-1" style="margin-top: 7px">
-                            <div >
+                            <div>
                                 @if (User.Identity.IsAuthenticated)
                                 {
                                     <i class="fa-solid fa-user"></i> <a class="text-dark fw-semibold" style="text-decoration: none" href="/Dashboard">&nbsp;My Account</a>
@@ -47,15 +47,15 @@
                                     <a class="text-dark fw-semibold" style="text-decoration: none" asp-area="" asp-controller="Register" asp-action="Index">| Sign Up </a>
                                 }
 
-                               
+
                             </div>
                         </li>
                         <li class="offset-1">
                             <div style="margin-top: 7px">
-                                <i class="fa-solid fa-cart-shopping"></i> 
-                                 <a class="text-dark fw-semibold" style="text-decoration: none" asp-area="" asp-controller="Home" asp-action="Index">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <a class="text-dark fw-semibold" style="text-decoration: none" asp-area="" asp-controller="Home" asp-action="Index">
                                     &nbsp;Cart
-                                 </a>
+                                </a>
                             </div>
                         </li>
                     </ul>
@@ -63,12 +63,12 @@
             </div>
         </nav>
     </header>
-        <main role="main" class="">
+    <main role="main" class="">
             @RenderBody()
-            <div class="sub-main">
-                <a class="gotopbtn" href="#"><i class="fas fa-arrow-up"> </i></a>
-            </div>
-        </main>
+        <div class="sub-main">
+            <a class="gotopbtn" href="#"><i class="fas fa-arrow-up"> </i></a>
+        </div>
+    </main>
     <footer class="footer border-top footer text-muted">
         <div class="container">
             <div class="row">
@@ -100,7 +100,7 @@
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4 >follow us</h4>
+                    <h4>follow us</h4>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -112,8 +112,8 @@
             <div class="copyright">
                 Copyright &copy; 2022 <strong>ROBOTECH</strong>. Powered by UIT - <a asp-area="" asp-controller="Home" asp-action="Privacy">Our Privacy</a>
             </div>
-            
- 
+
+
         </div>
     </footer>
 

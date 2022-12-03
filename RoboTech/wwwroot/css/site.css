@@ -39,32 +39,10 @@ a.navbar-brand {
     }
 
 
-/*footer*/
 
-/*.footer {*/
-/*position: absolute;
-    bottom: 0;
-    width: 100%;
-    white-space: nowrap;
-    line-height: 60px;*/ /* Vertically center the text there */
-/*position: fixed;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    line-height: 60px;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color: white;
-    text-align: center;
-}*/
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/*body {
-    line-height: 1.5;*/
-/*   font-family: 'Poppins', sans-serif;*/
-
-/*}*/
 
 * {
     margin: 0;
@@ -85,6 +63,12 @@ a.navbar-brand {
 ul {
     list-style: none;
     padding: 0;
+}
+
+.banner {
+    width: 10%;
+    border-radius: 10px;
+    margin: 60px 10px;
 }
 
 .gotopbtn {
