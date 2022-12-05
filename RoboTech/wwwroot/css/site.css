@@ -65,12 +65,32 @@ ul {
     padding: 0;
 }
 
-.banner {
-    width: 10%;
-    border-radius: 10px;
-    margin: 60px 10px;
+.left-zone,
+.right-zone {
+    position: absolute;
+    top: 180px;
+    width: 8%;
+    height: 270px;
+    transition: top 0.8s;
 }
 
+
+.left-zone {
+    left: 2%;
+}
+
+.right-zone {
+    right: 2%;
+}
+
+
+/*.banner {
+    width: 8%;
+    border-radius: 10px;
+    margin: 20px 30px;
+    padding-bottom: 60px
+}
+*/
 .gotopbtn {
     position: fixed;
     bottom: 40px;
@@ -129,8 +149,9 @@ ul {
     }
 
 .footer {
+    height: 310px;
     background-color: #24262b;
-    padding: 30px 0;
+    padding: 30px 0 0px;
     position: relative;
     bottom: 0;
     width: 100%;
@@ -201,11 +222,12 @@ ul {
         }
 
 .copyright {
-    margin-top: 10px;
-    background-color: #FEEDE2;
+    width: 100%;
+    margin-top: 20px;
+    background-color: #33343665;
     padding: 10px 0;
     text-align: center;
-    color: #0C0C0C;
+    color: grey;
     font-size: 17px;
 }
 /*body css*/
@@ -423,8 +445,17 @@ body {
 /*Product details css*/
 
 #product-details {
-    height: 800px
+    height: 900px
 }
+
+    #product-details .text-body {
+        text-decoration: none;
+        font-weight: bold
+    }
+
+        #product-details .text-body:hover {
+            color: cadetblue !important
+        }
 
 .card-wrapper {
     box-sizing: border-box;
@@ -459,17 +490,15 @@ img {
     margin: 0.3rem;
 }
 
-}
+    .img-item:nth-child(1),
+    .img-item:nth-child(2),
+    .img-item:nth-child(3) {
+        margin-right: 0;
+    }
 
-.img-item:nth-child(1),
-.img-item:nth-child(2),
-.img-item:nth-child(3) {
-    margin-right: 0;
-}
-
-.img-item:hover {
-    opacity: 0.8;
-}
+    .img-item:hover {
+        opacity: 0.8;
+    }
 
 .product-content {
     padding: 2rem 1rem;
@@ -666,7 +695,6 @@ section .card {
 section .bg-cart {
     background-color: rgb(255, 255, 255);
     color: #000;
-    margin: 10px 0 0 42px;
     border: 2px solid cadetblue;
 }
 
@@ -1378,3 +1406,24 @@ section .title {
             text-decoration: none;
             background: #033e66;
         }
+
+
+/*pagination css*/
+.pagination-val a {
+    color: black;
+    font-size: 14px;
+    border: 2px solid #175B6a;
+    border-radius: 30%;
+    padding: 8px 12px;
+    text-decoration: none;
+}
+
+    .pagination-val a:hover {
+        background: #175B6a;
+        color: white
+    }
+
+a.active_pagin {
+    background: #175B6a;
+    color: white;
+}

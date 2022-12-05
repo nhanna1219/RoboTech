@@ -147,3 +147,16 @@ function optionDialog() {
         onCancel: () => { }
     })
 }
+
+// scrolling banner 
+$(document).ready(function () {
+    var offset = $('.ads').offset().top,
+        top;
+    $(document).on('scroll', function () {
+        top = $(window).scrollTop() < offset ? '0' : $(window).scrollTop() - offset;
+        console.log(top);
+        $('.ads').css({
+            'top': top + 210
+        });
+    })
+});

@@ -1,15 +1,7 @@
 ﻿@model IEnumerable<RoboTech.Models.TbProduct>
 
-@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+<section style="background-color: rgb(244, 244, 244, 0.60); margin-top: -15px">
 
-<section style="background-color: #eee;">
-    <div class="background-img">
-        <img src="https://cdn.techzones.vn/Data/Sites/1/News/4187/techzones-ces-2022-ra-mat-loat-laptop-cao-cap-gigabyte-aorus-va-aero-2022.jpg"
-             width="1518" height="500">
-    </div>
     <div class="container py-5">
         <div class="title text-center font-weight-bold" style="font-size: 50px;">
             <h2>PRODUCT</h2>
@@ -58,7 +50,7 @@
                 <div class="col-lg-9">
                     <div class="row">
                         <div class="col-md-6 col-lg-4 mb-4">
-                            <a asp-action="ProductDetails" asp-controller="Home">
+                            <a asp-action="Details" asp-controller="Product">
                                 <div class="card">
                                     <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/4.webp"
                                          class="card-img-top " alt="Laptop" />
@@ -80,7 +72,7 @@
                                                 <i class="fa fa-star"></i>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn bg-cart">
+                                        <button type="button" class="btn bg-cart w-100 mt-2">
                                             <i class="fa-solid fa-cart-plus"></i>&nbsp;Add
                                             to cart
                                         </button>
@@ -111,7 +103,7 @@
                                                 <i class="fa fa-star"></i>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn bg-cart">
+                                        <button type="button" class="btn bg-cart w-100 mt-2">
                                             <i class="fa-solid fa-cart-plus"></i>&nbsp;Add
                                             to cart
                                         </button>
@@ -142,7 +134,7 @@
                                                 <i class="fa fa-star"></i>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn bg-cart">
+                                        <button type="button" class="btn bg-cart w-100 mt-2">
                                             <i class="fa-solid fa-cart-plus"></i>&nbsp;Add
                                             to cart
                                         </button>
@@ -173,7 +165,7 @@
                                                 <i class="fa fa-star"></i>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn bg-cart">
+                                        <button type="button" class="btn bg-cart w-100 mt-2">
                                             <i class="fa-solid fa-cart-plus"></i>&nbsp;Add
                                             to cart
                                         </button>
@@ -204,7 +196,7 @@
                                                 <i class="fa fa-star"></i>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn bg-cart">
+                                        <button type="button" class="btn bg-cart w-100 mt-2">
                                             <i class="fa-solid fa-cart-plus"></i>&nbsp;Add
                                             to cart
                                         </button>
@@ -235,7 +227,7 @@
                                                 <i class="fa fa-star"></i>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn bg-cart">
+                                        <button type="button" class="btn bg-cart w-100 mt-2">
                                             <i class="fa-solid fa-cart-plus"></i>&nbsp;Add
                                             to cart
                                         </button>
@@ -266,7 +258,7 @@
                                                 <i class="fas fa-star"></i>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn bg-cart">
+                                        <button type="button" class="btn bg-cart w-100 mt-2">
                                             <i class="fa-solid fa-cart-plus"></i>&nbsp;Add
                                             to cart
                                         </button>
@@ -297,7 +289,7 @@
                                                 <i class="fas fa-star"></i>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn bg-cart">
+                                        <button type="button" class="btn bg-cart w-100 mt-2">
                                             <i class="fa-solid fa-cart-plus"></i>&nbsp;Add
                                             to cart
                                         </button>
@@ -328,7 +320,7 @@
                                                 <i class="fas fa-star"></i>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn bg-cart">
+                                        <button type="button" class="btn bg-cart w-100 mt-2">
                                             <i class="fa-solid fa-cart-plus"></i>&nbsp;Add
                                             to cart
                                         </button>
@@ -336,9 +328,20 @@
                                 </div>
                             </a>
                         </div>
+                        <section class="pagination-val text-center mt-4">
+                            <a href="#">«</a>
+                            <a href="#" class="active_pagin">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                            <a href="#">6</a>
+                            <a href="#">»</a>
+                        </section>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
 </section>

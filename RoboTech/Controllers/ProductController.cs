@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using RoboTech.Models;
 
 namespace RoboTech.Controllers
@@ -15,14 +14,22 @@ namespace RoboTech.Controllers
         {
             return View();
         }
-        public IActionResult Details(int id)
+
+        //Khong render len view nen comment
+        //public IActionResult Details(int id)
+        //{
+        //    var product = _context.TbProducts.Include(x => x.Cate).FirstOrDefault(x => x.ProductId == id);
+        //    if (product == null)
+        //    {
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(product);
+        //}
+
+        public IActionResult Details()
         {
-            var product = _context.TbProducts.Include(x => x.Cate).FirstOrDefault(x => x.ProductId == id);
-            if (product == null)
-            {
-                return RedirectToAction("Index");
-            }
-            return View(product);
+            return View();
         }
+
     }
 }
