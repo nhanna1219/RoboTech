@@ -31,6 +31,9 @@ namespace RoboTech.Models
         public string? Phone { get; set; }
         [StringLength(50)]
         public string? Email { get; set; }
+        [Column("salt")]
+        [StringLength(10)]
+        public string? Salt { get; set; }
 
         [ForeignKey("RoleId")]
         [InverseProperty("TbUsers")]

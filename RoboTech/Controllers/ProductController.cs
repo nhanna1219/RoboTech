@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RoboTech.Models;
+using RoboTech.Data;
 
 namespace RoboTech.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly shoplaptopContext _context;
-        public ProductController(shoplaptopContext context)
+        private readonly RobotechContext _context;
+        public ProductController(RobotechContext context)
         {
             _context = context;
         }
