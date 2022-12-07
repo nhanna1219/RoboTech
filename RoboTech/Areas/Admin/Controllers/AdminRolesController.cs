@@ -7,15 +7,16 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RoboTech.Models;
 using AspNetCoreHero.ToastNotification.Abstractions;
+using RoboTech.Data;
 
 namespace RoboTech.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdminRolesController : Controller
     {
-        private readonly shoplaptopContext _context;
+        private readonly RobotechContext _context;
         public INotyfService _notyfService { get; }
-        public AdminRolesController(shoplaptopContext context, INotyfService notyfService)
+        public AdminRolesController(RobotechContext context, INotyfService notyfService)
         {
             _context = context;
             _notyfService = notyfService;
@@ -24,7 +25,7 @@ namespace RoboTech.Areas.Admin.Controllers
         // GET: Admin/AdminRoles
         public async Task<IActionResult> Index()
         {
-              return View(await _context.TbRoles.ToListAsync());
+            return View(await _context.TbRoles.ToListAsync());
         }
 
         // GET: Admin/AdminRoles/Details/5
@@ -153,7 +154,7 @@ namespace RoboTech.Areas.Admin.Controllers
             {
                 _context.TbRoles.Remove(tbRole);
             }
-            
+
             await _context.SaveChangesAsync();
             _notyfService.Success("Xóa quyền truy cập thành công");
             return RedirectToAction(nameof(Index));
@@ -161,7 +162,7 @@ namespace RoboTech.Areas.Admin.Controllers
 
         private bool TbRoleExists(int id)
         {
-          return _context.TbRoles.Any(e => e.RoleId == id);
+            return _context.TbRoles.Any(e => e.RoleId == id);
         }
     }
 }

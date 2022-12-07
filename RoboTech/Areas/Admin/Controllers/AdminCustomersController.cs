@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PagedList.Core;
+using RoboTech.Data;
 using RoboTech.Models;
 
 namespace RoboTech.Areas.Admin.Controllers
@@ -15,9 +16,9 @@ namespace RoboTech.Areas.Admin.Controllers
     /*[Authorize]*/
     public class AdminCustomersController : Controller
     {
-        private readonly shoplaptopContext _context;
+        private readonly RobotechContext _context;
 
-        public AdminCustomersController(shoplaptopContext context)
+        public AdminCustomersController(RobotechContext context)
         {
             _context = context;
         }
@@ -29,7 +30,7 @@ namespace RoboTech.Areas.Admin.Controllers
             var pageSize = 20;
             var lsCustomers = _context.TbCustomers
                 .AsNoTracking()
-                .OrderByDescending(x => x.CreateDate);
+                .OrderByDescending(x => x.CreatedDate);
             PagedList<TbCustomer> models = new PagedList<TbCustomer>(lsCustomers, pageNumber, pageSize);
 
             ViewBag.CurrentPage = pageNumber;
@@ -159,14 +160,14 @@ namespace RoboTech.Areas.Admin.Controllers
             {
                 _context.TbCustomers.Remove(tbCustomer);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool TbCustomerExists(int id)
         {
-          return _context.TbCustomers.Any(e => e.CustomerId == id);
+            return _context.TbCustomers.Any(e => e.CustomerId == id);
         }
     }
 }

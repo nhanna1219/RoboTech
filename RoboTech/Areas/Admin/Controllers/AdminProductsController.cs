@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AspNetCoreHero.ToastNotification.Abstractions;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PagedList.Core;
+using RoboTech.Data;
 using RoboTech.Models;
 
 namespace RoboTech.Areas.Admin.Controllers
@@ -14,9 +11,9 @@ namespace RoboTech.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminProductsController : Controller
     {
-        private readonly shoplaptopContext _context;
+        private readonly RobotechContext _context;
         public INotyfService _notyfService { get; }
-        public AdminProductsController(shoplaptopContext context, INotyfService notyfService)
+        public AdminProductsController(RobotechContext context, INotyfService notyfService)
         {
             _context = context;
             _notyfService = notyfService;
@@ -54,8 +51,8 @@ namespace RoboTech.Areas.Admin.Controllers
             ViewData["DanhMuc"] = new SelectList(_context.TbProductCategories, "CatId", "CatName");
 
             return View(models);
-            var shoplaptopContext = _context.TbProducts.Include(t => t.Cate);
-            return View(await shoplaptopContext.ToListAsync());
+            var RobotechContext = _context.TbProducts.Include(t => t.Cate);
+            return View(await RobotechContext.ToListAsync());
         }
 
         // GET: Admin/AdminProducts/Details/5
@@ -187,14 +184,14 @@ namespace RoboTech.Areas.Admin.Controllers
             {
                 _context.TbProducts.Remove(tbProduct);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool TbProductExists(int id)
         {
-          return _context.TbProducts.Any(e => e.ProductId == id);
+            return _context.TbProducts.Any(e => e.ProductId == id);
         }
     }
 }
