@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 using RoboTech.Models;
 
 namespace RoboTech.Data
@@ -58,6 +55,8 @@ namespace RoboTech.Data
             modelBuilder.Entity<TbCustomer>(entity =>
             {
                 entity.Property(e => e.Email).IsFixedLength();
+
+                entity.Property(e => e.Salt).IsFixedLength();
             });
 
             modelBuilder.Entity<TbOrder>(entity =>
@@ -112,6 +111,8 @@ namespace RoboTech.Data
             modelBuilder.Entity<TbUser>(entity =>
             {
                 entity.Property(e => e.Address).IsFixedLength();
+
+                entity.Property(e => e.Salt).IsFixedLength();
 
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.TbUsers)

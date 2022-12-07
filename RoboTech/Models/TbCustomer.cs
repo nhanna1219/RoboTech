@@ -37,6 +37,9 @@ namespace RoboTech.Models
         [Column(TypeName = "datetime")]
         public DateTime? LastLogin { get; set; }
         public bool? Active { get; set; }
+        [Column("salt")]
+        [StringLength(10)]
+        public string? Salt { get; set; }
 
         [InverseProperty("Customer")]
         public virtual ICollection<TbOrder> TbOrders { get; set; }

@@ -3,15 +3,12 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using RoboTech.Data;
 using RoboTech.Extension;
 using RoboTech.Helper;
 using RoboTech.Models;
 using RoboTech.ModelViews;
 using System.Security.Claims;
-using System;   
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 
 namespace RoboTech.Controllers
@@ -19,9 +16,9 @@ namespace RoboTech.Controllers
     [Authorize]
     public class AccountsController : Controller
     {
-        private readonly shoplaptopContext _context;
+        private readonly RobotechContext _context;
         public INotyfService _notyfService { get; }
-        public AccountsController(shoplaptopContext context, INotyfService notyfService)
+        public AccountsController(RobotechContext context, INotyfService notyfService)
         {
             _context = context;
             _notyfService = notyfService;
@@ -107,8 +104,7 @@ namespace RoboTech.Controllers
                         Email = taikhoan.Email.Trim().ToLower(),
                         Password = (taikhoan.Password + salt.Trim()).ToMD5(),
                         Active = true,
-                        Salt = salt,
-                        CreateDate = DateTime.Now
+                        CreatedDate = DateTime.Now
                     };
                     try
                     {
@@ -168,7 +164,7 @@ namespace RoboTech.Controllers
                 {
                     bool isEmail = Utilities.IsValidEmail(customer.UserName);
                     if (!isEmail) return View(customer);
-                     
+
                     var khachhang = _context.TbCustomers.AsNoTracking().SingleOrDefault(x => x.Email.Trim() == customer.UserName);
 
                     if (khachhang == null) return RedirectToAction("DangkyTaiKhoan");
