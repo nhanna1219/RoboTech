@@ -28,8 +28,10 @@ namespace RoboTech.Models
         public DateTime? CreatedDate { get; set; }
         public int? UpdatedBy { get; set; }
         public DateTime? UpdatedDate { get; set; }
+
         public virtual TbBrand? Brand { get; set; }
         public virtual TbProductCategory? Cate { get; set; }
         public virtual ICollection<TbOrderDetail> TbOrderDetails { get; set; }
+        public string? Thumb { get; internal set; }
     }
 }

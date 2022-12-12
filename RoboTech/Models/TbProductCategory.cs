@@ -15,6 +15,7 @@ namespace RoboTech.Models
         public bool? Status { get; set; }
         public int? ParentId { get; set; }
         public int? CreatedBy { get; set; }
+        public string Alias { get; set; }
         public DateTime? CreatedDate { get; set; }
         public int? UpdatedBy { get; set; }
         public DateTime? UpdatedDate { get; set; }

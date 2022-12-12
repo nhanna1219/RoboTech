@@ -16,23 +16,22 @@ namespace RoboTech.Models
         {
         }
 
-        public virtual DbSet<TbAdmin> TbAdmins { get; set; } = null!;
-        public virtual DbSet<TbBrand> TbBrands { get; set; } = null!;
-        public virtual DbSet<TbCustomer> TbCustomers { get; set; } = null!;
-        public virtual DbSet<TbFeedback> TbFeedbacks { get; set; } = null!;
-        public virtual DbSet<TbOrder> TbOrders { get; set; } = null!;
-        public virtual DbSet<TbOrderDetail> TbOrderDetails { get; set; } = null!;
-        public virtual DbSet<TbProduct> TbProducts { get; set; } = null!;
-        public virtual DbSet<TbProductCategory> TbProductCategories { get; set; } = null!;
-        public virtual DbSet<TbRole> TbRoles { get; set; } = null!;
-        public virtual DbSet<TbSlide> TbSlides { get; set; } = null!;
-        public virtual DbSet<TbUser> TbUsers { get; set; } = null!;
+        public virtual DbSet<TbAdmin> TbAdmins { get; set; }
+        public virtual DbSet<TbBrand> TbBrands { get; set; }
+        public virtual DbSet<TbCustomer> TbCustomers { get; set; } 
+        public virtual DbSet<TbFeedback> TbFeedbacks { get; set; } 
+        public virtual DbSet<TbOrder> TbOrders { get; set; } 
+        public virtual DbSet<TbOrderDetail> TbOrderDetails { get; set; }
+        public virtual DbSet<TbProduct> TbProducts { get; set; } 
+        public virtual DbSet<TbProductCategory> TbProductCategories { get; set; } 
+        public virtual DbSet<TbRole> TbRoles { get; set; } 
+        public virtual DbSet<TbSlide> TbSlides { get; set; } 
+        public virtual DbSet<TbUser> TbUsers { get; set; } 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=ELONMUSK;Database=shoplaptop;Trusted_Connection=True;");
             }
         }
@@ -177,58 +176,7 @@ namespace RoboTech.Models
                     .HasConstraintName("FK_tb_OrderDetail_tb_Product");
             });
 
-            /*modelBuilder.Entity<TbPost>(entity =>
-            {
-                entity.HasKey(e => e.PostId);
-
-                entity.ToTable("tb_Post");
-
-                entity.Property(e => e.PostId).HasColumnName("PostID");
-
-                entity.Property(e => e.CateId).HasColumnName("CateID");
-
-                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
-
-                entity.Property(e => e.Description).HasMaxLength(500);
-
-                entity.Property(e => e.Detail).HasColumnType("ntext");
-
-                entity.Property(e => e.Image).HasMaxLength(250);
-
-                entity.Property(e => e.MetaDescription).HasMaxLength(250);
-
-                entity.Property(e => e.MetaKeyword).HasMaxLength(250);
-
-                entity.Property(e => e.Name).HasMaxLength(250);
-
-                entity.Property(e => e.Status).HasDefaultValueSql("((1))");
-
-                entity.Property(e => e.Tags).HasMaxLength(50);
-
-                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
-            });
-
-            modelBuilder.Entity<TbPostComment>(entity =>
-            {
-                entity.HasKey(e => e.CommentId);
-
-                entity.ToTable("tb_PostComment");
-
-                entity.Property(e => e.CommentId).HasColumnName("CommentID");
-
-                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
-
-                entity.Property(e => e.Detail).HasMaxLength(500);
-
-                entity.Property(e => e.Email).HasMaxLength(50);
-
-                entity.Property(e => e.Name).HasMaxLength(50);
-
-                entity.Property(e => e.PostId).HasColumnName("PostID");
-
-                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
-            });*/
-
+           
             modelBuilder.Entity<TbProduct>(entity =>
             {
                 entity.HasKey(e => e.ProductId);

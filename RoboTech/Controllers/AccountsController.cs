@@ -1,5 +1,6 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -33,6 +34,7 @@ namespace RoboTech.Controllers
             try
             {
                 /*var customer = _context.TbCustomers.FirstOrDefault(x => x.Phone == Phone);*/
+                
                 var khachhang = _context.TbCustomers.AsNoTracking().SingleOrDefault(x => x.Phone.ToLower() == Phone.ToLower());
                 if (khachhang != null)
                     return Json(data: "Số điện thoại : " + Phone + "đã được sử dụng");
@@ -64,13 +66,13 @@ namespace RoboTech.Controllers
         [Route("my-account", Name = "Dashboard")]
         public IActionResult Dashboard()
         {
-            var taikhoanID = HttpContext.Session.GetString("CustomerID");
+            var taikhoanID = HttpContext.Session.GetString("CustomerId");
             if (taikhoanID != null)
             {
                 var khachhang = _context.TbCustomers.AsNoTracking().SingleOrDefault(x => x.CustomerId == Convert.ToInt32(taikhoanID));
                 if (khachhang != null)
                 {
-                    /*var lsDonHang = _context.TbOrders
+                    /*var ls    DonHang = _context.TbOrders
                         *//*.Include(x => x.TransactStatus)*//*
                         .AsNoTracking()
                         .Where(x => x.CustomerId == khachhang.CustomerId)
@@ -103,7 +105,7 @@ namespace RoboTech.Controllers
                     TbCustomer khachhang = new TbCustomer
                     {
                         FullName = taikhoan.FullName,
-                        Phone = taikhoan.Phone.Trim().ToLower(),
+                        Phone = taikhoan.Phone.Trim().ToLower() ,
                         Email = taikhoan.Email.Trim().ToLower(),
                         Password = (taikhoan.Password + salt.Trim()).ToMD5(),
                         Active = true,
@@ -128,7 +130,7 @@ namespace RoboTech.Controllers
                         ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
                         await HttpContext.SignInAsync(claimsPrincipal);
                         _notyfService.Success("Đăng ký thành công");
-                        // Gio hang
+                        
                         return RedirectToAction("Dashboard", "Accounts");
                     }
                     catch
@@ -148,11 +150,11 @@ namespace RoboTech.Controllers
         }
         [AllowAnonymous]
         [Route("Log-in", Name = "DangNhap")]
-        public IActionResult Login(string returnUrl = null)
+        public IActionResult Login(string? returnUrl = null)
         {
             var taikhoanID = HttpContext.Session.GetString("CustomerId");
             if (taikhoanID != null)
-            {
+            {   
                 return RedirectToAction("Dashboard", "Accounts");
             }
             return View();
@@ -160,7 +162,7 @@ namespace RoboTech.Controllers
         [HttpPost]
         [AllowAnonymous]
         [Route("Log-in", Name = "DangNhap")]
-        public async Task<IActionResult> Login(LoginViewModel customer, string returnUrl)
+        public async Task<IActionResult> Login(LoginViewModel customer, string? returnUrl)
         {
             try
             {
@@ -168,10 +170,9 @@ namespace RoboTech.Controllers
                 {
                     bool isEmail = Utilities.IsValidEmail(customer.UserName);
                     if (!isEmail) return View(customer);
-                     
-                    var khachhang = _context.TbCustomers.AsNoTracking().SingleOrDefault(x => x.Email.Trim() == customer.UserName);
-
+                    var khachhang = _context.TbCustomers.Single(x => x.Email.Trim() == customer.UserName);
                     if (khachhang == null) return RedirectToAction("DangkyTaiKhoan");
+                    
                     string pass = (customer.Password + khachhang.Salt.Trim()).ToMD5();
                     if (khachhang.Password != pass)
                     {
@@ -195,7 +196,7 @@ namespace RoboTech.Controllers
                         new Claim(ClaimTypes.Name, khachhang.FullName),
                         new Claim("CustomerId", khachhang.CustomerId.ToString())
                     };
-                    ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "login");
+                    ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
                     await HttpContext.SignInAsync(claimsPrincipal);
                     _notyfService.Success("Đăng nhập thành công");
@@ -211,12 +212,13 @@ namespace RoboTech.Controllers
             }
             catch
             {
+                _notyfService.Success("Đăng nhập thất bại");
                 return RedirectToAction("DangkyTaiKhoan", "Accounts");
             }
             return View(customer);
         }
         [HttpGet]
-        [Route("dang-xuat.html", Name = "DangXuat")]
+        [Route("Logout", Name = "DangXuat")]
         public IActionResult Logout()
         {
             HttpContext.SignOutAsync();

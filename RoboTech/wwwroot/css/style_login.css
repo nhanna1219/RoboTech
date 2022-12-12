@@ -247,3 +247,8 @@ body {
     text-align: center;
     font-size: 22px;
 }
+.text-danger {
+    color: red;
+    font-style: Roboto;
+    font-weight: bold;
+}
