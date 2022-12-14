@@ -28,8 +28,8 @@
                     <div class="col-md-6">
                         <div class="input-affix m-v-10">
                             <select class="custom-select" id="txtCatID" name="txtCatID" style="min-width: 200px;" asp-items="ViewBag.DanhMuc">
-                                <option selected>Chọn danh mục</option>
-                                <option value="0">Chọn tất cả</option>
+                                <option disabled selected>Chọn danh mục</option>
+                                <option value="0">Chọn danh mục</option>
                             </select>
                         </div>
                     </div>
@@ -69,7 +69,9 @@
                                         <h6 class="m-b-0 m-l-10">@item.Name</h6>
                                     </div>
                                 </td>
-                                <td>@item.Cate.Name</td>
+                                <td>
+                                    @item.Cate.Name
+                                </td>
                                 <td>@item.Price.Value.ToString("#,##0") VNĐ</td>
                                 <td>@item.Quantity</td>
                                 <td>

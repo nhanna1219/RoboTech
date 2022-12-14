@@ -4133,11 +4133,11 @@ textarea.form-control-lg {
     --bs-nav-link-color: var(--bs-link-color);
     --bs-nav-link-hover-color: var(--bs-link-hover-color);
     --bs-nav-link-disabled-color: #868e96;
-    display: flex;
+   /* display: flex;
     flex-wrap: wrap;
     padding-left: 0;
     margin-bottom: 0;
-    list-style: none;
+    list-style: none;*/
 }
 
 .nav-link {

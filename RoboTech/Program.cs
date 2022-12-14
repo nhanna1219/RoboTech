@@ -1,24 +1,25 @@
-using AspNetCoreHero.ToastNotification;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.EntityFrameworkCore;
-using RoboTech.Data;
-using System.Text.Encodings.Web;
-using System.Text.Unicode;
-
-
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<RobotechContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("RobotechConnectionString")));
+builder.Services.AddDbContext<shoplaptopContext>(options =>
+options.UseSqlServer(
+builder.Configuration.GetConnectionString("WebShopConnectionString")
+));
 builder.Services.AddSingleton<HtmlEncoder>(HtmlEncoder.Create(allowedRanges: new[] { UnicodeRanges.All }));
-builder.Services.AddSession();
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromSeconds(10);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(p =>
                 {
                     p.Cookie.Name = "UserLoginCookie";
                     p.ExpireTimeSpan = TimeSpan.FromDays(1);
-                    //p.LoginPath = "/dang-nhap.html";
+                    p.LoginPath = "/Log-in";
                     //p.LogoutPath = "/dang-xuat/html";
                     p.AccessDeniedPath = "/not-found.html";
                 });
@@ -48,7 +49,7 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseSession();
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(

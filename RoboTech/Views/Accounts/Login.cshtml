@@ -9,16 +9,16 @@
 <div class="form login">
     <div class="form-content">
         <header>Login to <a class="title-head" href="/Home">RoboTech</a></header>
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form asp-action="Login" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
             <div class="field input-field">
                 <input type="email" asp-for="UserName" placeholder="Email" class="input">
-                <span asp-validation-for="UserName" class="text-danger"></span>
+                
             </div>
 
             <div class="field input-field">
                 <input type="password" asp-for="Password" placeholder="Password" class="password">
-                <span asp-validation-for="Password" class="text-danger"></span>
+              
                 <i class='bx bx-hide eye-icon'></i>
             </div>
 

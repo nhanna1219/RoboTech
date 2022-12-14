@@ -1,12 +1,4 @@
-﻿using AspNetCoreHero.ToastNotification.Abstractions;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using PagedList.Core;
-using RoboTech.Data;
-using RoboTech.Models;
-
-namespace RoboTech.Areas.Admin.Controllers
+﻿namespace RoboTech.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdminProductsController : Controller
@@ -48,7 +40,7 @@ namespace RoboTech.Areas.Admin.Controllers
 
             ViewBag.CurrentPage = pageNumber;
 
-            ViewData["DanhMuc"] = new SelectList(_context.TbProductCategories, "CatId", "CatName");
+            ViewData["DanhMuc"] = new SelectList(_context.TbProductCategories, "CatId", "Name");
 
             return View(models);
             var RobotechContext = _context.TbProducts.Include(t => t.Cate);
@@ -77,7 +69,7 @@ namespace RoboTech.Areas.Admin.Controllers
         // GET: Admin/AdminProducts/Create
         public IActionResult Create()
         {
-            /*ViewData["CateId"] = new SelectList(_context.TbPostCategories, "CateId", "CateId");*/
+            ViewData["DanhMuc"] = new SelectList(_context.TbProductCategories, "CatId", "Name");
             return View();
         }
 
@@ -86,15 +78,29 @@ namespace RoboTech.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,Name,Status,Image,ListImages,Price,PromotionPrice,Vat,Quantity,Warranty,Hot,Description,Detail,ViewCount,CateId,BrandId,SupplierId,MetaKeyword,MetaDescription,CreatedBy,CreatedDate,UpdatedBy,UpdatedDate")] TbProduct tbProduct)
+        public async Task<IActionResult> Create([Bind("ProductId,Name,Status,Image,ListImages,Price,PromotionPrice,Vat,Quantity,Warranty,Hot,Description,Detail,ViewCount,CateId,BrandId,SupplierId,MetaKeyword,MetaDescription,CreatedBy,CreatedDate,UpdatedBy,UpdatedDate")] TbProduct tbProduct, Microsoft.AspNetCore.Http.IFormFile fThumb)
         {
             if (ModelState.IsValid)
             {
+                /*tbProduct.Name = Utilities.ToTitleCase(tbProduct.Name);
+                if (fThumb != null)
+                {
+                    string extension = Path.GetExtension(fThumb.FileName);
+                    string image = Utilities.SEOUrl(product.ProductName) + extension;
+                    tbProduct.Thumb = await Utilities.UploadFile(fThumb, @"products", image.ToLower());
+                }
+                if (string.IsNullOrEmpty(tbProduct.Thumb)) product.Thumb = "default.jpg";
+                tbProduct.Alias = Utilities.SEOUrl(product.ProductName);
+                tbProduct.DateModified = DateTime.Now;
+                tbProduct.DateCreated = DateTime.Now;*/
+
                 _context.Add(tbProduct);
                 await _context.SaveChangesAsync();
+                _notyfService.Success("Thêm mới thành công");
                 return RedirectToAction(nameof(Index));
             }
-            /*ViewData["CateId"] = new SelectList(_context.TbPostCategories, "CateId", "CateId", tbProduct.CateId);*/
+            ViewData["DanhMuc"] = new SelectList(_context.TbProductCategories, "CatId", "Name", tbProduct.CateId);
+            /*ViewData["DanhMuc"] = new SelectList(_context.TbProductCategories, "CatId", "Name");*/
             return View(tbProduct);
         }
 
@@ -111,7 +117,7 @@ namespace RoboTech.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            /*ViewData["CateId"] = new SelectList(_context.TbPostCategories, "CateId", "CateId", tbProduct.CateId);*/
+            ViewData["DanhMuc"] = new SelectList(_context.TbProductCategories, "CatId", "Name", tbProduct.CateId);
             return View(tbProduct);
         }
 
@@ -147,7 +153,7 @@ namespace RoboTech.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            /*ViewData["CateId"] = new SelectList(_context.TbPostCategories, "CateId", "CateId", tbProduct.CateId);*/
+            ViewData["DanhMuc"] = new SelectList(_context.TbProductCategories, "CatId", "Name", tbProduct.CateId);
             return View(tbProduct);
         }
 

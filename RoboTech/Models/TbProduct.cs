@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
-
-namespace RoboTech.Models
+﻿namespace RoboTech.Models
 {
     [Table("tb_Product")]
     public partial class TbProduct
@@ -45,13 +39,12 @@ namespace RoboTech.Models
         [Column(TypeName = "datetime")]
         public DateTime? UpdatedDate { get; set; }
 
-        [ForeignKey("BrandId")]
-        [InverseProperty("TbProducts")]
         public virtual TbBrand? Brand { get; set; }
         [ForeignKey("CateId")]
         [InverseProperty("TbProducts")]
         public virtual TbProductCategory? Cate { get; set; }
         [InverseProperty("Product")]
         public virtual ICollection<TbOrderDetail> TbOrderDetails { get; set; }
+        public string? Thumb { get; internal set; }
     }
 }

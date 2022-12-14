@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
-
-namespace RoboTech.Models
+﻿namespace RoboTech.Models
 {
     [Table("tb_ProductCategory")]
     public partial class TbProductCategory
@@ -20,6 +14,9 @@ namespace RoboTech.Models
         public string Name { get; set; } = null!;
         [Required]
         public bool? Status { get; set; }
+        public int? ParentId { get; set; }
+        public int? CreatedBy { get; set; }
+        public string Alias { get; set; }
         [StringLength(30)]
         public string? CreatedBy { get; set; }
         [Column(TypeName = "datetime")]

@@ -38,8 +38,8 @@
                             <div>
                                 @if (User.Identity.IsAuthenticated)
                                 {
-                                    <i class="fa-solid fa-user"></i> <a class="text-dark fw-semibold" style="text-decoration: none" href="/Dashboard">&nbsp;My Account</a>
-                                    <a class="text-dark fw-semibold" style="text-decoration: none" asp-area="" asp-controller="Register" asp-action="Index">| Log out </a>
+                                    <i class="fa-solid fa-user"></i> <a class="text-dark fw-semibold" style="text-decoration: none" href="/my-account">&nbsp;My Account</a>
+                                    <a class="text-dark fw-semibold" style="text-decoration: none" asp-controller="Logout" asp-action="Index">| Log out </a>
                                 }
                                 else
                                 {
