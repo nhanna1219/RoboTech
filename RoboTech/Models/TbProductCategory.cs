@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
 namespace RoboTech.Models
 {
@@ -31,5 +28,6 @@ namespace RoboTech.Models
 
         [InverseProperty("Cate")]
         public virtual ICollection<TbProduct> TbProducts { get; set; }
+        public string Alias { get; internal set; }
     }
 }
