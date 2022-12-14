@@ -1,11 +1,18 @@
+using AspNetCoreHero.ToastNotification;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.EntityFrameworkCore;
+using RoboTech.Data;
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<RobotechContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("RobotechConnectionString")));
-builder.Services.AddDbContext<shoplaptopContext>(options =>
-options.UseSqlServer(
-builder.Configuration.GetConnectionString("WebShopConnectionString")
-));
+//builder.Services.AddDbContext<shoplaptopContext>(options =>
+//options.UseSqlServer(
+//builder.Configuration.GetConnectionString("WebShopConnectionString")
+//));
 builder.Services.AddSingleton<HtmlEncoder>(HtmlEncoder.Create(allowedRanges: new[] { UnicodeRanges.All }));
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>

@@ -1,4 +1,17 @@
-﻿namespace RoboTech.Controllers
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using RoboTech.Data;
+using RoboTech.Extension;
+using RoboTech.Helper;
+using RoboTech.Models;
+using RoboTech.ModelViews;
+using System.Security.Claims;
+
+namespace RoboTech.Controllers
 {
     [Authorize]
     public class AccountsController : Controller

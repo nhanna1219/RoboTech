@@ -1,4 +1,12 @@
-﻿namespace RoboTech.Areas.Admin.Controllers
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using PagedList.Core;
+using RoboTech.Models;
+using RoboTech.Data;
+using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
+namespace RoboTech.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdminProductsController : Controller
