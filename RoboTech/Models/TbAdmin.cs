@@ -17,16 +17,16 @@ namespace RoboTech.Models
         [Unicode(false)]
         public string? Name { get; set; }
         [Column("username")]
-        [StringLength(10)]
-        public string Username { get; set; } = null!;
+        [StringLength(30)]
+        public string? Username { get; set; }
         [Column("password")]
-        [StringLength(10)]
-        public string Password { get; set; } = null!;
+        [StringLength(30)]
+        public string? Password { get; set; }
         [Column("RoleID")]
-        public int? RoleId { get; set; }
+        public int RoleId { get; set; }
 
         [ForeignKey("RoleId")]
         [InverseProperty("TbAdmins")]
-        public virtual TbRole? Role { get; set; }
+        public virtual TbRole Role { get; set; } = null!;
     }
 }

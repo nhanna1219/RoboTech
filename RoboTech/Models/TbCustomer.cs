@@ -19,10 +19,6 @@ namespace RoboTech.Models
         public int CustomerId { get; set; }
         [StringLength(50)]
         public string? FullName { get; set; }
-        [Column(TypeName = "datetime")]
-        public DateTime? DayOfBirth { get; set; }
-        [StringLength(50)]
-        public string? Avatar { get; set; }
         [StringLength(50)]
         public string? Address { get; set; }
         [StringLength(50)]
@@ -30,8 +26,13 @@ namespace RoboTech.Models
         [StringLength(12)]
         [Unicode(false)]
         public string? Phone { get; set; }
+        [StringLength(50)]
+        public string? City { get; set; }
+        [StringLength(50)]
+        public string? State { get; set; }
+        public int? Zip { get; set; }
         [Column(TypeName = "datetime")]
-        public DateTime? CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; }
         [StringLength(50)]
         public string? Password { get; set; }
         [Column(TypeName = "datetime")]

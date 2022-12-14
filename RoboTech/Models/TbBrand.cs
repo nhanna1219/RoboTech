@@ -19,6 +19,8 @@ namespace RoboTech.Models
         public int Id { get; set; }
         [StringLength(250)]
         public string? Name { get; set; }
+        [StringLength(20)]
+        public string? ProductType { get; set; }
 
         [InverseProperty("Brand")]
         public virtual ICollection<TbProduct> TbProducts { get; set; }

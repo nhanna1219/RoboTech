@@ -1,4 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using RoboTech.Models;
 
 namespace RoboTech.Data
@@ -30,7 +33,8 @@ namespace RoboTech.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=127.0.0.1;Database=Robotech;User Id=sqlserver;Password=robotech2022;MultipleActiveResultSets=true");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Server=NHANNA\\SQLEXPRESS;Database=Robotech;Integrated Security=true;Trusted_Connection=True;MultipleActiveResultSets=true");
             }
         }
 
@@ -38,8 +42,6 @@ namespace RoboTech.Data
         {
             modelBuilder.Entity<TbAdmin>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Name).HasDefaultValueSql("('Admin')");
 
                 entity.Property(e => e.Password).IsFixedLength();
@@ -49,11 +51,19 @@ namespace RoboTech.Data
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.TbAdmins)
                     .HasForeignKey(d => d.RoleId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_tb_Admin_tb_Roles");
+            });
+
+            modelBuilder.Entity<TbBrand>(entity =>
+            {
+                entity.Property(e => e.ProductType).IsFixedLength();
             });
 
             modelBuilder.Entity<TbCustomer>(entity =>
             {
+                entity.Property(e => e.CreatedDate).HasDefaultValueSql("(getdate())");
+
                 entity.Property(e => e.Email).IsFixedLength();
 
                 entity.Property(e => e.Salt).IsFixedLength();
@@ -61,6 +71,8 @@ namespace RoboTech.Data
 
             modelBuilder.Entity<TbOrder>(entity =>
             {
+                entity.Property(e => e.OrderDate).HasDefaultValueSql("(getdate())");
+
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.TbOrders)
                     .HasForeignKey(d => d.CustomerId)
@@ -86,9 +98,11 @@ namespace RoboTech.Data
 
             modelBuilder.Entity<TbProduct>(entity =>
             {
+                entity.Property(e => e.CreatedDate).HasDefaultValueSql("(getdate())");
+
                 entity.Property(e => e.Price).HasDefaultValueSql("((0))");
 
-                entity.Property(e => e.Quantity).HasDefaultValueSql("((0))");
+                entity.Property(e => e.Quantity).HasDefaultValueSql("((10))");
 
                 entity.Property(e => e.Status).HasDefaultValueSql("((1))");
 
@@ -105,12 +119,14 @@ namespace RoboTech.Data
 
             modelBuilder.Entity<TbProductCategory>(entity =>
             {
+                entity.Property(e => e.CreatedDate).HasDefaultValueSql("(getdate())");
+
                 entity.Property(e => e.Status).HasDefaultValueSql("((1))");
             });
 
             modelBuilder.Entity<TbUser>(entity =>
             {
-                entity.Property(e => e.Address).IsFixedLength();
+                entity.Property(e => e.CreatedDate).HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.Salt).IsFixedLength();
 

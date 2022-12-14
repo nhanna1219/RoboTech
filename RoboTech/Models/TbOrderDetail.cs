@@ -17,7 +17,7 @@ namespace RoboTech.Models
         public int ProductId { get; set; }
         [StringLength(50)]
         public string? ProductName { get; set; }
-        [Column(TypeName = "decimal(18, 0)")]
+        [Column(TypeName = "money")]
         public decimal? Price { get; set; }
         public int? Quantity { get; set; }
 

@@ -276,7 +276,7 @@ body {
             line-height: 60px;
             border-radius: 0;
             width: 100%;
-            background: #E7E7E7;
+            background: #e7e7e764;
             font-weight: 700;
             text-align: initial;
         }
@@ -294,6 +294,7 @@ body {
             #category .nav-item .btn:hover {
                 background: #3eaab9;
                 color: white;
+                transition: all 0.2s;
             }
 
         #category .nav-item .subnav {
@@ -305,7 +306,7 @@ body {
             min-width: 857px;
             min-height: 470px;
             border-radius: 5px;
-            background-color: #E7E7E7;
+            background-color: #f3f3f3f0;
             box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4);
             padding-inline-start: 0;
             z-index: 4;
@@ -699,8 +700,9 @@ section .bg-cart {
 }
 
     section .bg-cart:hover {
-        background-color: cadetblue;
+        background-color: #249092;
         color: white;
+        transition: all 0.4s;
     }
 
 

@@ -1,16 +1,13 @@
-﻿using System.Text;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
+using System.Text;
 namespace RoboTech.Extension
 {
     public static class HashMD5
     {
         public static string ToMD5(this string str)
         {
-            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+            //MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+            var md5 = MD5.Create();
             byte[] bHash = md5.ComputeHash(Encoding.UTF8.GetBytes(str));
             StringBuilder sbHash = new StringBuilder();
             foreach (byte b in bHash)

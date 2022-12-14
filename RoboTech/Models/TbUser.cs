@@ -18,14 +18,12 @@ namespace RoboTech.Models
         public string? Username { get; set; }
         [StringLength(50)]
         public string? Password { get; set; }
-        [StringLength(10)]
-        public string? Address { get; set; }
         [Column("RoleID")]
         public int? RoleId { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime? LastLogin { get; set; }
         [Column(TypeName = "datetime")]
-        public DateTime? CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; }
         public bool? Active { get; set; }
         [StringLength(12)]
         public string? Phone { get; set; }

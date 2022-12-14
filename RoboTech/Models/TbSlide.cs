@@ -14,8 +14,7 @@ namespace RoboTech.Models
         public int Id { get; set; }
         [StringLength(50)]
         public string? Name { get; set; }
-        [StringLength(50)]
-        public string? Image { get; set; }
+        public byte[]? Image { get; set; }
         [StringLength(50)]
         public string? Link { get; set; }
     }

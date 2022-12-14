@@ -24,16 +24,15 @@ namespace RoboTech.Models
         public string? Image { get; set; }
         [Column(TypeName = "xml")]
         public string? ListImages { get; set; }
-        [Column(TypeName = "decimal(18, 0)")]
+        [Column(TypeName = "money")]
         public decimal? Price { get; set; }
-        [Column(TypeName = "decimal(18, 0)")]
+        [Column(TypeName = "decimal(5, 2)")]
+        public decimal? PromotionPercentage { get; set; }
+        [Column(TypeName = "money")]
         public decimal? PromotionPrice { get; set; }
         public int? Quantity { get; set; }
-        public int Warranty { get; set; }
-        [Column(TypeName = "datetime")]
-        public DateTime? Hot { get; set; }
         [StringLength(500)]
-        public string Description { get; set; } = null!;
+        public string? Description { get; set; }
         public int? ViewCount { get; set; }
         [Column("CateID")]
         public int? CateId { get; set; }

@@ -20,12 +20,12 @@ namespace RoboTech.Models
         public string Name { get; set; } = null!;
         [Required]
         public bool? Status { get; set; }
-        [Column("ParentID")]
-        public int? ParentId { get; set; }
-        public int? CreatedBy { get; set; }
+        [StringLength(30)]
+        public string? CreatedBy { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime? CreatedDate { get; set; }
-        public int? UpdatedBy { get; set; }
+        [StringLength(30)]
+        public string? UpdatedBy { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime? UpdatedDate { get; set; }
 
