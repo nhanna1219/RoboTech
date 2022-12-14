@@ -437,3 +437,5 @@ _[Ss]cripts
 *.nupkg
 *.ncrunchsolution
 *.dot[Cc]over
+/RoboTech/appsettings.json
+/RoboTech/appsettings.json
