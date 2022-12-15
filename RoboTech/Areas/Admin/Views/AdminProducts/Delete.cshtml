@@ -4,111 +4,149 @@
     ViewData["Title"] = "Delete";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-
-<h1>Delete</h1>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>TbProduct</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Image)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ListImages)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ListImages)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PromotionPrice)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PromotionPrice)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Quantity)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Quantity)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ViewCount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ViewCount)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BrandId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BrandId)
-        </dd>
-      
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedBy)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UpdatedBy)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UpdatedBy)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UpdatedDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UpdatedDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cate.CateId)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="ProductId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index" class="breadcrumb-item">Danh sách sản phẩm</a>
+            <span class="breadcrumb-item active">Thông tin sản phẩm : @Model.Name</span>
+        </nav>
+    </div>
 </div>
+
+<div class="card-body">
+    <h4 class="card-title">Thông tin sản phẩm : @Model.Name</h4>
+    <div class="table-responsive">
+        <table class="product-info-table m-t-20">
+            <tbody>
+                <tr>
+                    <td>ID:</td>
+                    <td class="text-dark font-weight-semibold">@Model.ProductId</td>
+                </tr>
+                <tr>
+                    <td>Tên sản phẩm:</td>
+                    <td>@Model.Name</td>
+                </tr>
+                <tr>
+                    <td>Mô tả ngắn:</td>
+                    <td>@Model.Description</td>
+                </tr>
+                <tr>
+                    <td>Giá:</td>
+                    <td>@Model.Price</td>
+                </tr>
+                <tr>
+                    <td>Discount:</td>
+                    <td>@Model.Discount</td>
+                </tr>
+                <tr>
+                    <td>Trạng thái:</td>
+                    @*<td>
+                        @if (Model.Active)
+                        {
+                            <div class="switch m-r-10">
+                                <input type="checkbox" id="switch-1" checked="" disabled />
+                                <label for="switch-1"></label>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="switch m-r-10">
+                                <input type="checkbox" id="switch-1" disabled />
+                                <label for="switch-1"></label>
+                            </div>
+                        }
+                    </td>*@
+                </tr>
+                <tr>
+                    <td>Bestseller:</td>
+                   @* <td>
+                        @if (Model.BestSellers)
+                        {
+                            <div class="switch m-r-10">
+                                <input type="checkbox" id="switch-1" checked="" disabled />
+                                <label for="switch-1"></label>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="switch m-r-10">
+                                <input type="checkbox" id="switch-1" disabled />
+                                <label for="switch-1"></label>
+                            </div>
+                        }
+                    </td>*@
+                </tr>
+                <tr>
+                    <td>HomeFlag:</td>
+                    <td>
+                        @*@if (Model.HomeFlag)
+                        {
+                            <div class="switch m-r-10">
+                                <input type="checkbox" id="switch-1" checked="" disabled />
+                                <label for="switch-1"></label>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="switch m-r-10">
+                                <input type="checkbox" id="switch-1" disabled />
+                                <label for="switch-1"></label>
+                            </div>
+                        }*@
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>Danh mục:</td>
+                    <td>@Model.Cate.Name</td>
+                </tr>
+                <tr>
+                    <td>Ngày tạo:</td>
+                    <td>@Model.CreatedDate</td>
+                </tr>
+                <tr>
+                    <td>Ngày chỉnh sửa:td>
+                    <td>@Model.CreatedBy</td>
+                </tr>
+                <tr>
+                    <td>Tiêu đề:</td>
+                    @*<td>@Model.Title</td>*@
+                </tr>
+               @* <tr>
+                    <td>MetaDesc:</td>
+                    <td>@Model.MetaDesc</td>
+                </tr>
+                <tr>
+                    <td>MetaKey:</td>
+                    <td>@Model.MetaKey</td>
+                </tr>*@
+                @*<tr>
+                    <td>Tags:</td>
+                    <td>@Model.Tags</td>
+                </tr>*@
+                <tr>
+                    <td>Ảnh đại diện:</td>
+                    <td>
+                        <img width="200" height="200" src="~/images/products/@Model.Thumb" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mô tả sản phẩm:</td>
+                    <td>@Model.Description</td>
+                </tr>
+                <tr>
+                    <td>Xác nhận xóa:</td>
+                    <td>
+                        <form asp-controller="AdminProducts" asp-action="Delete" asp-route-id="@Model.ProductId">
+                            <input type="hidden" asp-for="ProductId" />
+                            <input type="submit" value="Xác nhận xóa" class="btn btn-danger" />
+                        </form>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+

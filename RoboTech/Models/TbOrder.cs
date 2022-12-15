@@ -24,6 +24,7 @@ namespace RoboTech.Models
         public DateTime? DeliveryDate { get; set; }
         [Column("CustomerID")]
         public int? CustomerId { get; set; }
+        public int? TotalMoney { get; set; }
 
         [ForeignKey("CustomerId")]
         [InverseProperty("TbOrders")]

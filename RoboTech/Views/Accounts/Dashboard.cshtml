@@ -3,6 +3,8 @@
 @{
     ViewData["Title"] = "Dashboard";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    List<TbOrder> DanhSachDonHang = ViewBag.DonHang;
+   
     RoboTech.ModelViews.ChangePasswordViewModel changePassword = new RoboTech.ModelViews.ChangePasswordViewModel();
 }
 <div class="container"> 
@@ -11,10 +13,10 @@
             <div class="profile">
                 <ul class="nav myaccount-tab-trigger" id="account-page-tab" role="tablist">
                     <li class="nav-item"><a href="#account-dashboard" class="nav-link active" id="account-dashboard-tab" data-bs-toggle="tab" aria-controls="account-dashboard">Account <span>></span></a></li>
-                    <li class="nav-item"><a href="#account-details" class="nav-link" id="account-details-tab" data-bs-toggle="tab" aria-controls="account-orders" aria-selected="false">Billing Detail <span>></span></a></li>
+                    <li class="nav-item"><a href="" class="nav-link" id="account-details-tab" data-bs-toggle="tab" aria-controls="account-orders" aria-selected="false">Billing Detail <span>></span></a></li>
                     <li class="nav-item"><a href="#account-orders" class="nav-link" id="account-orders-tab" data-bs-toggle="tab" aria-controls="account-details" aria-selected="false">My Orders <span>></span></a></li>
                     <li class="nav-item"><a href="" class="nav-link" data-bs-toggle="tab">Update Account <span>></span></a></li>
-                    <li class="nav-item"><a href="change-password.html" class="nav-link" data-bs-toggle="tab">Change Password <span>></span></a></li>
+                    <li class="nav-item"><a href="#account-details" id="account-details-tab" class="nav-link" data-bs-toggle="tab" role="tab" aria-controls="account-details" aria-selected="false">Change Password <span>></span></a></li>
                     <li class="nav-item"><a href="" class="nav-link" id="account-logout-tab" role="tab" aria-selected="false">Logout <span>></span></a></li>
                 </ul>
             </div>
@@ -41,7 +43,7 @@
                     <div class="tab-pane fade" id="account-orders" role="tabpanel" aria-labelledby="account-orders-tab">
                         <div class="myaccount-orders">
                             <h4 class="small-title">LIST OF YOUR ORDERS</h4>
-                            @*@if (DanhSachDonHang != null && DanhSachDonHang.Count() > 0)
+                            @if (DanhSachDonHang != null && DanhSachDonHang.Count() > 0)
                             {
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-hover">
@@ -55,12 +57,12 @@
                                             @foreach (var item in DanhSachDonHang)
                                             {
                                                 <tr>
-                                                    <td><a class="account-order-id" href="javascript:void(0)">#@item.OrderId</a></td>
+                                                    <td><a class="account-order-id" href="javascript:void(0)">#@item.Id</a></td>
                                                     <td>@item.OrderDate</td>
-                                                    <td>@item.ShipDate</td>
-                                                    <td>@item.TransactStatus.Status</td>
+                                                    <td>@item.DeliveryDate</td>
+                                                  @*  <td>@item.TransactStatus.Status</td>*@
                                                     <td>
-                                                        <a href="javascript:void(0)" class="xemdonhang" data-madonhang="@item.OrderId">Xem đơn hàng</a>
+                                                        <a href="javascript:void(0)" class="xemdonhang" data-madonhang="@item.Id">Xem đơn hàng</a>
                                                     </td>
                                                 </tr>
                                             }
@@ -79,8 +81,8 @@
                             }
                             else
                             {
-                                <p>Chưa có đơn hàng!</p>
-                            }*@
+                                <p>You don't have any orders yet!<a href="Home"><b> SHOPING NOW </b></a> !</p>
+                            }
                         </div>
                     </div>
                     <div class="tab-pane fade" id="account-address" role="tabpanel" aria-labelledby="account-address-tab">
@@ -103,7 +105,7 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="account-details" role="tabpanel" aria-labelledby="account-details-tab">
-                        @*@await Html.PartialAsync("_ChangePasswordPartialView", changePassword)*@
+                        @await Html.PartialAsync("_ChangePasswordPartialView", changePassword)
                     </div>
                 </div>
             </div>
@@ -113,3 +115,26 @@
         
     </main> <!-- Main Area -->
 </div>
+@section Scripts{
+<script>
+    $(document).ready(function () {
+        $(".xemdonhang").click(function () {
+            var madonhang = $(this).attr("data-madonhang")
+            $.ajax({
+                url: '/DonHang/Details',
+                datatype: "json",
+                type: "POST",
+                data: { id: madonhang },
+                async: true,
+                success: function (results) {
+                    $("#records_table").html("");
+                    $("#records_table").html(results);
+                },
+                error: function (xhr) {
+                    alert('error');
+                }
+            });
+        });
+    });
+</script>
+}

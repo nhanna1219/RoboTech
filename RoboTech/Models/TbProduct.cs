@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
-
-namespace RoboTech.Models
+﻿namespace RoboTech.Models
 {
     [Table("tb_Product")]
     public partial class TbProduct
@@ -24,26 +18,25 @@ namespace RoboTech.Models
         public string? Image { get; set; }
         [Column(TypeName = "xml")]
         public string? ListImages { get; set; }
-        [Column(TypeName = "money")]
-        public decimal? Price { get; set; }
-        [Column(TypeName = "decimal(5, 2)")]
-        public decimal? PromotionPercentage { get; set; }
-        [Column(TypeName = "money")]
+        public int? Price { get; set; }
         public decimal? PromotionPrice { get; set; }
         public int? Quantity { get; set; }
         [StringLength(500)]
         public string? Description { get; set; }
         public int? ViewCount { get; set; }
-        [Column("CateID")]
+        [Required(ErrorMessage = "Phải nhập danh mục sản phẩm")]
         public int? CateId { get; set; }
         [Column("BrandID")]
         public int? BrandId { get; set; }
+        public int? Discount { get; set; }
         public int? CreatedBy { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime? CreatedDate { get; set; }
         public int? UpdatedBy { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime? UpdatedDate { get; set; }
+        public string? Thumb { get; set; }
+        public string? Alias { get; set; }
 
         [ForeignKey("BrandId")]
         [InverseProperty("TbProducts")]

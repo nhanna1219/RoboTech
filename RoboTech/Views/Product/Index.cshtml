@@ -1,4 +1,11 @@
-﻿@model IEnumerable<RoboTech.Models.TbProduct>
+﻿@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<RoboTech.Models.TbProduct>
+@{
+    ViewData["TiTle"] = "Shop - " + ViewBag.CurrentPage;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int PageCurrent = ViewBag.CurrentPage;
+    int PageNext = PageCurrent + 1;
+}
 
 <section style="background-color: rgb(250, 250, 250, 0.60); margin-top: -15px">
 

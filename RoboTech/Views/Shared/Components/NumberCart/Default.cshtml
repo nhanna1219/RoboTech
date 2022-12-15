@@ -1,0 +1,26 @@
+﻿@model List<RoboTech.ModelViews.CartItem>
+@if (Model != null && Model.Count() > 0)
+{
+    <li class="minicart-wrap">
+        <div style="margin-top: 7px">
+            <a href="#miniCart" class="minicart-btn toolbar-btn text-dark fw-semibold" style="text-decoration: none">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="quantity">(@Model.Count())</span>
+                &nbsp;Cart
+            </a>
+        </div>
+    </li>
+}
+else
+{
+        
+        <li class="minicart-wrap">
+        <div style="margin-top: 7px">
+            <a href="#miniCart" class="toolbar-btn text-dark fw-semibold" style="text-decoration: none">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="quantity">(0)</span>
+                &nbsp;Cart
+            </a>
+        </div>
+        </li>
+}

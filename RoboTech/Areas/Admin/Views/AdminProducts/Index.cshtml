@@ -29,7 +29,7 @@
                         <div class="input-affix m-v-10">
                             <select class="custom-select" id="txtCatID" name="txtCatID" style="min-width: 200px;" asp-items="ViewBag.DanhMuc">
                                 <option disabled selected>Chọn danh mục</option>
-                                <option value="0">Chọn danh mục</option>
+                                
                             </select>
                         </div>
                     </div>
@@ -79,14 +79,14 @@
                                     {
                                         <div class="d-flex align-items-center">
                                             <div class="badge badge-success badge-dot m-r-10"></div>
-                                            <div>Còn hàng</div>
+                                            <div>In Stock</div>
                                         </div>
                                     }
                                     else
                                     {
                                         <div class="d-flex align-items-center">
                                             <div class="badge badge-success badge-dot m-r-10"></div>
-                                            <div>Hết hàng</div>
+                                            <div>Out Stock</div>
                                         </div>
                                     }
 
@@ -111,3 +111,51 @@
         </div>
     </div>
 </div>
+@section Scripts{
+<script>
+    $(document).ready(function () {
+        jQuery("#txtCatID").change(function () {
+            var catID = jQuery(this).children(":selected").attr("value");
+            catID = parseFloat(catID);
+            $('#txtCatID option')
+                .removeAttr('selected');
+            $("#txtCatID > [value=" + catID + "]").attr("selected", "true");
+            $.ajax({
+                url: '/Admin/AdminProducts/Filtter',
+                datatype: "json",
+                type: "GET",
+                data: {
+                    CatID: catID
+                },
+                async: true,
+                success: function (results) {
+                    if (results.status == "success") {
+                        window.location.href = results.redirectUrl;
+                    }
+                },
+                error: function (xhr) {
+                    alert('error');
+                }
+            });
+        });
+
+        $("#keyword").keyup(function () {
+            var strkeyword = $('#keyword').val();
+            $.ajax({
+                url: '/Admin/Search/FindProduct/',
+                datatype: "json",
+                type: "POST",
+                data: { keyword: strkeyword },
+                async: true,
+                success: function (results) {
+                    $("#records_table").html("");
+                    $("#records_table").html(results);
+                },
+                error: function (xhr) {
+                    alert('error');
+                }
+            });
+        });
+    });
+</script>
+}

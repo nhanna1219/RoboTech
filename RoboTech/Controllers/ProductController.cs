@@ -55,7 +55,7 @@ namespace RoboTech.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
-        [Route("/{Alias}-{id}.html", Name = ("ProductDetails"))]
+        [Route("/{Alias}-{id}", Name = ("ProductDetails"))]
         public IActionResult Details(int id)
         {
             try
