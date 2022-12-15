@@ -52,7 +52,7 @@ namespace RoboTech.Areas.Admin.Controllers
 
             ViewBag.CurrentPage = pageNumber;
 
-            ViewData["DanhMuc"] = new SelectList(_context.TbProductCategories, "CatId", "Name");
+            ViewData["DanhMuc"] = new SelectList(_context.TbProductCategories, "CateId", "Name");
 
             return View(models);
             var shoplaptopContext = _context.TbProducts.Include(t => t.Cate);
@@ -81,7 +81,7 @@ namespace RoboTech.Areas.Admin.Controllers
         // GET: Admin/AdminProducts/Create
         public IActionResult Create()
         {
-            ViewData["DanhMuc"] = new SelectList(_context.TbProductCategories, "CatId", "Name");
+            ViewData["DanhMuc"] = new SelectList(_context.TbProductCategories, "CateId", "Name");
             return View();
         }
 
@@ -94,24 +94,24 @@ namespace RoboTech.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                /*tbProduct.Name = Utilities.ToTitleCase(tbProduct.Name);
+                tbProduct.Name = Utilities.ToTitleCase(tbProduct.Name);
                 if (fThumb != null)
                 {
                     string extension = Path.GetExtension(fThumb.FileName);
-                    string image = Utilities.SEOUrl(product.ProductName) + extension;
+                    string image = Utilities.SEOUrl(tbProduct.Name) + extension;
                     tbProduct.Thumb = await Utilities.UploadFile(fThumb, @"products", image.ToLower());
                 }
-                if (string.IsNullOrEmpty(tbProduct.Thumb)) product.Thumb = "default.jpg";
-                tbProduct.Alias = Utilities.SEOUrl(product.ProductName);
-                tbProduct.DateModified = DateTime.Now;
+                if (string.IsNullOrEmpty(tbProduct.Thumb)) tbProduct.Thumb = "default.jpg";
+                tbProduct.Alias = Utilities.SEOUrl(tbProduct.Name);
+               /* tbProduct.DateModified = DateTime.Now;
                 tbProduct.DateCreated = DateTime.Now;*/
-                
+
                 _context.Add(tbProduct);
                 await _context.SaveChangesAsync();
                 _notyfService.Success("Thêm mới thành công");
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DanhMuc"] = new SelectList(_context.TbProductCategories, "CatId", "Name", tbProduct.CateId);
+            ViewData["DanhMuc"] = new SelectList(_context.TbProductCategories, "CateId", "Name", tbProduct.CateId);
             /*ViewData["DanhMuc"] = new SelectList(_context.TbProductCategories, "CatId", "Name");*/
             return View(tbProduct);
         }
@@ -129,7 +129,7 @@ namespace RoboTech.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["DanhMuc"] = new SelectList(_context.TbProductCategories, "CatId", "Name", tbProduct.CateId);
+            ViewData["DanhMuc"] = new SelectList(_context.TbProductCategories, "CateId", "Name", tbProduct.CateId);
             return View(tbProduct);
         }
 
@@ -165,10 +165,18 @@ namespace RoboTech.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DanhMuc"] = new SelectList(_context.TbProductCategories, "CatId", "Name", tbProduct.CateId);
+            ViewData["DanhMuc"] = new SelectList(_context.TbProductCategories, "CateId", "Name", tbProduct.CateId);
             return View(tbProduct);
         }
-
+        public IActionResult Filtter(int CatID = 0)
+        {
+            var url = $"/Admin/AdminProducts?CatID={CatID}";
+            if (CatID == 0)
+            {
+                url = $"/Admin/AdminProducts";
+            }
+            return Json(new { status = "success", redirectUrl = url });
+        }
         // GET: Admin/AdminProducts/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

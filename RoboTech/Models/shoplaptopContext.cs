@@ -16,22 +16,23 @@ namespace RoboTech.Models
         {
         }
 
-        public virtual DbSet<TbAdmin> TbAdmins { get; set; }
-        public virtual DbSet<TbBrand> TbBrands { get; set; }
-        public virtual DbSet<TbCustomer> TbCustomers { get; set; } 
-        public virtual DbSet<TbFeedback> TbFeedbacks { get; set; } 
-        public virtual DbSet<TbOrder> TbOrders { get; set; } 
-        public virtual DbSet<TbOrderDetail> TbOrderDetails { get; set; }
-        public virtual DbSet<TbProduct> TbProducts { get; set; } 
-        public virtual DbSet<TbProductCategory> TbProductCategories { get; set; } 
-        public virtual DbSet<TbRole> TbRoles { get; set; } 
-        public virtual DbSet<TbSlide> TbSlides { get; set; } 
-        public virtual DbSet<TbUser> TbUsers { get; set; } 
+        public virtual DbSet<TbAdmin> TbAdmins { get; set; } = null!;
+        public virtual DbSet<TbBrand> TbBrands { get; set; } = null!;
+        public virtual DbSet<TbCustomer> TbCustomers { get; set; } = null!;
+        public virtual DbSet<TbFeedback> TbFeedbacks { get; set; } = null!;
+        public virtual DbSet<TbOrder> TbOrders { get; set; } = null!;
+        public virtual DbSet<TbOrderDetail> TbOrderDetails { get; set; } = null!;
+        public virtual DbSet<TbProduct> TbProducts { get; set; } = null!;
+        public virtual DbSet<TbProductCategory> TbProductCategories { get; set; }
+        public virtual DbSet<TbRole> TbRoles { get; set; } = null!;
+        public virtual DbSet<TbSlide> TbSlides { get; set; } = null!;
+        public virtual DbSet<TbUser> TbUsers { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=ELONMUSK;Database=shoplaptop;Trusted_Connection=True;");
             }
         }
@@ -85,8 +86,6 @@ namespace RoboTech.Models
 
                 entity.ToTable("tb_Customers");
 
-                entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
-
                 entity.Property(e => e.Address).HasMaxLength(50);
 
                 entity.Property(e => e.Avatar).HasMaxLength(50);
@@ -135,8 +134,6 @@ namespace RoboTech.Models
             {
                 entity.ToTable("tb_Orders");
 
-                entity.Property(e => e.Id).HasColumnName("ID");
-
                 entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
 
                 entity.Property(e => e.DeliveryDate).HasColumnType("datetime");
@@ -176,7 +173,6 @@ namespace RoboTech.Models
                     .HasConstraintName("FK_tb_OrderDetail_tb_Product");
             });
 
-           
             modelBuilder.Entity<TbProduct>(entity =>
             {
                 entity.HasKey(e => e.ProductId);
@@ -184,6 +180,10 @@ namespace RoboTech.Models
                 entity.ToTable("tb_Product");
 
                 entity.Property(e => e.ProductId).HasColumnName("ProductID");
+
+                entity.Property(e => e.Alias)
+                    .HasMaxLength(10)
+                    .IsFixedLength();
 
                 entity.Property(e => e.BrandId).HasColumnName("BrandID");
 
@@ -201,15 +201,17 @@ namespace RoboTech.Models
 
                 entity.Property(e => e.Name).HasMaxLength(250);
 
-                entity.Property(e => e.Price)
-                    .HasColumnType("decimal(18, 0)")
-                    .HasDefaultValueSql("((0))");
+                entity.Property(e => e.Price).HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.PromotionPrice).HasColumnType("decimal(18, 0)");
 
                 entity.Property(e => e.Quantity).HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.Status).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Thumb)
+                    .HasMaxLength(10)
+                    .IsFixedLength();
 
                 entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
 

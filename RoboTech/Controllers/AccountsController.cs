@@ -238,7 +238,7 @@ namespace RoboTech.Controllers
                 }
                 if (ModelState.IsValid)
                 {
-                    var taikhoan = _context.TbCustomers.Find(Convert.ToInt32(taikhoanID));
+                    var taikhoan = _context.TbCustomers.Find(Convert.ToInt32(taikhoanID));  
                     if (taikhoan == null) return RedirectToAction("Login", "Accounts");
                     var pass = (model.PasswordNow.Trim() + taikhoan.Salt.Trim()).ToMD5();
                     {

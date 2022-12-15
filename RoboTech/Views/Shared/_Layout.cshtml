@@ -16,6 +16,17 @@
     <link rel="stylesheet" href="~/RoboTech.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <script src="https://kit.fontawesome.com/3518e7db2c.js" crossorigin="anonymous"></script>
+    
+    <!-- Vendor CSS (Contain Bootstrap, Icon Fonts) -->
+    <link rel="stylesheet" href="~/css/vendor/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/css/vendor/Pe-icon-7-stroke.css" />
+
+    <!-- Plugin CSS (Global Plugins Files) -->
+    <link rel="stylesheet" href="~/css/plugins/animate.min.css">
+    <link rel="stylesheet" href="~/css/plugins/jquery-ui.min.css">
+    <link rel="stylesheet" href="~/css/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="~/css/plugins/nice-select.css">
+    <link rel="stylesheet" href="~/css/plugins/magnific-popup.min.css" />
 
 </head>
 
@@ -50,18 +61,30 @@
 
                             </div>
                         </li>
-                        <li class="offset-1">
+                        <li id="numberCart" class="offset-1 minicart-wrap me-3 me-lg-0">
+                            @await Component.InvokeAsync("NumberCart")
+                        </li>
+                        
+                        @*<li class="offset-1">
                             <div style="margin-top: 7px">
                                 <i class="fa-solid fa-cart-shopping"></i>
-                                <a class="text-dark fw-semibold" style="text-decoration: none" asp-area="" asp-controller="Home" asp-action="Index">
-                                    &nbsp;Cart
-                                </a>
+                                <div class="offcanvas-minicart_wrapper" id="miniCart">
+                                    <a class="text-dark fw-semibold" style="text-decoration: none" href="cart.html">
+                                        &nbsp;Cart
+                                    </a>
+                                    @await Component.InvokeAsync("HeaderCart")
+
+                                </div>
+                               
                             </div>
-                        </li>
+                        </li>*@
                     </ul>
                 </div>
             </div>
         </nav>
+        <div class="offcanvas-minicart_wrapper" id="miniCart">
+            @await Component.InvokeAsync("HeaderCart")
+        </div>
     </header>
     <main role="main" class="">
             @RenderBody()
@@ -120,7 +143,28 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- Vendor JS -->
+    <script src="~/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="~/js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="~/js/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="~/js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="~/js/vendor/jquery.waypoints.js"></script>
+
+    <!--Plugins JS-->
+    <script src="~/js/plugins/wow.min.js"></script>
+    <script src="~/js/plugins/jquery-ui.min.js"></script>
+    <script src="~/js/plugins/swiper-bundle.min.js"></script>
+    <script src="~/js/plugins/jquery.nice-select.js"></script>
+    <script src="~/js/plugins/parallax.min.js"></script>
+    <script src="~/js/plugins/jquery.magnific-popup.min.js"></script>
+
+    <!--Main JS (Common Activation Codes)-->
+    <script src="~/js/main.js"></script>
+    
+    @await Component.InvokeAsync("Notyf")
     @await RenderSectionAsync("Scripts", required: false)
+    @await RenderSectionAsync("Styles", required: false)
 </body>
 </html>
 
