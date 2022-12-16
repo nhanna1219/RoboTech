@@ -1,7 +1,6 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
-using RoboTech.Data;
 using RoboTech.Models;
 using RoboTech.ViewModels;
 using System.Data;
@@ -11,13 +10,13 @@ namespace RoboTech.Controllers
 {
     public class HomeController : Controller
     {
-        private const string connstr = "Server=NHANNA\\SQLEXPRESS;Database=Robotech;Integrated Security=true;Trusted_Connection=True;MultipleActiveResultSets=true";
+        private const string connstr = "Server=ELONMUSK;Database=Robotech;Integrated Security=true;Trusted_Connection=True;MultipleActiveResultSets=true";
         private readonly ILogger<HomeController> _logger;
 
-        private readonly RobotechContext _db;
+        private readonly shoplaptopContext _db;
         private readonly IConfiguration conf;
 
-        public HomeController(ILogger<HomeController> logger, RobotechContext db, IConfiguration conf)
+        public HomeController(ILogger<HomeController> logger, shoplaptopContext db, IConfiguration conf)
         {
             _logger = logger;
             _db = db;
@@ -26,15 +25,16 @@ namespace RoboTech.Controllers
 
         public IActionResult Index()
         {
-            HomeVM obj = new HomeVM()
+            /*HomeVM obj = new HomeVM()
             {
                 Slide = _db.TbSlides.First(),
                 Slides = getSlides(),
                 Banner_Left = getBanner_left(),
                 Banner_right = getBanner_Right(),
                 Product = _db.TbProducts,
-            };
-            return View(obj);
+            };*/
+            /*        return View(obj);*/
+            return View();
         }
 
         public List<TbSlide> getSlides()
@@ -58,7 +58,7 @@ namespace RoboTech.Controllers
                             {
                                 Id = Convert.ToInt32(reader["ID"]),
                                 Name = reader["Name"].ToString(),
-                                Image = (byte[])reader["Image"],
+                               /* Image = (byte[])reader["Image"],*/
                                 Link = null
                             });
                         }
@@ -88,7 +88,7 @@ namespace RoboTech.Controllers
                             {
                                 Id = Convert.ToInt32(reader["ID"]),
                                 Name = reader["Name"].ToString(),
-                                Image = (byte[])reader["Image"],
+                               /* Image = (byte[])reader["Image"],*/
                                 Link = null
                             };
                         }
@@ -118,7 +118,7 @@ namespace RoboTech.Controllers
                             {
                                 Id = Convert.ToInt32(reader["ID"]),
                                 Name = reader["Name"].ToString(),
-                                Image = (byte[])reader["Image"],
+                                /*Image = (byte[])reader["Image"],*/
                                 Link = null
                             };
                         }

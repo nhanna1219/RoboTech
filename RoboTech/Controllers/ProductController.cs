@@ -2,14 +2,14 @@
 using Microsoft.EntityFrameworkCore;
 using PagedList.Core;
 using RoboTech.Models;
-using RoboTech.Data;
+
 
 namespace RoboTech.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly RobotechContext _context;
-        public ProductController(RobotechContext context)
+        private readonly shoplaptopContext _context;
+        public ProductController(shoplaptopContext context)
         {
             _context = context;
         }

@@ -1,6 +1,8 @@
-﻿namespace RoboTech.Models
+﻿using System;
+using System.Collections.Generic;
+
+namespace RoboTech.Models
 {
-    [Table("tb_Customers")]
     public partial class TbCustomer
     {
         public TbCustomer()
@@ -8,8 +10,6 @@
             TbOrders = new HashSet<TbOrder>();
         }
 
-        [Key]
-        [Column("CustomerID")]
         public int CustomerId { get; set; }
         public string FullName { get; set; } = null!;
         public DateTime? Birthday { get; set; }
@@ -21,12 +21,8 @@
         public string Password { get; set; } = null!;
         public string Salt { get; set; } = null!;
         public DateTime? LastLogin { get; set; }
-        public bool? Active { get; set; }
-        [Column("salt")]
-        [StringLength(10)]
-        public string? Salt { get; set; }
+        public bool Active { get; set; }
 
-        [InverseProperty("Customer")]
         public virtual ICollection<TbOrder> TbOrders { get; set; }
     }
 }

@@ -2,18 +2,18 @@
 using Microsoft.EntityFrameworkCore;
 using PagedList.Core;
 using RoboTech.Models;
-using RoboTech.Data;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using RoboTech.Helper;
 
 namespace RoboTech.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdminProductsController : Controller
     {
-        private readonly RobotechContext _context;
+        private readonly shoplaptopContext _context;
         public INotyfService _notyfService { get; }
-        public AdminProductsController(RobotechContext context, INotyfService notyfService)
+        public AdminProductsController(shoplaptopContext context, INotyfService notyfService)
         {
             _context = context;
             _notyfService = notyfService;

@@ -12,13 +12,13 @@ namespace RoboTech.Models
 
         public int CateId { get; set; }
         public string Name { get; set; } = null!;
-        public bool Status { get; set; }
+        public bool? Status { get; set; }
         public int? ParentId { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreatedDate { get; set; }
         public int? UpdatedBy { get; set; }
-        public string? Alias { get; set; }
         public DateTime? UpdatedDate { get; set; }
+        public string? Alias { get; set; }
 
         public virtual ICollection<TbProduct> TbProducts { get; set; }
     }

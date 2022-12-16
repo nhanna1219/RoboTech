@@ -23,7 +23,7 @@ namespace RoboTech.Models
         public virtual DbSet<TbOrder> TbOrders { get; set; } = null!;
         public virtual DbSet<TbOrderDetail> TbOrderDetails { get; set; } = null!;
         public virtual DbSet<TbProduct> TbProducts { get; set; } = null!;
-        public virtual DbSet<TbProductCategory> TbProductCategories { get; set; }
+        public virtual DbSet<TbProductCategory> TbProductCategories { get; set; } = null!;
         public virtual DbSet<TbRole> TbRoles { get; set; } = null!;
         public virtual DbSet<TbSlide> TbSlides { get; set; } = null!;
         public virtual DbSet<TbUser> TbUsers { get; set; } = null!;
@@ -179,10 +179,8 @@ namespace RoboTech.Models
 
                 entity.ToTable("tb_Product");
 
-                entity.Property(e => e.ProductId).HasColumnName("ProductID");
-
                 entity.Property(e => e.Alias)
-                    .HasMaxLength(10)
+                    .HasMaxLength(100)
                     .IsFixedLength();
 
                 entity.Property(e => e.BrandId).HasColumnName("BrandID");
@@ -210,7 +208,7 @@ namespace RoboTech.Models
                 entity.Property(e => e.Status).HasDefaultValueSql("((1))");
 
                 entity.Property(e => e.Thumb)
-                    .HasMaxLength(10)
+                    .HasMaxLength(100)
                     .IsFixedLength();
 
                 entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
@@ -231,6 +229,10 @@ namespace RoboTech.Models
                 entity.HasKey(e => e.CateId);
 
                 entity.ToTable("tb_ProductCategory");
+
+                entity.Property(e => e.Alias)
+                    .HasMaxLength(10)
+                    .IsFixedLength();
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 

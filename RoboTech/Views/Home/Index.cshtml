@@ -4,13 +4,13 @@
 
 
 <div>
-    <div class="left-zone ads" style="">
+    @*<div class="left-zone ads" style="">
         @{
             var base64_2 = Convert.ToBase64String(Model.Banner_Left.Image);
             var imgSrc_2 = String.Format("data:image/jpg;base64,{0}", base64_2);
         }
         <img src="@imgSrc_2" height="350" />
-    </div>
+    </div>*@
     <div id="category" class="container mb-5">
         <div class="row">
             <div class="col-lg-3 flex-grow-1">
@@ -444,7 +444,7 @@
                         <button type="button" data-bs-target="#carouselSlider" data-bs-slide-to="6" aria-label="Slide 7"></button>
                         <button type="button" data-bs-target="#carouselSlider" data-bs-slide-to="7" aria-label="Slide 8"></button>
                     </div>
-                    <div class="carousel-inner">
+                    @*<div class="carousel-inner">
                         <div class="carousel-item active">
                             @{
                                 var base64 = Convert.ToBase64String(Model.Slide.Image);
@@ -462,7 +462,7 @@
                             <img src="@imgSrc_1" alt="" class="d-block w-100" height="100" width="200"/>
                         </div>
                         }
-                    </div>
+                    </div>*@
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselSlider" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
@@ -868,13 +868,13 @@
             </div>
         </div>
     </div>
-    <div class="right-zone ads" >
+    @*<div class="right-zone ads" >
         @{
             var base64_3 = Convert.ToBase64String(Model.Banner_right.Image);
             var imgSrc_3 = String.Format("data:image/jpg;base64,{0}", base64_3);
         }
         <img src="@imgSrc_3"  height="350" />
-    </div>
+    </div>*@
 </div>
 
 

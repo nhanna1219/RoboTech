@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using RoboTech.Data;
 using RoboTech.Models;
 using RoboTech.ModelViews;
 
@@ -21,9 +20,9 @@ namespace RoboTech.Areas.Admin.Controllers
     /*[Authorize(Roles = "Admin")]*/
     public class AdminAccountsController : Controller
     {
-        private readonly RobotechContext _context;
+        private readonly shoplaptopContext _context;
         public INotyfService _notyfService { get; }
-        public AdminAccountsController(RobotechContext context, INotyfService notyfService)
+        public AdminAccountsController(shoplaptopContext context, INotyfService notyfService)
         {
             _context = context;
             _notyfService = notyfService;

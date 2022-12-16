@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using RoboTech.Data;
 using RoboTech.Extension;
 using RoboTech.Helper;
 using RoboTech.Models;
@@ -16,9 +15,9 @@ namespace RoboTech.Controllers
     [Authorize]
     public class AccountsController : Controller
     {
-        private readonly RobotechContext _context;
+        private readonly shoplaptopContext _context;
         public INotyfService _notyfService { get; }
-        public AccountsController(RobotechContext context, INotyfService notyfService)
+        public AccountsController(shoplaptopContext context, INotyfService notyfService)
         {
             _context = context;
             _notyfService = notyfService;
@@ -105,7 +104,7 @@ namespace RoboTech.Controllers
                         Email = taikhoan.Email.Trim().ToLower(),
                         Password = (taikhoan.Password + salt.Trim()).ToMD5(),
                         Active = true,
-                        CreatedDate = DateTime.Now
+                        CreateDate = DateTime.Now
                     };
                     try
                     {
