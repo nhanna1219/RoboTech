@@ -240,9 +240,6 @@ namespace RoboTech.Models
 
                 entity.Property(e => e.ParentId).HasColumnName("ParentID");
 
-                entity.Property(e => e.Status)
-                    .IsRequired()
-                    .HasDefaultValueSql("((1))");
 
                 entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
             });

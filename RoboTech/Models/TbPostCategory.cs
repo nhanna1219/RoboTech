@@ -22,7 +22,7 @@ namespace RoboTech.Models
         public DateTime? CreatedDate { get; set; }
         public int? UpdatedBy { get; set; }
         public DateTime? UpdatedDate { get; set; }
-
+        
         public virtual ICollection<TbProduct> TbProducts { get; set; }
     }
 }
