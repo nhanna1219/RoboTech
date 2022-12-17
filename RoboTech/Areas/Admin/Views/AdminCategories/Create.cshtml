@@ -20,7 +20,7 @@
     </div>
 
     <form asp-controller="AdminCategories" asp-action="Create" method="post" enctype="multipart/form-data">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div asp-validation-summary="All" class="text-danger"></div>
         <div class="page-header no-gutters has-tab">
             <div class="d-md-flex m-b-15 align-items-center justify-content-between">
                 <div class="m-b-15">
@@ -47,7 +47,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="form-group">
-                            <label class="font-weight-semibold" for="productName">Tên danh mục</label>
+                            <label class="font-weight-semibold" >Tên danh mục</label>
                             <input type="text" class="form-control" asp-for="Name">
                         </div>
                         <div class="form-group">

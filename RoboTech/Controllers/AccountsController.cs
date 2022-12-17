@@ -164,7 +164,7 @@ namespace RoboTech.Controllers
                 {
                     bool isEmail = Utilities.IsValidEmail(customer.UserName);
                     if (!isEmail) return View(customer);
-                    var khachhang = _context.TbCustomers.Single(x => x.Email.Trim() == customer.UserName);
+                    var khachhang = _context.TbCustomers.AsNoTracking().SingleOrDefault(x => x.Email.Trim() == customer.UserName);
                     if (khachhang == null) return RedirectToAction("DangkyTaiKhoan");
 
                     string pass = (customer.Password + khachhang.Salt.Trim()).ToMD5();

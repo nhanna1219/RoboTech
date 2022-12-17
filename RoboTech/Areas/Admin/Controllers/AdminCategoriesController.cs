@@ -66,7 +66,7 @@ namespace RoboTech.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CateId,Name,Status,ParentId,CreatedBy,CreatedDate,UpdatedBy,UpdatedDate,Alias")] TbProductCategory tbProductCategory, Microsoft.AspNetCore.Http.IFormFile fThumb)
+        public async Task<IActionResult> Create([Bind("CateId,Name,Status,ParentId,CreatedBy,CreatedDate,Alias,Ordering,Published,Thumb,Title,Desciption,UpdatedBy,UpdatedDate")] TbProductCategory tbProductCategory, Microsoft.AspNetCore.Http.IFormFile fThumb)
         {
             if (ModelState.IsValid)
             {
@@ -108,7 +108,7 @@ namespace RoboTech.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CateId,Name,Status,ParentId,CreatedBy,CreatedDate,UpdatedBy,UpdatedDate,Alias")] TbProductCategory tbProductCategory, Microsoft.AspNetCore.Http.IFormFile fThumb)
+        public async Task<IActionResult> Edit(int id, [Bind("CateId,Name,Status,ParentId,CreatedBy,CreatedDate,UpdatedBy,UpdatedDate,Alias,Ordering,Published,Desciption")] TbProductCategory tbProductCategory, Microsoft.AspNetCore.Http.IFormFile fThumb)
         {
             if (id != tbProductCategory.CateId)
             {

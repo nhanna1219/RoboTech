@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using RoboTech.Extension;
 using RoboTech.Models;
 using RoboTech.ModelViews;
 
@@ -88,7 +89,7 @@ namespace RoboTech.Areas.Admin.Controllers
             ViewData["QuyenTruyCap"] = new SelectList(_context.TbRoles, "RoleId", "RoleName", account.RoleId);
             return View(account);
         }
-        /*//ChangePassword
+        //ChangePassword
         public IActionResult ChangePassword()
         {
             ViewData["QuyenTruyCap"] = new SelectList(_context.TbRoles, "RoleId", "RoleName");
@@ -116,7 +117,7 @@ namespace RoboTech.Areas.Admin.Controllers
 
 
             return View();
-        }*/
+        }
 
         // GET: Admin/AdminAccounts/Edit/5
         public async Task<IActionResult> Edit(int? id)

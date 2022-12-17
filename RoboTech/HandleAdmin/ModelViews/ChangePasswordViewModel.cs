@@ -21,5 +21,6 @@ namespace RoboTech.ModelViews
         [Display(Name = "Nhập lại mật khẩu")]
         [Compare("Password", ErrorMessage = "Nhập lại mật khẩu không đúng")]
         public string ConfirmPassword { get; set; }
+        public string? Email { get; internal set; }
     }
 }
