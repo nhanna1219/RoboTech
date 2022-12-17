@@ -1,16 +1,11 @@
-﻿@model RoboTech.ViewModels.HomeVM
-
+﻿
 @*Navi section*@
 
 
 <div>
-    @*<div class="left-zone ads" style="">
-        @{
-            var base64_2 = Convert.ToBase64String(Model.Banner_Left.Image);
-            var imgSrc_2 = String.Format("data:image/jpg;base64,{0}", base64_2);
-        }
-        <img src="@imgSrc_2" height="350" />
-    </div>*@
+    <div class="left-zone ads" style="">
+        <img src="~/assets/img/banner-left.png" class="" height="350px" />
+    </div>
     <div id="category" class="container mb-5">
         <div class="row">
             <div class="col-lg-3 flex-grow-1">
@@ -444,25 +439,34 @@
                         <button type="button" data-bs-target="#carouselSlider" data-bs-slide-to="6" aria-label="Slide 7"></button>
                         <button type="button" data-bs-target="#carouselSlider" data-bs-slide-to="7" aria-label="Slide 8"></button>
                     </div>
-                    @*<div class="carousel-inner">
+                    <div class="carousel-inner">
                         <div class="carousel-item active">
-                            @{
-                                var base64 = Convert.ToBase64String(Model.Slide.Image);
-                                var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
-                            }
-                            <img src="@imgSrc" alt="" class="d-block w-100" height=100 width=200 />
+                            <a href="#product"><img class="d-block w-100" src="~/assets/img/Slider/slider1.jpg"></a>
                         </div>
-                        @foreach(var obj in Model.Slides)
-                        {
+                       
                         <div class="carousel-item">
-                            @{
-                                    var base64_1 = Convert.ToBase64String(obj.Image);
-                                    var imgSrc_1 = String.Format("data:image/jpg;base64,{0}", base64_1);
-                            }
-                            <img src="@imgSrc_1" alt="" class="d-block w-100" height="100" width="200"/>
+                            <a href="#product"><img class="d-block w-100" src="~/assets/img/Slider/slider2.jpg"></a>
                         </div>
-                        }
-                    </div>*@
+                        <div class="carousel-item">
+                            <a href="#product"><img class="d-block w-100" src="~/assets/img/Slider/slider3.jpg"></a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="#product"><img class="d-block w-100" src="~/assets/img/Slider/slider4.jpg"></a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="#product"><img class="d-block w-100" src="~/assets/img/Slider/slider5.jpg"></a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="#product"><img class="d-block w-100" src="~/assets/img/Slider/slider6.png"></a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="#product"><img class="d-block w-100" src="~/assets/img/Slider/slider7.jpg"></a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="#product"><img class="d-block w-100" src="~/assets/img/Slider/slider8.jpg"></a>
+                        </div>
+                        
+                    </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselSlider" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
@@ -868,13 +872,10 @@
             </div>
         </div>
     </div>
-    @*<div class="right-zone ads" >
-        @{
-            var base64_3 = Convert.ToBase64String(Model.Banner_right.Image);
-            var imgSrc_3 = String.Format("data:image/jpg;base64,{0}", base64_3);
-        }
-        <img src="@imgSrc_3"  height="350" />
-    </div>*@
+    <div class="right-zone ads" >
+      
+        <img src="~/assets/img/banner-right.png" class="" height="350px" />
+    </div>
 </div>
 
 
