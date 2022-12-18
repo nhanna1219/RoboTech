@@ -134,7 +134,7 @@ namespace RoboTech.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,Name,Status,Image,ListImages,Price,PromotionPrice,Vat,Quantity,Warranty,Hot,Description,Detail,ViewCount,CateId,BrandId,SupplierId,MetaKeyword,MetaDescription,CreatedBy,CreatedDate,UpdatedBy,UpdatedDate")] TbProduct tbProduct)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductId,Name,Status,Image,ListImages,Price,PromotionPrice,Vat,Quantity,Warranty,Hot,Description,Detail,ViewCount,CateId,BrandId,SupplierId,MetaKeyword,MetaDescription,CreatedBy,CreatedDate,UpdatedBy,UpdatedDate")] TbProduct tbProduct, Microsoft.AspNetCore.Http.IFormFile fThumb)
         {
             if (id != tbProduct.ProductId)
             {
@@ -145,8 +145,20 @@ namespace RoboTech.Areas.Admin.Controllers
             {
                 try
                 {
+                    tbProduct.Name = Utilities.ToTitleCase(tbProduct.Name);
+                    if (fThumb != null)
+                    {
+                        string extension = Path.GetExtension(fThumb.FileName);
+                        string image = Utilities.SEOUrl(tbProduct.Name) + extension;
+                        tbProduct.Thumb = await Utilities.UploadFile(fThumb, @"products", image.ToLower());
+                    }
+                    if (string.IsNullOrEmpty(tbProduct.Thumb)) tbProduct.Thumb = "default.jpg";
+                    tbProduct.Alias = Utilities.SEOUrl(tbProduct.Name);
+                    /*tbProduct.DateModified = DateTime.Now;*/
+
                     _context.Update(tbProduct);
                     await _context.SaveChangesAsync();
+                    _notyfService.Success("Cập nhật thành công");
                 }
                 catch (DbUpdateConcurrencyException)
                 {

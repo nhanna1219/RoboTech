@@ -27,7 +27,7 @@ namespace RoboTech.Areas.Admin.Controllers
         public IActionResult Index(int? page)
         {
             var pageNumber = page == null || page <= 0 ? 1 : page.Value;
-            var pageSize = 20;
+            var pageSize = 10;
             var lsCategorys = _context.TbProductCategories
                 .AsNoTracking()
                 .OrderBy(x => x.CateId);

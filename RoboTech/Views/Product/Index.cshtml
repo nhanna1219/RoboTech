@@ -11,7 +11,7 @@
 
     <div class="container py-5">
         <div class="title text-center font-weight-bold" style="font-size: 50px;">
-            <h2>PRODUCT</h2>
+            <h2>PRODUCT LIST</h2>
         </div>
         <div class="filter">
             <label for="sort-form">
@@ -56,6 +56,45 @@
                 </div>
                 <div class="col-lg-9">
                     <div class="row">
+                        @if (Model != null && Model.Count() > 0) 
+                        {
+                            foreach (var item in Model)
+                            {
+                                string url = $"/{item.Alias}-{item.ProductId}";
+                                <div class="col-md-6 col-lg-4 mb-4">
+                                    <a href="@url">
+                                        <div class="card">
+                                            <img src="~/images/products/@item.Thumb"
+                                         class="card-img-top " alt="Laptop" />
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-between">
+                                                    <p class="small"><a href="#" class="text-muted">@item.Cate</a></p>
+                                                </div>
+                                                <div class="d-flex justify-content-between mb-3">
+                                                    <h5 class="mb-0">@item.Name</h5>
+                                                    <h5 class="text-dark mb-0">@item.Price.Value.ToString("#,##0") VNĐ</h5>
+                                                </div>
+                                                <div class="d-flex justify-content-between mb-2">
+                                                    <p class="text-muted mb-0">Available: <span class="fw-bold">@item.Quantity</span></p>
+                                                    <div class="ms-auto text-warning">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <button type="button" class="btn bg-cart w-100 mt-2 add-to-cart">
+                                                    <a href="@url"><i class="fa-solid fa-cart-plus">&nbsp;Bye Now</i></a>
+                                              @*      <input hidden asp-for="@item.ProductId" />*@
+                                                </button>
+                                                
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            }
+                        }
                         <div class="col-md-6 col-lg-4 mb-4">
                             <a asp-action="Details" asp-controller="Product">
                                 <div class="card">
@@ -352,3 +391,60 @@
     </div>
     
 </section>
+@*@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $(function () {
+                $(".add-to-cart").click(function () {
+                    var productid = $('#ProductId').val();
+                    var soLuong = 1;
+                    $.ajax({
+                        url: '/api/cart/add',
+                        type: "POST",
+                        dataType: "JSON",
+                        data: {
+                            productID: productid,
+                            amount: soLuong
+                        },
+                        success: function (response) {
+                            if (response.result == 'Redirect') {
+                                window.location = response.url;
+                            }
+                            else {
+                                loadHeaderCart(); //Add Product success
+                                location.reload();
+                            }
+                            console.log(response); // log to the console to see whether it worked
+                        },
+                        error: function (error) {
+                            alert("There was an error posting the data to the server: " + error.responseText);
+                        }
+                    });
+                });
+
+                $(".removecart").click(function () {
+                    var productid = $(this).attr("data-productid");
+                    $.ajax({
+                        url: "api/cart/remove",
+                        type: "POST",
+                        dataType: "JSON",
+                        data: { productID: productid },
+                        success: function (result) {
+                            if (result.success) {
+                                loadHeaderCart();//Reload lai gio hang
+                                location.reload();
+                            }
+                        },
+                        error: function (rs) {
+                            alert("Remove Cart Error !")
+                        }
+                    });
+                });
+            });
+            function loadHeaderCart() {
+                $('#miniCart').load("/AjaxContent/HeaderCart");
+                $('#numberCart').load("/AjaxContent/NumberCart");
+            }
+        });
+    </script>
+}*@

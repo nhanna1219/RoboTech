@@ -13,7 +13,7 @@ namespace RoboTech.Controllers
         {
             _context = context;
         }
-        [Route("shop.html", Name = ("ShopProduct"))]
+        [Route("ProductList", Name = ("ShopProduct"))]
         public IActionResult Index(int? page)
         {
             try
