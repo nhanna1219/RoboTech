@@ -1025,7 +1025,9 @@ section .title {
         }
 
             #checkout .card .card-title h2 {
-                margin: 0;
+                font-size: 24px;
+                text-align:center;
+                color:red;
             }
 
         #checkout .card .card-body .payment-type,
@@ -1113,9 +1115,16 @@ section .title {
                     }
 
             #checkout .card .card-body .payment-info .column {
-                width: calc(50% - 25px);
+                /*width: calc(50% - 25px);*/
+                width:100%;
             }
-
+            #checkout .card .card-body .payment-info label {
+                display: block;
+                text-transform: uppercase;
+                font-size: 15x;
+                margin-bottom: 8px;
+                font-weight: bold;
+            }
             #checkout .card .card-body .payment-info .title {
                 display: flex;
                 flex-direction: row;

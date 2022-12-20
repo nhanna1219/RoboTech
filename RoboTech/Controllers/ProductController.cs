@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PagedList.Core;
 using RoboTech.Models;
@@ -16,6 +17,7 @@ namespace RoboTech.Controllers
         [Route("ProductList", Name = ("ShopProduct"))]
         public IActionResult Index(int? page)
         {
+            
             try
             {
                 var pageNumber = page == null || page <= 0 ? 1 : page.Value;
@@ -26,6 +28,7 @@ namespace RoboTech.Controllers
                 PagedList<TbProduct> models = new PagedList<TbProduct>(lsTinDangs, pageNumber, pageSize);
 
                 ViewBag.CurrentPage = pageNumber;
+                ViewData["DanhMuc"] = new SelectList(_context.TbProductCategories, "Alias", "Name");
                 return View(models);
             }
             catch
@@ -48,6 +51,7 @@ namespace RoboTech.Controllers
                 PagedList<TbProduct> models = new PagedList<TbProduct>(lsTinDangs, page, pageSize);
                 ViewBag.CurrentPage = page;
                 ViewBag.CurrentCat = danhmuc;
+                ViewData["DanhMuc"] = new SelectList(_context.TbProductCategories, "Alias", "Name");
                 return View(models);
             }
             catch
@@ -65,12 +69,22 @@ namespace RoboTech.Controllers
                 {
                     return RedirectToAction("Index");
                 }
+                ViewData["DanhMuc"] = new SelectList(_context.TbProductCategories,"Alias", "Name");
                 return View(product);
             }
             catch
             {
                 return RedirectToAction("Index", "Home");
             }
+        }
+        public IActionResult Filtter(string Alias = null)
+        {
+            var url = $"/danhmuc/{Alias}";
+            if (Alias == null)
+            {
+                url = $"/ProductList";
+            }
+            return Json(new { status = "success", redirectUrl = url });
         }
     }
 }

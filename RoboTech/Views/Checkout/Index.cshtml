@@ -1,7 +1,8 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model RoboTech.ModelViews.MuaHangVM
 @{
+    ViewData["Title"] = "Mua hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<RoboTech.ModelViews.CartItem> Carts = ViewBag.GioHang;
 }
 <div id="checkout" style="margin-top: -50px" class="bg-light mb-4 pt-5">
     <div class="container mt-5">
@@ -10,11 +11,11 @@
                 <article class="card">
                     <div class="container">
                         <div class="card-title">
-                            <h2>PAYMENT</h2>
+                            <h2>Shipment Details</h2>
                         </div>
                         <hr class="my-3 border-1">
                         <div class="card-body">
-                            <div class="payment-type">
+                            @*<div class="payment-type">
                                 <h4>Choose payment method below</h4>
                                 <div class="types flex justify-space-between">
                                     <div class="type" style="height: 156px">
@@ -42,37 +43,43 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>*@
                             <div class="payment-info flex justify-space-between">
                                 <div class="column billing">
-                                    <div class="title">
+                                  @*  <div class="title">
                                         <div class="num">1</div>
                                         <h4>Billing</h4>
+                                    </div>*@
+                                    <div class="field full">
+                                        <label for="name"><i class="fa fa-user"></i> Full Name</label>
+                                        <input id="name" type="text" value="@Model.FullName" asp-for="FullName">
                                     </div>
                                     <div class="field full">
-                                        <label for="name">Full Name</label>
-                                        <input id="name" type="text" placeholder="Full Name">
-                                    </div>
-                                    <div class="field full">
-                                        <label for="address">Billing Address</label>
-                                        <input id="address" type="text" placeholder="Billing Address">
+                                        <label for="address"><i class="fa-solid fa-envelope"></i> Email</label>
+                                        <input id="address" type="text" placeholder="@Model.Email" asp-for="Email">
                                     </div>
                                     <div class="flex justify-space-between">
-                                        <div class="field half">
-                                            <label for="city">City</label>
-                                            <input id="city" type="text" placeholder="City">
+                                        <div class="field full">
+                                            <label for="city"><i class="fa-solid fa-phone"></i> Phone Number</label>
+                                            <input id="city" type="text" value="@Model.Phone">
                                         </div>
-                                        <div class="field half">
+                                        @*<div class="field half">
                                             <label for="state">State</label>
-                                            <input id="state" type="text" placeholder="State">
-                                        </div>
+                                            <input  id="state" type="text" placeholder="State">
+                                        </div>*@
+                                    </div>
+                                      
+                                    <div class="field full">
+                                        <label for="city"><i class="fa-solid fa-location-dot"></i> Address</label>
+                                        <input id="city" type="text" value="@Model.Address">
                                     </div>
                                     <div class="field full">
-                                        <label for="zip">Zip</label>
-                                        <input id="zip" type="text" placeholder="Zip">
+                                        <label for="zip"><i class="fa-solid fa-clipboard"></i> Note</label>
+                                       @* <input id="zip" type="text" placeholder="Zip">*@
+                                        <textarea rows="4" cols="50" asp-for="Note"></textarea>
                                     </div>
                                 </div>
-                                <div class="column shipping">
+                                @*<div class="column shipping">
                                     <div class="title">
                                         <div class="num">2</div>
                                         <h4>Credit Card</h4>
@@ -99,7 +106,7 @@
                                         <label for="zip">CVC Number</label>
                                         <input id="zip" type="text" placeholder="468">
                                     </div>
-                                </div>
+                                </div>*@
                             </div>
                         </div>
                         <div class="card-actions flex justify-space-between">

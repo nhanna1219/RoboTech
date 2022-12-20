@@ -1,7 +1,8 @@
 ﻿@using PagedList.Core.Mvc
 @model PagedList.Core.IPagedList<RoboTech.Models.TbProduct>
 @{
-    ViewData["TiTle"] = "Shop - " + ViewBag.CurrentPage;
+    TbProductCategory category = ViewBag.CurrentCat;
+    ViewData["TiTle"] = category.Title + " " + ViewBag.CurrentPage;
     Layout = "~/Views/Shared/_Layout.cshtml";
     int PageCurrent = ViewBag.CurrentPage;
     int PageNext = PageCurrent + 1;
@@ -11,18 +12,14 @@
 
     <div class="container py-5">
         <div class="title text-center font-weight-bold" style="font-size: 50px;">
-            <h2>PRODUCT LIST</h2>
+            <h2>@category.Name</h2>
         </div>
         <div class="filter">
-            <label for="sort-form">
-                Sort by:&nbsp;&nbsp;
-            </label>
-            <select id="txtCatID" name="txtCatID" asp-items="ViewBag.DanhMuc">
-                <option selected>Chọn danh mục</option>
-@*                <option value="1">Trending...</option>
-                <option value="2">Price: Low to high..</option>
-                <option value="3">Price: High to low..</option>*@
-            </select>
+            <div class="input-affix m-v-5">
+                <i class="prefix-icon anticon anticon-search opacity-04"></i>
+                <input id="keyword" name="keyword" type="text" class="form-control" placeholder="Tìm kiếm sản phẩm">
+            </div>
+           
         </div>
         <div class="divider">
 
@@ -56,7 +53,7 @@
                 </div>
                 <div class="col-lg-9">
                     <div class="row">
-                        @if (Model != null && Model.Count() > 0) 
+                        @if (Model != null && Model.Count() > 0)
                         {
                             foreach (var item in Model)
                             {
@@ -86,9 +83,9 @@
                                                 </div>
                                                 <button type="button" class="btn bg-cart w-100 mt-2 add-to-cart">
                                                     <a href="@url"><i class="fa-solid fa-cart-plus">&nbsp;Bye Now</i></a>
-                                              @*      <input hidden asp-for="@item.ProductId" />*@
+                                                    @*      <input hidden asp-for="@item.ProductId" />*@
                                                 </button>
-                                                
+
                                             </div>
                                         </div>
                                     </a>
@@ -389,23 +386,23 @@
             </div>
         </div>
     </div>
-    
+
 </section>
 @section Scripts{
-<script>
+    <script>
         $(document).ready(function () {
             jQuery("#txtCatID").change(function () {
-                var alias = jQuery(this).children(":selected").attr("value");
+                var catID = jQuery(this).children(":selected").attr("value");
                 catID = parseFloat(catID);
                 $('#txtCatID option')
                     .removeAttr('selected');
-                $("#txtCatID > [value=" + alias + "]").attr("selected", "true");
+                $("#txtCatID > [value=" + catID + "]").attr("selected", "true");
                 $.ajax({
-                    url: '/Product/Filtter',
+                    url: '/Admin/AdminProducts/Filtter',
                     datatype: "json",
                     type: "GET",
                     data: {
-                        alias: alias
+                        CatID: catID
                     },
                     async: true,
                     success: function (results) {
@@ -436,9 +433,9 @@
                 });
             });
         });
-</script>
+    </script>
 }
-@*@section Scripts{
+    @*@section Scripts{
     <script>
         $(document).ready(function () {
             $(function () {
