@@ -64,7 +64,8 @@
                                 <div class="col-md-6 col-lg-4 mb-4">
                                     <a href="@url">
                                         <div class="card">
-                                            <img src="~/images/products/@item.Thumb"
+                                            <img width="400"
+                                         height="200" src="~/images/products/@item.Thumb"
                                          class="card-img-top " alt="Laptop" />
                                             <div class="card-body">
                                                 <div class="d-flex justify-content-between">
@@ -384,6 +385,11 @@
                             <a href="#">6</a>
                             <a href="#">»</a>
                         </section>
+                        <div class="pagination-area pt-10">
+                        <ul class="pagination justify-content-center">
+                            <pager class="pager-container" list="@Model" options="@PagedListRenderOptions.Bootstrap4PageNumbersOnly" asp-area="" asp-controller="Product" asp-action="Index" />
+                        </ul>
+                    </div>
                     </div>
                 </div>
             </div>
