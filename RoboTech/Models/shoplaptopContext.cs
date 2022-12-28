@@ -144,7 +144,7 @@ namespace RoboTech.Models
 
             modelBuilder.Entity<TbOrderDetail>(entity =>
             {
-                entity.HasKey(e => new { e.OrderId, e.ProductId });
+                entity.HasKey(e => new { e.OrderDetailId });
 
                 entity.ToTable("tb_OrderDetail");
 
@@ -152,12 +152,12 @@ namespace RoboTech.Models
 
                 entity.Property(e => e.ProductId).HasColumnName("ProductID");
 
-                entity.Property(e => e.Price).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.Price).HasColumnType("int");
 
-                entity.Property(e => e.ProductName).HasMaxLength(50);
+            
 
                 entity.HasOne(d => d.Order)
-                    .WithMany(p => p.TbOrderDetails)
+                    .WithMany(p => p.TbOrderDetails)    
                     .HasForeignKey(d => d.OrderId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_tb_OrderDetail_tb_Orders");

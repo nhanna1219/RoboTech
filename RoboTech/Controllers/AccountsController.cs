@@ -67,13 +67,13 @@ namespace RoboTech.Controllers
                 var khachhang = _context.TbCustomers.AsNoTracking().SingleOrDefault(x => x.CustomerId == Convert.ToInt32(taikhoanID));
                 if (khachhang != null)
                 {
-                    /*var ls    DonHang = _context.TbOrders
-                        *//*.Include(x => x.TransactStatus)*//*
+                    var lsDonHang = _context.TbOrders
+                        /*.Include(x => x.TransactStatus)*/
                         .AsNoTracking()
                         .Where(x => x.CustomerId == khachhang.CustomerId)
                         .OrderByDescending(x => x.OrderDate)
                         .ToList();
-                    ViewBag.DonHang = lsDonHang;*/
+                    ViewBag.DonHang = lsDonHang;
                     return View(khachhang);
                 }
             }

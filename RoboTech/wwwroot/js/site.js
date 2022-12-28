@@ -122,7 +122,7 @@ const dialog = (function () {
 window.dialog = dialog;
 
 
-// success modal visible
+/*// success modal visible
 function optionDialog() {
     window.dialog.show({
         content: 'Are you sure want to make payment?',
@@ -146,7 +146,7 @@ function optionDialog() {
         },
         onCancel: () => { }
     })
-}
+}*/
 
 // scrolling banner 
 $(document).ready(function () {

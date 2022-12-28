@@ -4,217 +4,249 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     List<RoboTech.ModelViews.CartItem> Carts = ViewBag.GioHang;
 }
+@section Styles{
+<style type="text/css">
+    .nice-select .list{
+        border-radius: 0px;
+        overflow-y: auto;
+        overflow:hidden;
+        max-height:200px;
+        overflow-y: scroll;
+    }
+    .nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus{
+        color:red;
+        background:none;
+    }
+
+</style>
+}
 <div id="checkout" style="margin-top: -50px" class="bg-light mb-4 pt-5">
     <div class="container mt-5">
-        <div class="row">
-            <div class="col-50">
-                <article class="card">
-                    <div class="container">
-                        <div class="card-title">
-                            <h2>Shipment Details</h2>
-                        </div>
-                        <hr class="my-3 border-1">
-                        <div class="card-body">
-                            @*<div class="payment-type">
+        <form asp-controller="Checkout" asp-action="Index" method="post">
+         <input hidden asp-for="CustomerId" />
+
+                <div class="row">
+                    <div class="col-50">
+                        <article class="card">
+                            <div class="container">
+                                <div class="card-title">
+                                    <h2>Shipment Details</h2>
+                                </div>
+                                <hr class="my-3 border-1">
+                                <div class="card-body">
+                                    @*<div class="payment-type">
                                 <h4>Choose payment method below</h4>
                                 <div class="types flex justify-space-between">
-                                    <div class="type" style="height: 156px">
-                                        <div class="logo">
-                                            <i class="far fa-credit-card"></i>
-                                        </div>
-                                        <div class="text">
-                                            <p>Pay with Credit Card</p>
-                                        </div>
-                                    </div>
-                                    <div class="type">
-                                        <div class="logo">
-                                            <i class="fab fa-paypal"></i>
-                                        </div>
-                                        <div class="text">
-                                            <p>Pay with PayPal</p>
-                                        </div>
-                                    </div>
-                                    <div class="type">
-                                        <div class="logo">
-                                            <i class="fab fa-amazon"></i>
-                                        </div>
-                                        <div class="text">
-                                            <p>Pay with Amazon</p>
-                                        </div>
-                                    </div>
+                                <div class="type" style="height: 156px">
+                                <div class="logo">
+                                <i class="far fa-credit-card"></i>
                                 </div>
-                            </div>*@
-                            <div class="payment-info flex justify-space-between">
-                                <div class="column billing">
-                                  @*  <div class="title">
+                                <div class="text">
+                                <p>Pay with Credit Card</p>
+                                </div>
+                                </div>
+                                <div class="type">
+                                <div class="logo">
+                                <i class="fab fa-paypal"></i>
+                                </div>
+                                <div class="text">
+                                <p>Pay with PayPal</p>
+                                </div>
+                                </div>
+                                <div class="type">
+                                <div class="logo">
+                                <i class="fab fa-amazon"></i>
+                                </div>
+                                <div class="text">
+                                <p>Pay with Amazon</p>
+                                </div>
+                                </div>
+                                </div>
+                                </div>*@
+                                    <div class="payment-info flex justify-space-between">
+
+                                        <div class="column billing">
+                                            @*  <div class="title">
                                         <div class="num">1</div>
                                         <h4>Billing</h4>
-                                    </div>*@
-                                    <div class="field full">
-                                        <label for="name"><i class="fa fa-user"></i> Full Name</label>
-                                        <input id="name" type="text" value="@Model.FullName" asp-for="FullName">
-                                    </div>
-                                    <div class="field full">
-                                        <label for="address"><i class="fa-solid fa-envelope"></i> Email</label>
-                                        <input id="address" type="text" placeholder="@Model.Email" asp-for="Email">
-                                    </div>
-                                    <div class="flex justify-space-between">
-                                        <div class="field full">
-                                            <label for="city"><i class="fa-solid fa-phone"></i> Phone Number</label>
-                                            <input id="city" type="text" value="@Model.Phone">
-                                        </div>
-                                        @*<div class="field half">
+                                        </div>*@
+                                            <div class="field full">
+                                                <label for="name"><i class="fa fa-user"></i> Full Name</label>
+                                                <input id="name" type="text" value="@Model.FullName" asp-for="FullName">
+                                            </div>
+                                            <div class="field full">
+                                                <label for="address"><i class="fa-solid fa-envelope"></i> Email</label>
+                                                <input asp-for="Email" id="address" type="text" placeholder="@Model.Email" asp-for="Email">
+                                            </div>
+                                            <div class="flex justify-space-between">
+                                                <div class="field full">
+                                                    <label for="city"><i class="fa-solid fa-phone"></i> Phone Number</label>
+                                                    <input asp-for="Phone" id="city" type="text" value="@Model.Phone">
+                                                </div>
+                                                @*<div class="field half">
                                             <label for="state">State</label>
                                             <input  id="state" type="text" placeholder="State">
-                                        </div>*@
-                                    </div>
-                                      
-                                    <div class="field full">
-                                        <label for="city"><i class="fa-solid fa-location-dot"></i> Address</label>
-                                        <input id="city" type="text" value="@Model.Address">
-                                    </div>
-                                    <div class="field full">
-                                        <label for="zip"><i class="fa-solid fa-clipboard"></i> Note</label>
-                                       @* <input id="zip" type="text" placeholder="Zip">*@
-                                        <textarea rows="4" cols="50" asp-for="Note"></textarea>
-                                    </div>
-                                </div>
-                                @*<div class="column shipping">
+                                            </div>*@
+                                            </div>
+
+                                            <div class="field full">
+                                                <label for="city"><i class="fa-solid fa-location-dot"></i> Address</label>
+                                                <input asp-for="Address" id="city" type="text" value="@Model.Address">
+                                            </div>
+                                            <div class="field full">
+                                                <label for="zip"><i class="fa-solid fa-clipboard"></i> Note</label>
+                                                @* <input id="zip" type="text" placeholder="Zip">*@
+                                                <textarea asp-for="Note" rows="4" cols="50" asp-for="Note"></textarea>
+                                            </div>
+                                        </div>
+
+                                        @*<div class="column shipping">
                                     <div class="title">
-                                        <div class="num">2</div>
-                                        <h4>Credit Card</h4>
+                                    <div class="num">2</div>
+                                    <h4>Credit Card</h4>
                                     </div>
                                     <div class="field full">
-                                        <label for="name">Cardholder Name</label>
-                                        <input id="name" type="text" placeholder="Full Name">
+                                    <label for="name">Cardholder Name</label>
+                                    <input id="name" type="text" placeholder="Full Name">
                                     </div>
                                     <div class="field full">
-                                        <label for="address">Card Number</label>
-                                        <input id="address" type="text" placeholder="1234-5678-9012-3456">
+                                    <label for="address">Card Number</label>
+                                    <input id="address" type="text" placeholder="1234-5678-9012-3456">
                                     </div>
                                     <div class="flex justify-space-between">
-                                        <div class="field half">
-                                            <label for="city">Exp. Month</label>
-                                            <input id="city" type="text" placeholder="12">
-                                        </div>
-                                        <div class="field half">
-                                            <label for="state">Exp. Year</label>
-                                            <input id="state" type="text" placeholder="19">
-                                        </div>
+                                    <div class="field half">
+                                    <label for="city">Exp. Month</label>
+                                    <input id="city" type="text" placeholder="12">
+                                    </div>
+                                    <div class="field half">
+                                    <label for="state">Exp. Year</label>
+                                    <input id="state" type="text" placeholder="19">
+                                    </div>
                                     </div>
                                     <div class="field full">
-                                        <label for="zip">CVC Number</label>
-                                        <input id="zip" type="text" placeholder="468">
+                                    <label for="zip">CVC Number</label>
+                                    <input id="zip" type="text" placeholder="468">
                                     </div>
-                                </div>*@
+                                    </div>*@
+                                    </div>
+                                </div>
+                                <div class="card-actions flex justify-space-between">
+                                    <div class="flex-start">
+                                        <button class="button button-secondary">Return to Store</button>
+                                    </div>
+                                    <div class="flex-end">
+                                        <button class="button button-primary" type="submit">Confirm Order</button>
+                                        @*<button class="button button-primary" onclick="optionDialog()" type="submit">Confirm Order</button>*@
+                                        @*<input class="button button-primary" type="submit">Confirm Order>*@
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card-actions flex justify-space-between">
-                            <div class="flex-start">
-                                <button class="button button-secondary">Return to Store</button>
-                            </div>
-                            <div class="flex-end">
-                                <button class="button button-primary" onclick="optionDialog()">Proceed</button>
-                            </div>
-                        </div>
+                        </article>
                     </div>
-                </article>
-            </div>
-            <div class="col-40" style="position: sticky; top: 0; align-self: flex-start; ">
-                <article class="card" style="padding: 10px;">
-                    <div class="container p-3">
-                        <div class="col-lg-12">
-                            <h6 class="mb-4 mt-3">
-                                <a href="/ProductList" class="text-body">
-                                    <i class="fas fa-long-arrow-alt-left me-4"></i>
-                                    Continue shopping
-                                </a>
-                            </h6>
-                            <hr>
+                    <div class="col-40" style="position: sticky; top: 0; align-self: flex-start; ">
+                        <article class="card" style="padding: 10px;">
+                            <div class="container p-3">
+                                <div class="col-lg-12">
+                                    <h6 class="mb-4 mt-3">
+                                        <a href="/ProductList" class="text-body">
+                                            <i class="fas fa-long-arrow-alt-left me-4"></i>
+                                            Continue shopping
+                                        </a>
+                                    </h6>
+                                    <hr>
 
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="w-100">
-                                    <p class="mb-1 fs-3 mb-4">Shopping cart</p>
-                                    <p class="d-inline ps-2">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="w-100">
+                                            <p class="mb-1 fs-3 mb-4">Shopping cart</p>
+                                            <p class="d-inline ps-2">
+                                                <strong>
+                                                    Product<span class="float-end"
+                                                             style="padding-right: 70px;">Price</span>
+                                                </strong>
+                                            </p>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="card mb-3 p-0 m-0">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                            @if (Carts.Count() != 0)
+                                            {
+                                                foreach (var item in Carts)
+                                                {
+                                                    <div class="d-flex flex-row align-items-center">
+                                                        <div>
+                                                            <img src="~/images/products/@item.product.Thumb" alt="Thumbnail" class="rounded-3" style="width: 65px; height:65px;">
+                                                        </div>
+                                                        <div class="ms-3">
+                                                            <h6><strong>@item.product.Name</strong></h6>
+                                                            <p class="small mb-0">256GB, Navy Blue</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex flex-row align-items-center">
+                                                        <div style="width: 50px;">
+                                                            <h6 class="fw-normal mb-0">@item.amount</h6>
+                                                        </div>
+                                                        <div style="width: 80px;">
+                                                            <h6 class="mb-0">@item.TotalMoney.ToString("#,##0") VNĐ</h6>
+                                                        </div>
+                                                        <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+                                                    </div>
+
+                                                }
+                                            }
+
+                                        </div>
+                                    </div>
+                                </div>
+                                @*
+                                <div class="card mb-3 p-0 m-0">
+                                <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                <div class="d-flex flex-row align-items-center">
+                                <div>
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img2.webp"
+                                class=" rounded-3" alt="Shopping item"
+                                style="width: 65px; height: 65px">
+                                </div>
+                                <div class="ms-3">
+                                <h6><strong>Samsung galaxy Note 10</strong> </h6>
+                                <p class="small mb-0">256GB, Navy Blue</p>
+                                </div>
+                                </div>
+                                <div class="d-flex flex-row align-items-center">
+                                <div style="height: 50px; width: 50px;">
+                                <h6 class="fw-normal mb-0">2</h6>
+                                </div>
+                                <div style="width: 80px;">
+                                <h6 class="mb-0">900.000 VND</h6>
+                                </div>
+                                <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+                                </div>
+                                </div>
+                                </div>
+                                </div>*@
+
+
+                                <div class="mt-4">
+                                    <p class="d-inline ps-3">
                                         <strong>
-                                            Product<span class="float-end"
-                                                      style="padding-right: 70px;">Price</span>
+                                            TOTAL<span class="float-end" style="padding-right: 10px;">
+                                                @Carts.Sum(x => x.TotalMoney).ToString("#,##0") VNĐ
+                                            </span>
                                         </strong>
                                     </p>
-
+                                    @* <strong>Thanh toán khi giao hàng(COD)</strong>
+                                    <h3>Khách hàng sẽ thanh toán khi nhận hàng</h3>*@
                                 </div>
-                            </div>
-
-                            <div class="card mb-3 p-0 m-0">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex flex-row align-items-center">
-                                            <div>
-                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
-                                                     class=" rounded-3" alt="Shopping item"
-                                                     style="width: 65px; height:65px;">
-                                            </div>
-                                            <div class="ms-3">
-                                                <h6><strong>Iphone 11 pro</strong></h6>
-                                                <p class="small mb-0">256GB, Navy Blue</p>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex flex-row align-items-center">
-                                            <div style="width: 50px;">
-                                                <h6 class="fw-normal mb-0">2</h6>
-                                            </div>
-                                            <div style="width: 80px;">
-                                                <h6 class="mb-0">900.000 VND</h6>
-                                            </div>
-                                            <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card mb-3 p-0 m-0">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex flex-row align-items-center">
-                                            <div>
-                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img2.webp"
-                                                     class=" rounded-3" alt="Shopping item"
-                                                     style="width: 65px; height: 65px">
-                                            </div>
-                                            <div class="ms-3">
-                                                <h6><strong>Samsung galaxy Note 10</strong> </h6>
-                                                <p class="small mb-0">256GB, Navy Blue</p>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex flex-row align-items-center">
-                                            <div style="height: 50px; width: 50px;">
-                                                <h6 class="fw-normal mb-0">2</h6>
-                                            </div>
-                                            <div style="width: 80px;">
-                                                <h6 class="mb-0">900.000 VND</h6>
-                                            </div>
-                                            <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="mt-4">
-                                <p class="d-inline ps-3">
-                                    <strong>
-                                        TOTAL<span class="float-end" style="padding-right: 10px;">
-                                            4.798.000 VND
-                                        </span>
-                                    </strong>
-                                </p>
                             </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
+                </div>
             </div>
-        </div>
-        <div class="modal js-modal">
+        
+        @*<div class="modal js-modal">
             <div class="js-modal-container row">
                 <div class="col-md-6 mx-auto mt-5">
                     <div class="payment">
@@ -232,7 +264,8 @@
 
                     </div>
                 </div>
-            </div>
-        </div>
+            </div>*@
+        
+        </form>
     </div>
 </div>

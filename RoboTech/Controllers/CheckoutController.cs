@@ -44,7 +44,7 @@ namespace RoboTech.Controllers
             //Lay gio hang ra de xu ly
             var cart = HttpContext.Session.Get<List<CartItem>>("GioHang");
             var taikhoanID = HttpContext.Session.GetString("CustomerId");
-            MuaHangVM model = new MuaHangVM();
+                MuaHangVM model = new MuaHangVM();
             if (taikhoanID != null)
             {
                 var khachhang = _context.TbCustomers.AsNoTracking().SingleOrDefault(x => x.CustomerId == Convert.ToInt32(taikhoanID));
@@ -123,8 +123,6 @@ namespace RoboTech.Controllers
                     _notyfService.Success("Đơn hàng đặt thành công");
                     //cap nhat thong tin khach hang
                     return RedirectToAction("Success");
-
-
                 }
             }
             catch
