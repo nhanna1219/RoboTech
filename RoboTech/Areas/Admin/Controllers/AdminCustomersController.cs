@@ -13,11 +13,12 @@ namespace RoboTech.Areas.Admin.Controllers
 {
     [Area("Admin")]
     /*[Authorize]*/
+    /*[Authorize(Roles = "Admin")]*/
     public class AdminCustomersController : Controller
     {
-        private readonly shoplaptopContext _context;
+        private readonly ShoplaptopContext _context;
 
-        public AdminCustomersController(shoplaptopContext context)
+        public AdminCustomersController(ShoplaptopContext context)
         {
             _context = context;
         }
@@ -152,7 +153,7 @@ namespace RoboTech.Areas.Admin.Controllers
         {
             if (_context.TbCustomers == null)
             {
-                return Problem("Entity set 'shoplaptopContext.TbCustomers'  is null.");
+                return Problem("Entity set 'ShoplaptopContext.TbCustomers'  is null.");
             }
             var tbCustomer = await _context.TbCustomers.FindAsync(id);
             if (tbCustomer != null)

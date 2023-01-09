@@ -1,5 +1,5 @@
 ﻿
-
+@model RoboTech.Models.TbProduct
 
 <div>
     <div class="left-zone ads"  >
@@ -487,6 +487,14 @@
             <h3 class="heading text-center font-weight-semibold mb-3">T O P &nbsp; T R E N D I N G &nbsp; PC</h3>
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
+                    @* @if (Model != null && Model.Count() > 0)
+                    {
+                        foreach (var item in Model)
+                        {
+                            string url = $"/{item.Alias}-{item.ProductId}";
+                            
+                        }
+                    }*@
                     <div class="swiper-slide">
                         <a asp-action="Index" asp-controller="Product">
                             <div class="slider-box">

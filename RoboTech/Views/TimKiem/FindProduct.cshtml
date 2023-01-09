@@ -1,25 +1,26 @@
-﻿@using PagedList.Core.Mvc
-@model PagedList.Core.IPagedList<RoboTech.Models.TbProduct>
+﻿@*@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<RoboTech.Models.TbProduct>*@
+@using RoboTech.Models
+@model IEnumerable<RoboTech.Models.TbProduct>
 @{
-    TbProductCategory category = ViewBag.CurrentCat;
-    ViewData["TiTle"] = category.Title + " " + ViewBag.CurrentPage;
+    ViewData["Title"] = "FindProduct";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    int PageCurrent = ViewBag.CurrentPage;
-    int PageNext = PageCurrent + 1;
+    string keyword = ViewBag.Keyword;
 }
+
 
 <section style="background-color: rgb(250, 250, 250, 0.60); margin-top: -15px">
 
     <div class="container py-5">
         <div class="title text-center font-weight-bold" style="font-size: 50px;">
-            <h2>@category.Name</h2>
+            <h2> Search Result for "@keyword"</h2>
         </div>
         <div class="filter">
             <div class="input-affix m-v-5">
                 <i class="prefix-icon anticon anticon-search opacity-04"></i>
                 <input id="keyword" name="keyword" type="text" class="form-control" placeholder="Search product ...">
             </div>
-           
+
         </div>
         <div class="divider">
 
@@ -436,60 +437,4 @@
         });
     </script>
 }
-    @*@section Scripts{
-    <script>
-        $(document).ready(function () {
-            $(function () {
-                $(".add-to-cart").click(function () {
-                    var productid = $('#ProductId').val();
-                    var soLuong = 1;
-                    $.ajax({
-                        url: '/api/cart/add',
-                        type: "POST",
-                        dataType: "JSON",
-                        data: {
-                            productID: productid,
-                            amount: soLuong
-                        },
-                        success: function (response) {
-                            if (response.result == 'Redirect') {
-                                window.location = response.url;
-                            }
-                            else {
-                                loadHeaderCart(); //Add Product success
-                                location.reload();
-                            }
-                            console.log(response); // log to the console to see whether it worked
-                        },
-                        error: function (error) {
-                            alert("There was an error posting the data to the server: " + error.responseText);
-                        }
-                    });
-                });
 
-                $(".removecart").click(function () {
-                    var productid = $(this).attr("data-productid");
-                    $.ajax({
-                        url: "api/cart/remove",
-                        type: "POST",
-                        dataType: "JSON",
-                        data: { productID: productid },
-                        success: function (result) {
-                            if (result.success) {
-                                loadHeaderCart();//Reload lai gio hang
-                                location.reload();
-                            }
-                        },
-                        error: function (rs) {
-                            alert("Remove Cart Error !")
-                        }
-                    });
-                });
-            });
-            function loadHeaderCart() {
-                $('#miniCart').load("/AjaxContent/HeaderCart");
-                $('#numberCart').load("/AjaxContent/NumberCart");
-            }
-        });
-    </script>
-}*@

@@ -20,7 +20,7 @@
                 <div class="product-imgs">
                     <div class="img-display">
                         <div class="img-showcase">
-                            <img src="~/assets/img/pc1.jpg" />
+                            <img src="~/images/products/@Model.Thumb" />
                             <img src="~/assets/img/pc2.jpg" />
                             <img src="~/assets/img/pc3.jpg" />
                             <img src="~/assets/img/pc4.jpg" />
@@ -29,7 +29,7 @@
                     <div class="img-select">
                         <div class="img-item">
                             <a href="#" data-id="1">
-                                <img src="~/assets/img/pc1.jpg" />
+                                <img src="~/images/products/@Model.Thumb" />
                             </a>
                         </div>
                         <div class="img-item">
@@ -61,13 +61,13 @@
                         <span>4.7(21)</span>
                     </div>
                     <div class="product-card-price mt-3">
-                        <p class="last-price">Old Price: <span>$257.00</span></p>
-                        <p class="new-price">New Price: <span>$249.00 (5%)</span></p>
+                        @*<p class="last-price">Old Price: <span>$257.00</span></p>*@
+                        <p class="new-price">New Price: <span>@Model.Price.Value.ToString("#,##0") VNĐ</span></p>
                     </div>
                     <div class="product-detail">
                         <h2>about this item: </h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eveniet veniam tempora fuga tenetur placeat sapiente architecto illum soluta consequuntur, aspernatur quidem at sequi ipsa!</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, perferendis eius. Dignissimos, labore suscipit. Unde.</p>
+                        <p>@Model.Description</p>
+                        <p>@Model.Image</p>
                         <ul>
                             <li>Available: <span>in stock</span></li>
                             <li>Category: <span><a href="danhmuc/@Model.Cate.Alias">@Model.Cate.Name</a></span></li>

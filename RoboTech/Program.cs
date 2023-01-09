@@ -7,9 +7,9 @@ using System.Text.Unicode;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<shoplaptopContext>(options =>
+builder.Services.AddDbContext<ShoplaptopContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("RobotechConnectionString")));
-//builder.Services.AddDbContext<shoplaptopContext>(options =>
+//builder.Services.AddDbContext<ShoplaptopContext>(options =>
 //options.UseSqlServer(
 //builder.Configuration.GetConnectionString("WebShopConnectionString")
 //));

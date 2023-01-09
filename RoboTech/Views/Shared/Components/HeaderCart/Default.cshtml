@@ -26,18 +26,18 @@
         </div>
         <div class="minicart-item_total">
             
-            <span><strong>Tổng tiền</strong></span>
+            <span><strong>Total</strong></span>
             <span class="ammount"><strong>@Model.Sum(x => x.TotalMoney).ToString("#,##0") VNĐ</strong></span>
         </div>
         <div class="group-btn_wrap d-grid gap-2">
-            <a href="cart.html" class="btn btn-secondary btn-primary-hover">Xem giỏ hàng</a>
+            <a href="cart.html" class="btn btn-secondary btn-primary-hover">View cart</a>
             @if (User.Identity.IsAuthenticated)
             {
-                <a href="/checkout" class="btn btn-secondary btn-primary-hover">Thanh toán</a>
+                <a href="/checkout" class="btn btn-secondary btn-primary-hover">Checkout Now</a>
             }
             else
             {
-                <a href="/log-in?returnUrl=/checkout" class="btn btn-secondary btn-primary-hover">Thanh toán</a>
+                <a href="/log-in?returnUrl=/checkout" class="btn btn-secondary btn-primary-hover">Checkout Now</a>
             }
         </div>
     </div>

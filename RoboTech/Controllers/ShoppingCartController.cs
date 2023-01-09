@@ -9,9 +9,9 @@ namespace RoboTech.Controllers
 {
     public class ShoppingCartController : Controller
     {
-        private readonly shoplaptopContext _context;
+        private readonly ShoplaptopContext _context;
         public INotyfService _notyfService { get; }
-        public ShoppingCartController(shoplaptopContext context, INotyfService notyfService)
+        public ShoppingCartController(ShoplaptopContext context, INotyfService notyfService)
         {
             _context = context;
             _notyfService = notyfService;

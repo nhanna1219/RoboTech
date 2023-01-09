@@ -49,17 +49,17 @@
                     <div style="text-align:center;">
 
                         <div class="checkbox-form">
-                            <h3 style="color:red">ĐẶT HÀNG THÀNH CÔNG</h3>
-                            <p>Mã đơn hàng: #@Model.DonHangID</p>
-                            <p>Cảm ơn bạn đã đặt hàng</p>
+                            <h3 style="color:red">ORDER SUCCESS</h3>
+                            <p>Code orders: #@Model.DonHangID</p>
+                            <p>Thank you for your order</p>
                             <br />
-                            <h3>THÔNG TIN ĐƠN HÀNG</h3>
-                            <p>Thông tin giao hàng</p>
-                            <p>Người nhận hàng: @Model.FullName</p>
-                            <p>Số điện thoại: @Model.Phone</p>
-                            <p>Địa chỉ: @Model.Address</p>
+                                <h3>DETAILED INFORMATION ORDER</h3>
+                                <p>Shipment Details</p>
+                                <p>Receiver: @Model.FullName</p>
+                                <p>Phone number: @Model.Phone</p>
+                                <p>Address: @Model.Address</p>
                             <br />
-                            Để xem chi tiết đơn hàng vui lòng truy cập vào <a asp-controller="Accounts" asp-action="Dashboard"><strong>Tài khoản cá nhân.</strong></a> Cần hỗ trợ? Liên hệ với chúng tôi qua số điện thoại 0392697777
+                                To view order details please visit <a asp-controller="Accounts" asp-action="Dashboard"><strong>My Account.</strong></a> Need help? Contact us by phone number 0392697777!
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">

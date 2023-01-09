@@ -15,9 +15,9 @@ namespace WebShop.Controllers
 {
     public class DonHangController : Controller
     {
-        private readonly shoplaptopContext _context;
+        private readonly ShoplaptopContext _context;
         public INotyfService _notyfService { get; }
-        public DonHangController(shoplaptopContext context, INotyfService notyfService)
+        public DonHangController(ShoplaptopContext context, INotyfService notyfService)
         {
             _context = context;
             _notyfService = notyfService;
@@ -37,6 +37,7 @@ namespace WebShop.Controllers
                 if (khachhang == null) return NotFound();
                 var donhang = await _context.TbOrders
                     /*.Include(x => x.Deleted)*/
+                    .Include(x => x.TransactStatus)
                     .FirstOrDefaultAsync(m => m.Id == id && Convert.ToInt32(taikhoanID) == m.CustomerId);
                 if (donhang == null) return NotFound();
 

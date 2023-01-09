@@ -18,12 +18,13 @@ using RoboTech.ModelViews;
 namespace RoboTech.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     /*[Authorize(Roles = "Admin")]*/
     public class AdminAccountsController : Controller
     {
-        private readonly shoplaptopContext _context;
+        private readonly ShoplaptopContext _context;
         public INotyfService _notyfService { get; }
-        public AdminAccountsController(shoplaptopContext context, INotyfService notyfService)
+        public AdminAccountsController(ShoplaptopContext context, INotyfService notyfService)
         {
             _context = context;
             _notyfService = notyfService;

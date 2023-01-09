@@ -134,7 +134,7 @@ namespace RoboTech.Helper
                     break;
                 }
             }
-            return url;
+            return url.Trim();
         }
         public static async Task<string?> UploadFile(Microsoft.AspNetCore.Http.IFormFile file, string sDirectory, string newname = null)
         {

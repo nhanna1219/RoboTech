@@ -13,9 +13,9 @@ namespace RoboTech.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminRolesController : Controller
     {
-        private readonly shoplaptopContext _context;
+        private readonly ShoplaptopContext _context;
         public INotyfService _notyfService { get; }
-        public AdminRolesController(shoplaptopContext context, INotyfService notyfService)
+        public AdminRolesController(ShoplaptopContext context, INotyfService notyfService)
         {
             _context = context;
             _notyfService = notyfService;
@@ -146,7 +146,7 @@ namespace RoboTech.Areas.Admin.Controllers
         {
             if (_context.TbRoles == null)
             {
-                return Problem("Entity set 'shoplaptopContext.TbRoles'  is null.");
+                return Problem("Entity set 'ShoplaptopContext.TbRoles'  is null.");
             }
             var tbRole = await _context.TbRoles.FindAsync(id);
             if (tbRole != null)

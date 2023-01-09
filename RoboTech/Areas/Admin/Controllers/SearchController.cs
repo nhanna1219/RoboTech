@@ -9,9 +9,9 @@ namespace RoboTech.Areas.Admin.Controllers
     [Area("Admin")]
     public class SearchController : Controller
     {
-        private readonly shoplaptopContext _context;
+        private readonly ShoplaptopContext _context;
 
-        public SearchController(shoplaptopContext context)
+        public SearchController(ShoplaptopContext context)
         {
             _context = context;
         }

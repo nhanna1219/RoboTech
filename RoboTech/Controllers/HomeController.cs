@@ -11,7 +11,7 @@ namespace RoboTech.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger, shoplaptopContext db, IConfiguration conf)
+        public HomeController(ILogger<HomeController> logger, ShoplaptopContext db, IConfiguration conf)
         {
             _logger = logger;
         }

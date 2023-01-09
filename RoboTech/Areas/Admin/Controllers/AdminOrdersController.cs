@@ -14,9 +14,9 @@ namespace RoboTech.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminOrdersController : Controller
     {
-        private readonly shoplaptopContext _context;
+        private readonly ShoplaptopContext _context;
         public INotyfService _notyfService { get; }
-        public AdminOrdersController(shoplaptopContext context, INotyfService notyfService)
+        public AdminOrdersController(ShoplaptopContext context, INotyfService notyfService)
         {
             _context = context;
             _notyfService = notyfService;
@@ -29,7 +29,7 @@ namespace RoboTech.Areas.Admin.Controllers
             var pageNumber = page == null || page <= 0 ? 1 : page.Value;
             var pageSize = 20;
             var Orders = _context.TbOrders.Include(o => o.Customer)
-                /*.Include(o => o.TransactStatus)*/
+                .Include(o => o.TransactStatus)
                 .AsNoTracking()
                 .OrderBy(x => x.OrderDate);
             PagedList<TbOrder> models = new PagedList<TbOrder>(Orders, pageNumber, pageSize);
@@ -51,7 +51,7 @@ namespace RoboTech.Areas.Admin.Controllers
 
             var order = await _context.TbOrders
                 .Include(o => o.Customer)
-               /* .Include(o => o.TransactStatus)*/
+                .Include(o => o.TransactStatus)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (order == null)
             {
@@ -69,7 +69,7 @@ namespace RoboTech.Areas.Admin.Controllers
         }
 
 
-        /*public async Task<IActionResult> ChangeStatus(int? id)
+        public async Task<IActionResult> ChangeStatus(int? id)
         {
             if (id == null)
             {
@@ -88,9 +88,9 @@ namespace RoboTech.Areas.Admin.Controllers
             return PartialView("ChangeStatus", order);
         }
         [HttpPost]
-        public async Task<IActionResult> ChangeStatus(int id, [Bind("OrderId,CustomerId,OrderDate,ShipDate,TransactStatusId,Deleted,Paid,PaymentDate,TotalMoney,PaymentId,Note,Address,LocationId,District,Ward")] Order order)
+        public async Task<IActionResult> ChangeStatus(int id, [Bind("Id,CustomerId,OrderDate,Deleted,ShipDate,TransactStatusId,Paid,PaymentDate,TotalMoney,PaymentId,Note,Address")] TbOrder order)
         {
-            if (id != order.OrderId)
+            if (id != order.Id)
             {
                 return NotFound();
             }
@@ -98,7 +98,7 @@ namespace RoboTech.Areas.Admin.Controllers
             {
                 try
                 {
-                    var donhang = await _context.Orders.AsNoTracking().Include(x => x.Customer).FirstOrDefaultAsync(x => x.OrderId == id);
+                    var donhang = await _context.TbOrders.AsNoTracking().Include(x => x.Customer).FirstOrDefaultAsync(x => x.Id == id);
                     if (donhang != null)
                     {
                         donhang.Paid = order.Paid;
@@ -113,12 +113,12 @@ namespace RoboTech.Areas.Admin.Controllers
                     }
                     _context.Update(donhang);
                     await _context.SaveChangesAsync();
-                    _notyfService.Success("Cập nhật trạng thái đơn hàng thành công");
+                    _notyfService.Success("Order status update successful!");
 
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!OrderExists(order.OrderId))
+                    if (!OrderExists(order.Id))
                     {
                         return NotFound();
                     }
@@ -132,7 +132,7 @@ namespace RoboTech.Areas.Admin.Controllers
             ViewData["Trangthai"] = new SelectList(_context.TransactStatuses, "TransactStatusId", "Status", order.TransactStatusId);
             return PartialView("ChangeStatus", order);
         }
-*/
+
         // GET: Admin/AdminOrders/Create
         public async Task<IActionResult> Delete(int? id)
         {
@@ -142,7 +142,7 @@ namespace RoboTech.Areas.Admin.Controllers
             }
             var order = await _context.TbOrders
                 .Include(o => o.Customer)
-               /* .Include(o => o.TransactStatus)*/
+                .Include(o => o.TransactStatus)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (order == null)
             {
@@ -152,12 +152,13 @@ namespace RoboTech.Areas.Admin.Controllers
             var Chitietdonhang = _context.TbOrderDetails
                 .Include(x => x.Product)
                 .AsNoTracking()
-                .Where(x => x.OrderDetailId == order.Id)
+                .Where(x => x.OrderId == order.Id)
                 .OrderBy(x => x.OrderDetailId)
                 .ToList();
             ViewBag.ChiTiet = Chitietdonhang;
 
             return View(order);
+      
         }
 
         // POST: Admin/AdminOrders/Delete/5
@@ -169,7 +170,7 @@ namespace RoboTech.Areas.Admin.Controllers
             order.Deleted = true;
             _context.Update(order);
             await _context.SaveChangesAsync();
-            _notyfService.Success("Xóa đơn hàng thành công");
+            _notyfService.Success("Deleted order successfully!");
             return RedirectToAction(nameof(Index));
         }
 

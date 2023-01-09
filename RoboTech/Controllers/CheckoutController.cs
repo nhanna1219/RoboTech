@@ -19,9 +19,9 @@ namespace RoboTech.Controllers
 {
     public class CheckoutController : Controller
     {
-        private readonly shoplaptopContext _context;
+        private readonly ShoplaptopContext _context;
         public INotyfService _notyfService { get; }
-        public CheckoutController(shoplaptopContext context, INotyfService notyfService)
+        public CheckoutController(ShoplaptopContext context, INotyfService notyfService)
         {
             _context = context;
             _notyfService = notyfService;
@@ -97,6 +97,7 @@ namespace RoboTech.Controllers
 
                     donhang.OrderDate = DateTime.Now;
                     donhang.TransactStatusId = 1;//Don hang moi
+                   /* donhang.Status = donhang.TransactStatus.TransactStatusId;*/   
                     donhang.Deleted = false;
                     donhang.Paid = false;
                     donhang.Note = Utilities.StripHTML(model.Note);

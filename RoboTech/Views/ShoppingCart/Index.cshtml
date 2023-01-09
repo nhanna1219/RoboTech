@@ -10,7 +10,7 @@
             <div class="row h-100">
                 <div class="col-lg-12">
                     <div class="breadcrumb-item">
-                        <h2 class="breadcrumb-heading">Giỏ hàng</h2>
+                        <h2 class="breadcrumb-heading">Your Cart</h2>
                     </div>
                 </div>
             </div>
@@ -27,12 +27,12 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th class="product_remove">Xóa</th>
-                                            <th class="product-thumbnail">Ảnh đại diện</th>
-                                            <th class="cart-product-name">Sản phẩm</th>
-                                            <th class="product-price">Đơn giá</th>
-                                            <th class="product-quantity">Số lượng</th>
-                                            <th class="product-subtotal">Thành tiền</th>
+                                            <th class="product_remove">Delete</th>
+                                            <th class="product-thumbnail">Thumbnail</th>
+                                            <th class="cart-product-name">Product Name</th>
+                                            <th class="product-price">Unit Price</th>
+                                            <th class="product-quantity">Quantity</th>
+                                            <th class="product-subtotal">Price</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -67,17 +67,21 @@
                             <div class="row">
                                 <div style="text-align:center;" class="">
                                     <div class="cart-page-total">
-                                        <h2>Tổng đơn hàng</h2>
+                                        <h2>Total Order</h2>
                                         <ul>
-                                            <li>Thành tiền <span>@Model.Sum(x => x.TotalMoney).ToString("#,##0") VNĐ</span></li>
+                                            <li>Total Money <span>@Model.Sum(x => x.TotalMoney).ToString("#,##0") VNĐ</span></li>
                                         </ul>
                                         @if (User.Identity.IsAuthenticated)
                                         {
                                             <a href="/checkout" class="btn btn-secondary btn-primary-hover">Thanh toán</a>
+                                            <br />
+
+                                            <br />
                                         }
                                         else
                                         {
-                                            <a href="/log-in.html?returnUrl=/checkout" class="btn btn-secondary btn-primary-hover">Thanh toán</a>
+                                            <a href="/log-in.html?returnUrl=/checkout" class="btn btn-secondary btn-primary-hover">Checkout</a>
+                                            <br /><br />
                                         }
                                     </div>
                                 </div>

@@ -15,9 +15,9 @@ namespace RoboTech.Controllers
     [Authorize]
     public class AccountsController : Controller
     {
-        private readonly shoplaptopContext _context;
+        private readonly ShoplaptopContext _context;
         public INotyfService _notyfService { get; }
-        public AccountsController(shoplaptopContext context, INotyfService notyfService)
+        public AccountsController(ShoplaptopContext context, INotyfService notyfService)
         {
             _context = context;
             _notyfService = notyfService;
@@ -193,7 +193,7 @@ namespace RoboTech.Controllers
                     ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
                     await HttpContext.SignInAsync(claimsPrincipal);
-                    _notyfService.Success("Đăng nhập thành công");
+                    _notyfService.Success("Logged in successfully");
                     if (string.IsNullOrEmpty(returnUrl))
                     {
                         return RedirectToAction("Dashboard", "Accounts");

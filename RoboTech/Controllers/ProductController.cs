@@ -9,8 +9,8 @@ namespace RoboTech.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly shoplaptopContext _context;
-        public ProductController(shoplaptopContext context)
+        private readonly ShoplaptopContext _context;
+        public ProductController(ShoplaptopContext context)
         {
             _context = context;
         }

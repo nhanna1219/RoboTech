@@ -50,9 +50,9 @@
                                         <tbody>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Ngày mua hàng</th>
-                                                <th>Ngày ship hàng</th>
-                                                <th>Trạng thái</th>
+                                                <th>Purchase date</th>
+                                                <th>Delivery date</th>
+                                                <th>Status</th>
                                             </tr>
                                             @foreach (var item in DanhSachDonHang)
                                             {
@@ -62,7 +62,7 @@
                                                     <td>@item.OrderDate</td>
                                                   @*  <td>@item.TransactStatus.Status</td>*@
                                                     <td>
-                                                        <a href="javascript:void(0)" class="xemdonhang" data-madonhang="@item.Id">Xem đơn hàng</a>
+                                                        <a href="javascript:void(0)" class="xemdonhang" data-madonhang="@item.Id">View detailed orders</a>
                                                     </td>
                                                 </tr>
                                             }

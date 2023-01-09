@@ -11,9 +11,9 @@ namespace RoboTech.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminProductsController : Controller
     {
-        private readonly shoplaptopContext _context;
+        private readonly ShoplaptopContext _context;
         public INotyfService _notyfService { get; }
-        public AdminProductsController(shoplaptopContext context, INotyfService notyfService)
+        public AdminProductsController(ShoplaptopContext context, INotyfService notyfService)
         {
             _context = context;
             _notyfService = notyfService;
@@ -104,7 +104,7 @@ namespace RoboTech.Areas.Admin.Controllers
 
                 _context.Add(tbProduct);
                 await _context.SaveChangesAsync();
-                _notyfService.Success("Thêm mới thành công");
+                _notyfService.Success("Successfully added new");
                 return RedirectToAction(nameof(Index));
             }
             ViewData["DanhMuc"] = new SelectList(_context.TbProductCategories, "CateId", "Name", tbProduct.CateId);
@@ -211,7 +211,7 @@ namespace RoboTech.Areas.Admin.Controllers
         {
             if (_context.TbProducts == null)
             {
-                return Problem("Entity set 'shoplaptopContext.TbProducts'  is null.");
+                return Problem("Entity set 'ShoplaptopContext.TbProducts'  is null.");
             }
             var tbProduct = await _context.TbProducts.FindAsync(id);
             if (tbProduct != null)

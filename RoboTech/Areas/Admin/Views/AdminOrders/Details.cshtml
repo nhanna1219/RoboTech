@@ -47,10 +47,10 @@
                         </div>
                         <div class="float-right">@Model.ShipDate</div>
                         <br />*@
-                       @* <div class="text-dark text-uppercase d-inline-block"> 
+                        <div class="text-dark text-uppercase d-inline-block"> 
                             <span class="font-weight-semibold text-dark">Trạng thái đơn hàng :</span>
-                        </div>*@
-                       @* <div class="float-right">@Model.TransactStatus.Status</div>*@
+                        </div>
+                        <div class="float-right">@Model.TransactStatus.Status</div>
                     </div>
                 </div>
                 <div class="m-t-20">
@@ -90,7 +90,7 @@
                     <div class="row m-t-30 lh-1-8">
                         <div class="col-sm-12">
                             <div class="float-right text-right">
-                                <h3><span class="font-weight-semibold text-dark">Tổng tiền :</span>@orderDetails.Sum(x =>x.TotalMoney).Value.ToString("#,##0") VNĐ</h3>
+                                <h3><span class="font-weight-semibold text-dark">Total :</span>@orderDetails.Sum(x =>x.TotalMoney).Value.ToString("#,##0") VNĐ</h3>
                             </div>
                         </div>
                     </div>

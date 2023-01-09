@@ -2,22 +2,22 @@
 @{
     var total = Model.ChiTietDonHang.Sum(x => x.TotalMoney).Value.ToString("#,##0");
 }
-<h3>Thông tin đơn hàng: #@Model.DonHang.Id</h3>
+<h3>Order Information: #@Model.DonHang.Id</h3>
 <br />
-<p>Ngày đặt hàng: @Model.DonHang.OrderDate</p>
-@*<p>Trạng thái đơn hàng: @Model.DonHang.TransactStatus.Status</p>*@
-<p>Tổng giá trị đơn hàng: <strong> @total VNĐ</strong></p>
-<p>Ngày ship hàng:  @Model.DonHang.OrderDate</p></p>
+<p>Order date: @Model.DonHang.OrderDate</p>
+<p>Order Status: @Model.DonHang.TransactStatus.Status</p>
+<p>Total order value: <strong> @total VNĐ</strong></p>
+<p>Delivery date:  @Model.DonHang.OrderDate</p></p>
 
 <div class="table-responsive">
     <table class="table table-bordered table-hover">
         <tbody>
             <tr>
                 <th>#</th>
-                <th>Sản phẩm</th>
-                <th>Số lượng</th>
-                <th>Đơn giá</th>
-                <th>Thành tiền</th>
+                <th>Buyer</th>
+                <th>Amount</th>
+                <th>Unit price</th>
+                <th>Total amount</th>
             </tr>
 
                 @foreach (var item in Model.ChiTietDonHang)

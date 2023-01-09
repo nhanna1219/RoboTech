@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,11 +15,12 @@ using RoboTech.Models;
 namespace RoboTech.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    /*[Authorize(Roles = "Admin")]*/
     public class AdminCategoriesController : Controller
     {
-        private readonly shoplaptopContext _context;
+        private readonly ShoplaptopContext _context;
         public INotyfService _notyfService { get; }
-        public AdminCategoriesController(shoplaptopContext context, INotyfService notyfService)
+        public AdminCategoriesController(ShoplaptopContext context, INotyfService notyfService)
         {
             _context = context;
             _notyfService = notyfService;
@@ -81,7 +84,7 @@ namespace RoboTech.Areas.Admin.Controllers
                 tbProductCategory.Alias = Utilities.SEOUrl(tbProductCategory.Name);
                 _context.Add(tbProductCategory);
                 await _context.SaveChangesAsync();
-                _notyfService.Success("Thêm mới thành công");
+                _notyfService.Success("Successfully added new");
                 return RedirectToAction(nameof(Index));
             }
             return View(tbProductCategory);
@@ -172,7 +175,7 @@ namespace RoboTech.Areas.Admin.Controllers
             var category = await _context.TbProductCategories.FindAsync(id);
             _context.TbProductCategories.Remove(category);
             await _context.SaveChangesAsync();
-            _notyfService.Success("Xóa thành công");
+            _notyfService.Success("Delete successfully");
             return RedirectToAction(nameof(Index));
         }
 

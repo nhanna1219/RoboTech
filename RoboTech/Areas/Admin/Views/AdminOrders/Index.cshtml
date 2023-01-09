@@ -33,7 +33,7 @@
                         <th>ID</th>
                         <th>Đơn hàng</th>
                         <th>Ngày mua</th>
-                        <th>Tổng tiền</th>
+                        <th>Total</th>
                         <th>Trạng thái</th>
 
                     </tr>
@@ -50,7 +50,7 @@
                     <td>@item.OrderDate</td>
                     @*<td>@item.TbOrderDetails.Sum(x =>x.TotalMoney).Value.ToString("#,##0") VNĐ</td>*@
                     <td>@item.TotalMoney.Value.ToString("#,##0") VNĐ</td>
-                   @* <td>@item.TransactStatus.Status</td>*@
+                    <td>@item.TransactStatus.Status</td>
 
 
 
