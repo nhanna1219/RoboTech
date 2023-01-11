@@ -121,7 +121,7 @@ namespace RoboTech.Controllers
                     //clear gio hang
                     HttpContext.Session.Remove("GioHang");
                     //Xuat thong bao
-                    _notyfService.Success("Đơn hàng đặt thành công");
+                    _notyfService.Success("Order Success!");
                     //cap nhat thong tin khach hang
                     return RedirectToAction("Success");
                 }
