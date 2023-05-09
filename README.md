@@ -1,8 +1,6 @@
 <a name="readme-top"></a>
 <div align="center">
   <p align="center">
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
     <a href="https://github.com/nhanna1219/RoboTech/issues">Report Bug</a>
     ·
     <a href="https://github.com/nhanna1219/RoboTech/issues">Request Feature</a>
